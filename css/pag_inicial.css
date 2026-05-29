@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f5f5f5;
+    font-family: 'Permanent Marker', cursive;
+    color: #111;
+}
+
+/* HEADER */
+
+header{
+    width: 100%;
+    background: #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.titulo{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 45px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.icons{
+    display: flex;
+    gap: 25px;
+}
+
+.icons i{
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icons i:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* NAVBAR */
+
+nav{
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    padding: 18px;
+    background: #111;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #ff69b4;
+}
+
+/* CARROSSEL */
+
+.carousel{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slides{
+    display: flex;
+    width: 400%;
+    animation: slide 16s infinite;
+}
+
+.slides img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+@keyframes slide{
+
+    0%{
+        margin-left: 0;
+    }
+
+    20%{
+        margin-left: 0;
+    }
+
+    25%{
+        margin-left: -100%;
+    }
+
+    45%{
+        margin-left: -100%;
+    }
+
+    50%{
+        margin-left: -200%;
+    }
+
+    70%{
+        margin-left: -200%;
+    }
+
+    75%{
+        margin-left: -300%;
+    }
+
+    95%{
+        margin-left: -300%;
+    }
+
+    100%{
+        margin-left: 0;
+    }
+
+}
+
+/* DESTAQUES */
+
+.destaques{
+    padding: 80px 60px;
+}
+
+.destaques h2{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+/* CARDS */
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.card{
+    width: 300px;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: 0.4s;
+    text-decoration: none;
+    color: black;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+.card img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* CORES DOS CARDS */
+
+.card:nth-child(1){
+    background: #ffb6d9;
+}
+
+.card:nth-child(2){
+    background: #d7b6ff;
+}
+
+.card:nth-child(3){
+    background: #b8ffcf;
+}
+
+.card:nth-child(4){
+    background: #b9d8ff;
+}
+
+.card-content{
+    padding: 25px;
+}
+
+.card-content h3{
+    margin-bottom: 10px;
+    font-size: 23px;
+}
+
+.preco{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.btn{
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top: 80px;
+    background: black;
+    color: white;
+    padding: 40px 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contato h3{
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.contato p{
+    margin-bottom: 8px;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.footer-logo h2{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 38px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px){
+
+    .top-header{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav{
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .carousel{
+        height: 300px;
+    }
+
+    .slides img{
+        height: 300px;
+    }
+
+}
