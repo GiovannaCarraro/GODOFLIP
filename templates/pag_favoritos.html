@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos - Godoflip</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="top-header">
+
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo/lo.png') }}" alt="logo">
+        </div>
+
+        <h1 class="titulo">GODOFLIP</h1>
+
+        <div class="icons">
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+            </a>
+
+            <a href="/favoritos">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+
+            <a href="/carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+        </div>
+
+    </div>
+
+</header>
+
+<section class="destaques">
+
+    <h2>MEUS FAVORITOS ❤️</h2>
+
+    <div class="cards">
+
+        {% for produto in favoritos %}
+
+        <div class="card">
+
+            <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+
+            <div class="card-content">
+
+                <h3>{{ produto.nome }}</h3>
+
+                <p class="preco">
+                    R$ {{ produto.preco }}
+                </p>
+
+                <button class="btn">
+                    Comprar
+                </button>
+
+                <button class="btn-remover">
+                    Remover
+                </button>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="contato">
+        <h3>CONTATO:</h3>
+        <p>📞 (16) 99999-9999</p>
+        <p>📧 godoflip@gmail.com</p>
+    </div>
+
+</footer>
+
+</body>
+</html>
+

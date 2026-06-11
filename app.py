@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
 from model.usuario import cadastrar_usuario, verificar_login
+from model.favoritos import listar_favoritos
 
 app = Flask(__name__)
 
@@ -53,6 +54,28 @@ def login():
         return "Email ou senha incorretos"
 
     return render_template('login.html')
+
+
+@app.route('/favoritos')
+def favoritos():
+
+    usuario_id = 1
+
+    lista = listar_favoritos(usuario_id)
+
+    favoritos = []
+
+    for item in lista:
+
+        favoritos.append({
+            "id": item[0],
+            "nome": item[1],
+            "preco": item[2],
+            "imagem": item[3]
+        })
+
+    return render_template('pag_favoritos.html',favoritos=favoritos)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
