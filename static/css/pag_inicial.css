@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Anton", sans-serif;
+    font-family: "Potta One", system-ui ;
 }
 
 body {
@@ -24,9 +24,15 @@ header {
     align-items: center;
     padding-bottom: 10px;
 }
-
+.top-header h1 {
+    font-size: 3.5rem; /* Aumentou o tamanho da letra */
+    letter-spacing: 12px; /* Espalhou bem as letras para dar o destaque */
+    font-weight: 900; /* Deixou a letra mais grossa e imponente */
+    text-transform: uppercase; /* Garante que fique tudo em maiúsculo */
+    text-align: center;
+}
 .logo img {
-    height: 90px; 
+    height: 150px; 
     width: auto;
 }
 
@@ -66,7 +72,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #000; /* cor ao passar o mouse */
+    color: #000; 
 }
 
 /* --- CARROSSEL --- */
@@ -199,7 +205,7 @@ footer {
 }
 
 .footer-logo img {
-    height: 90px; 
+    height: 150px; 
     width: auto;
 }
 
