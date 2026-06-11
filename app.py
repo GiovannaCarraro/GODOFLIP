@@ -3,11 +3,8 @@ from model.usuario import cadastrar_usuario, verificar_login
 
 app = Flask(__name__)
 
-@app.route("/")
-def pagina_index():
-    return()
-
 # pagina inicial 
+@app.route("/")
 @app.route("/pagina_inicial")
 def pagina_inicial():
     return render_template("pag_inicial.html")
