@@ -46,3 +46,6 @@ def login():
         return "Email ou senha incorretos"
 
     return render_template('login.html')
+
+if __name__ == "__main__":
+    app.run(debug=True)
