@@ -1,47 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastro - Godoflip</title>
-</head>
-<body>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login_cadastro.css') }}">
 
-    <h1>Cadastro</h1>
+<div class="container">
 
-    <form action="/cadastro" method="POST">
+    <div class="logo-skate">🛹</div>
 
-        <input type="text"
-               name="nome"
-               placeholder="Nome"
-               required>
+    <h1>CADASTRO</h1>
 
-        <br><br>
+    <form method="POST">
 
-        <input type="email"
-               name="email"
-               placeholder="Email"
-               required>
+        <input type="text" name="nome" placeholder="Nome">
 
-        <br><br>
+        <input type="email" name="email" placeholder="Email">
 
-        <input type="password"
-               name="senha"
-               placeholder="Senha"
-               required>
+        <input type="password" name="senha" placeholder="Senha">
 
-        <br><br>
+        <input type="text" name="telefone" placeholder="Telefone">
 
-        <input type="text"
-               name="telefone"
-               placeholder="Telefone">
-
-        <br><br>
-
-        <input type="text"
-               name="endereco"
-               placeholder="Endereço">
-
-        <br><br>
+        <input type="text" name="endereco" placeholder="Endereço">
 
         <button type="submit">
             Cadastrar
@@ -50,8 +25,7 @@
     </form>
 
     <a href="/login">
-        Já possui conta?
+        Já tenho conta
     </a>
 
-</body>
-</html>
+</div>
