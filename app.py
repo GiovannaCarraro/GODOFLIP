@@ -70,7 +70,7 @@ def favoritos():
             "imagem": item[3]
         })
 
-    return render_template('favoritos.html',favoritos=favoritos)
+    return render_template('pag_favoritos.html',favoritos=favoritos)
 
 
 if __name__ == "__main__":
