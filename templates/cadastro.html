@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - Godoflip</title>
+</head>
+<body>
+
+    <h1>Cadastro</h1>
+
+    <form action="/cadastro" method="POST">
+
+        <input type="text"
+               name="nome"
+               placeholder="Nome"
+               required>
+
+        <br><br>
+
+        <input type="email"
+               name="email"
+               placeholder="Email"
+               required>
+
+        <br><br>
+
+        <input type="password"
+               name="senha"
+               placeholder="Senha"
+               required>
+
+        <br><br>
+
+        <input type="text"
+               name="telefone"
+               placeholder="Telefone">
+
+        <br><br>
+
+        <input type="text"
+               name="endereco"
+               placeholder="Endereço">
+
+        <br><br>
+
+        <button type="submit">
+            Cadastrar
+        </button>
+
+    </form>
+
+    <a href="/login">
+        Já possui conta?
+    </a>
+
+</body>
+</html>
