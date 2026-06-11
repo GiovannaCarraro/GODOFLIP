@@ -9,6 +9,10 @@ app = Flask(__name__)
 def pagina_inicial():
     return render_template("pag_inicial.html")
 
+@app.route("/skates")
+def skates():
+    return render_template("pag_skates.html")
+
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
