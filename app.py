@@ -78,7 +78,7 @@ def favoritos():
 
 @app.route('/localizacao')
 def localizacao():
-    return render_template('localizacao.html')
+    return render_template('pag_loc.html')
 
 
 if __name__ == "__main__":
