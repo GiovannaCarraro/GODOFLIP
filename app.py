@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
+from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
 
@@ -14,9 +15,11 @@ def pagina_inicial():
 def skates():
     return render_template("pag_skates.html")
 
-@app.route("/detalhe")
-def detalhe():
-    return render_template("pag_detalhe_skates.html")
+
+@app.route("/pag_comprar")
+def comprar():
+    return render_template("pag_comprar_skates.html")
+
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
