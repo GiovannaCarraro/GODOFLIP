@@ -8,11 +8,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet"
-        href="{{ url_for('static', filename='static/css/pag_comprar_skates.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/css/pag_comprar_skates.css') }}">
 </head>
 
 <body>
@@ -22,28 +20,35 @@
         <div class="top-header">
 
             <div class="logo-area">
-                <img src="{{ url_for('static', filename='img/hamster-logo.png') }}"
-                    alt="Logo GodoFlip">
+                <img src="{{ url_for('static', filename='static/logo/logohamster.png') }}" alt="Logo GodoFlip">
 
                 <h1>GODOFLIP</h1>
             </div>
 
             <div class="header-icons">
-                <i class="fa-solid fa-user"></i>
-                <i class="fa-solid fa-heart"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-solid fa-location-dot"></i>
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="{{ url_for('favoritos') }}">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
             </div>
 
         </div>
 
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Skates</a></li>
-                <li><a href="#">Acessórios</a></li>
-                <li><a href="#">Favoritos</a></li>
-                <li><a href="#">Contato</a></li>
+                <a href="/pagina_inicial">Início</a>
+                <a href="/skates">Skates</a>
+                <a href="/pag_acessorios">Acessórios</a>
+                <a href="#">Peças</a>
+                <a href="/pag_sobrenos">Sobre Nós</a>
             </ul>
         </nav>
 
@@ -62,8 +67,7 @@
                 <div class="produto-galeria">
 
                     <div class="imagem-principal">
-                        <img src="{{ url_for('static', filename='img/skate1.jpg') }}"
-                            alt="Skate">
+                        <img src="{{ url_for('static', filename='img/skate1.jpg') }}" alt="Skate">
                     </div>
 
                     <div class="miniaturas">
@@ -118,8 +122,7 @@
 
                 <h2>Comentários</h2>
 
-                <textarea
-                    placeholder="Escreva seu comentário..."></textarea>
+                <textarea placeholder="Escreva seu comentário..."></textarea>
 
                 <button class="btn-publicar">
                     Publicar Comentário
@@ -146,8 +149,7 @@
             </div>
 
             <div class="footer-logo">
-                <img src="{{ url_for('static', filename='img/hamster-logo.png') }}"
-                    alt="Logo">
+                <img src="{{ url_for('static', filename='static/logo/logohamster.png') }}" alt="Logo">
 
                 <h3>GODOFLIP</h3>
             </div>
@@ -159,4 +161,3 @@
 </body>
 
 </html>
-

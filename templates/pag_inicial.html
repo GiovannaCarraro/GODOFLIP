@@ -24,28 +24,28 @@
             <h1 class="titulo">GODOFLIP</h1>
             <div class="icons">
 
-                <a href="/login">
+                <a href="{{ url_for('login') }}">
                     <i class="fa-regular fa-user"></i>
                 </a>
-                <a href="/favoritos">
+
+                <a href="{{ url_for('favoritos') }}">
                     <i class="fa-regular fa-heart"></i>
                 </a>
-                <a href="/carrinho">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>  
-                
-                <a href="/localizacao">
+
+                <a href="{{ url_for('localizacao') }}">
                     <i class="fa-solid fa-location-dot"></i>
+                </a>
+
                 </a>
             </div>
         </div>
 
         <nav>
-            <a href="#">Início</a>
+            <a href="/pagina_inicial">Início</a>
             <a href="/skates">Skates</a>
-            <a href="#">Acessórios</a>
+            <a href="/pag_acessorios">Acessórios</a>
             <a href="#">Peças</a>
-            <a href="#">Sobre Nós</a>
+            <a href="/pag_sobrenos">Sobre Nós</a>
         </nav>
     </header>
 
@@ -54,8 +54,8 @@
         <div class="slides">
             <img class="active" src="{{ url_for('static', filename='imagem_carrosel/homem2.png') }}" alt="Banner 1">
             <img src="{{ url_for('static', filename='imagem_carrosel/homem3.png') }}" alt="Banner 2">
-            
-            <!-- Botões de Controle do Carrossel -->
+
+            <!-- botões de controle do carrossel -->
             <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
             <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
         </div>
@@ -106,4 +106,5 @@
         </div>
     </footer>
 </body>
+
 </html>
