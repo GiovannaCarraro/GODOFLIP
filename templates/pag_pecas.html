@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GodoFlip - Peças de Skate</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_pecas.css') }}">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER PADRÃO -->
+    <header>
+
+        <div class="top-header">
+
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='img/hamster-logo.png') }}" alt="Logo GodoFlip">
+                <h1>GODOFLIP</h1>
+            </div>
+
+            <div class="header-icons">
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="{{ url_for('favoritos') }}">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="/pagina_inicial">Início</a>
+            <a href="/skates">Skates</a>
+            <a href="/pag_acessorios">Acessórios</a>
+            <a href="/pag_pecas">Peças</a>
+            <a href="/pag_sobrenos">Sobre Nós</a>
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <main class="container">
+
+        <section class="titulo-page">
+            <h1>Peças de Skate</h1>
+            <p>Monte, personalize e evolua seu setup.</p>
+        </section>
+
+        <!-- GRID DE PEÇAS -->
+        <section class="grid-pecas">
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Trucks">
+                <h3>Trucks Profissionais</h3>
+                <p>Alta resistência e estabilidade para manobras.</p>
+                <span class="preco">R$ 129,90</span>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
+                <h3>Rodas Street</h3>
+                <p>Velocidade e controle para o dia a dia.</p>
+                <span class="preco">R$ 89,90</span>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
+                <h3>Rolamentos ABEC-7</h3>
+                <p>Desempenho suave e alta rotação.</p>
+                <span class="preco">R$ 59,90</span>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/parafusos.jpg') }}" alt="Parafusos">
+                <h3>Kit Parafusos</h3>
+                <p>Fixação segura para seu setup completo.</p>
+                <span class="preco">R$ 19,90</span>
+                <button class="btn">Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
+                <h3>Lixa Profissional</h3>
+                <p>Aderência máxima para manobras precisas.</p>
+                <span class="preco">R$ 29,90</span>
+                <button class="btn">Comprar</button>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

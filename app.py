@@ -56,6 +56,10 @@ def acessorios():
 def sobrenos():
     return render_template("pag_sobrenos.html")
 
+@app.route("/pag_pecas")
+def pecas():
+    return render_template("pag_pecas.html")
+
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
