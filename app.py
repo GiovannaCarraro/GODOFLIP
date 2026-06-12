@@ -33,9 +33,9 @@ def skates():
 #         produto=produto
 #     )
 
-@app.route('/pag_detalhes_skates')
-def detalhes():
-    return render_template('pag_detalhes_skates.html')
+@app.route('/pag_comprar_skates')
+def comprar():
+    return render_template('pag_comprar_skates.html')
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
