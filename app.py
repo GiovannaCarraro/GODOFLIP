@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
+from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
 
@@ -15,9 +16,26 @@ def skates():
     return render_template("pag_skates.html")
 
 
-@app.route("/detalhes")
+# @app.route('/produto/<int:cod_produto>')
+# def produto(cod_produto):
+
+#     conexao, cursor = conectar()
+
+#     cursor.execute(
+#         "SELECT * FROM produtos WHERE cod_produto = %s",
+#         (cod_produto,)
+#     )
+
+#     produto = cursor.fetchone()
+
+#     return render_template(
+#         'pag_detalhes_skates.html',
+#         produto=produto
+#     )
+
+@app.route('/pag_detalhes_skates')
 def detalhes():
-    return render_template("pag_detalhes_skates.html")
+    return render_template('pag_detalhes_skates.html')
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
