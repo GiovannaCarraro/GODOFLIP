@@ -13,12 +13,41 @@ def pagina_inicial():
 
 @app.route("/skates")
 def skates():
-    return render_template("pag_skates.html")
 
+    conexao, cursor = conectar()
+
+    cursor.execute("""
+        SELECT *
+        FROM produtos
+    """)
+
+    produtos = cursor.fetchall()
+
+    return render_template(
+        "pag_skates.html",
+        produtos=produtos
+    )
 
 @app.route("/pag_comprar")
 def comprar():
     return render_template("pag_comprar_skates.html")
+
+@app.route('/produto/<int:cod_produto>')
+def produto(cod_produto):
+
+    conexao, cursor = conectar()
+
+    cursor.execute(
+        "SELECT * FROM produtos WHERE cod_produto = %s",
+        (cod_produto,)
+    )
+
+    produto = cursor.fetchone()
+
+    return render_template(
+        'pag_comprar_skates.html',
+        produto=produto
+    )
 
 
 
