@@ -20,6 +20,14 @@ def skates():
 def comprar():
     return render_template("pag_comprar_skates.html")
 
+@app.route("/pag_acessorios")
+def acessorios():
+    return render_template("pag_acessorios.html")
+
+@app.route("/pag_sobrenos")
+def sobrenos():
+    return render_template("pag_sobrenos.html")
+
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
