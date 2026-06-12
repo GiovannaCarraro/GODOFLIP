@@ -57,38 +57,14 @@
 
     {% for produto in produtos %}
 
-    <a href="/produto/{{ produto[0] }}" class="card">
+    <a href="/produto/{{ produto.cod_produto }}" class="card">
 
-        <img src="{{ url_for('static', filename='imagens/skate1_angulo1.webp') }}"
-             alt="{{ produto[1] }}">
-
-        <div class="card-content">
-            <h3>{{ produto[1] }}</h3>
-            <p class="preco">R$ {{ produto[3] }}</p>
-        </div>
-
-    </a>
-
-    <a href="/produto/{{ produto[0] }}" class="card">
-
-        <img src="{{ url_for('static', filename='imagens/skate4_angulo1.webp') }}"
-             alt="{{ produto[1] }}">
+        <img src="{{produto.url}}"
+             alt="{{ produto.nome }}">
 
         <div class="card-content">
-            <h3>{{ produto[1] }}</h3>
-            <p class="preco">R$ {{ produto[3] }}</p>
-        </div>
-
-    </a>
-
-    <a href="/produto/{{ produto[0] }}" class="card">
-
-        <img src="{{ url_for('static', filename='imagens/skate5_angulo1.webp') }}"
-             alt="{{ produto[1] }}">
-
-        <div class="card-content">
-            <h3>{{ produto[1] }}</h3>
-            <p class="preco">R$ {{ produto[3] }}</p>
+            <h3>{{ produto.nome }}</h3>
+            <p class="preco">R$ {{ produto.desc_produto }}</p>
         </div>
 
     </a>
