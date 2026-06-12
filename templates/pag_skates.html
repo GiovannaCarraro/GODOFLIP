@@ -16,24 +16,25 @@
     <div class="logo">
         <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="logo">
     </div>
+            <h1 class="titulo">GODOFLIP</h1>
+            <div class="icons">
 
-    <h1 class="titulo">GODOFLIP</h1>
-
-    <div class="icons">
-        <a href="{{ url_for('login') }}">
-            <i class="fa-regular fa-user"></i>
-        </a>
-
-        <a href="{{ url_for('favoritos') }}">
-            <i class="fa-regular fa-heart"></i>
-        </a>
-
-        <a href="{{ url_for('localizacao') }}">
+                <a href="/login">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="/favoritos">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="/carrinho">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>  
+            
+            <a href="/localizacao">
             <i class="fa-solid fa-location-dot"></i>
-        </a>
-
-    
-    </div>
+            </a>
+            
+            </div>
+        </div>
 
 </div>
         <nav>
@@ -100,7 +101,7 @@
             <img src="static/imagens/prancha_lixa.png" alt="skate5_angulo3">
             <div class="card-content">
                 <h3>Flip Dark Edition</h3>
-                <p class="preco">R$ 365</p>
+                <p class="preco">R$ 365,00</p>
             </div>
         </a>
 
