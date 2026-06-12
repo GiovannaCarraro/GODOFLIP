@@ -25,10 +25,10 @@ header {
     padding-bottom: 10px;
 }
 .top-header h1 {
-    font-size: 3.5rem; /* Aumentou o tamanho da letra */
-    letter-spacing: 12px; /* Espalhou bem as letras para dar o destaque */
-    font-weight: 900; /* Deixou a letra mais grossa e imponente */
-    text-transform: uppercase; /* Garante que fique tudo em maiúsculo */
+    font-size: 3.5rem;
+    letter-spacing: 12px; 
+    font-weight: 900; 
+    text-transform: uppercase; 
     text-align: center;
 }
 .logo img {
