@@ -14,9 +14,10 @@ def pagina_inicial():
 def skates():
     return render_template("pag_skates.html")
 
-@app.route("/detalhe")
-def detalhe():
-    return render_template("pag_detalhe_skates.html")
+
+@app.route("/detalhes")
+def detalhes():
+    return render_template("pag_detalhes_skates.html")
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
