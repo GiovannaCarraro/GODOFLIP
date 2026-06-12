@@ -14,6 +14,10 @@ def pagina_inicial():
 def skates():
     return render_template("pag_skates.html")
 
+@app.route("/pag_comprar")
+def comprar():
+    return render_template("pag_comprar_skates.html")
+
 
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
