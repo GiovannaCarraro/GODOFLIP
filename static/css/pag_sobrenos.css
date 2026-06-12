@@ -1,136 +1,187 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Potta One', sans-serif;
 }
 
 body {
-    background: #f7f7f7;
-    color: #222;
+    background: #f6f6f6;
+    color: #111;
 }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-}
-
+/* ================= HEADER ================= */
 
 header {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background: #0d0d0d;
+    color: #fff;
+    padding: 15px 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 5%;
 }
 
 .logo-area {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .logo-area img {
-    width: 60px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
 .logo-area h1 {
-    font-family: 'Potta One', cursive;
+    font-size: 22px;
+    letter-spacing: 3px;
 }
 
-.header-icons {
-    display: flex;
-    gap: 18px;
-    font-size: 20px;
+.header-icons a {
+    color: #fff;
+    margin-left: 18px;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
+.header-icons a:hover {
+    color: #ff4d6d;
+    transform: scale(1.15);
+}
+
+/* NAV */
 nav {
-    border-top: 1px solid #eee;
-    padding: 12px 0;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
     display: flex;
-    justify-content: center;
-    gap: 35px;
-    list-style: none;
+    gap: 30px;
 }
 
-nav a {
+nav ul a {
     text-decoration: none;
-    color: #222;
-    font-weight: bold;
+    color: #ddd;
+    font-size: 14px;
+    position: relative;
+    transition: 0.3s;
 }
 
-.sobre-container {
-    padding: 60px 0;
+nav ul a:hover {
+    color: #fff;
 }
 
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #ff4d6d;
+    transition: 0.3s;
+}
+
+nav ul a:hover::after {
+    width: 100%;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    padding: 50px 40px;
+}
+
+/* TÍTULO PRINCIPAL */
 .sobre-container h1 {
     text-align: center;
-    font-family: 'Potta One', cursive;
+    font-size: 32px;
     margin-bottom: 10px;
-    font-size: 2.2rem;
+    letter-spacing: 2px;
 }
 
 .subtitulo {
     text-align: center;
-    color: #666;
+    color: #555;
     margin-bottom: 40px;
 }
 
+/* ================= CONTEÚDO ================= */
+
 .conteudo {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+/* BLOCO */
 .bloco {
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: .3s;
+    background: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
 .bloco:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .bloco h2 {
+    font-size: 18px;
     margin-bottom: 10px;
+    color: #111;
 }
 
 .bloco p {
-    line-height: 1.7;
-    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
 }
 
+/* ================= DESTAQUE ================= */
+
 .destaque {
-    margin-top: 40px;
-    padding: 30px;
-    background: #111;
-    color: white;
-    border-radius: 16px;
+    margin-top: 50px;
     text-align: center;
+    background: #0d0d0d;
+    color: #fff;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .destaque h2 {
-    font-family: 'Potta One', cursive;
+    font-size: 26px;
     margin-bottom: 10px;
 }
 
+.destaque p {
+    color: #ccc;
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
-    background: white;
-    margin-top: 60px;
-    padding: 30px 5%;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+    margin-top: 50px;
+    background: #0d0d0d;
+    color: #fff;
+    padding: 30px 40px;
 }
 
 .footer-content {
@@ -139,31 +190,6 @@ footer {
     align-items: center;
 }
 
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .footer-logo img {
     width: 50px;
-}
-
-.footer-logo h3 {
-    font-family: 'Potta One', cursive;
-}
-
-
-@media (max-width: 768px) {
-
-    nav ul {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
 }
