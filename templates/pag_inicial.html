@@ -70,6 +70,7 @@
     <!-- destaques -->
 
     <section class="destaques">
+        {% for produto in produtos %}
 
         <h2>DESTAQUES</h2>
 
@@ -77,10 +78,10 @@
 
             <div class="card">
 
-                <img src="static/imagens_skates_cards/skate_clean.png" alt="skate-minimalista">
+                <img src="{{produto.url}}" alt="skate-minimalista">
 
                 <div class="card-content">
-                    <h3>Skate Minimal Rise</h3>
+                    <h3>{produto.nome}</h3>
                     <p class="preco">R$ 349,90</p>
 
                     <button class="btn">Comprar</button>
@@ -88,7 +89,9 @@
 
             </div>
 
-            <div class="card">
+            {% endfor %}
+
+            <!-- <div class="card">
 
                 <img src="static/imagens_skates_cards/skate_dragao.png" alt="skate-dragão">
 
@@ -116,7 +119,7 @@
 
         </div>
 
-    </section>
+    </section> -->
 
     <!-- footer -->
 
