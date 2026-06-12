@@ -7,10 +7,11 @@
     <title>Godoflip</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <!-- fonte -->
+    <!-- fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Potta+One&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/script_pag_inicial.js') }}"></script>
 </head>
 
 <body>
@@ -23,121 +24,110 @@
             <h1 class="titulo">GODOFLIP</h1>
             <div class="icons">
 
-                <a href="/login">
+                <a href="{{ url_for('login') }}">
                     <i class="fa-regular fa-user"></i>
                 </a>
-                <a href="/favoritos">
+
+                <a href="{{ url_for('favoritos') }}">
                     <i class="fa-regular fa-heart"></i>
                 </a>
-                <a href="/carrinho">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>  
-            
-            <a href="/localizacao">
-            <i class="fa-solid fa-location-dot"></i>
-            </a>
-            
+
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+                </a>
             </div>
         </div>
 
         <nav>
-            <a href="#">Início</a>
+            <a href="/pagina_inicial">Início</a>
             <a href="/skates">Skates</a>
-            <a href="#">Acessórios</a>
+            <a href="/pag_acessorios">Acessórios</a>
             <a href="#">Peças</a>
-            <a href="#">Sobre Nós</a>
+            <a href="/pag_sobrenos">Sobre Nós</a>
         </nav>
-
     </header>
 
-
-</section>
-
     <!-- carrosel -->
-
     <section class="carousel">
-
         <div class="slides">
+            <img class="active" src="{{ url_for('static', filename='imagem_carrosel/homem2.png') }}" alt="Banner 1">
+            <img src="{{ url_for('static', filename='imagem_carrosel/homem3.png') }}" alt="Banner 2">
 
-            <img src="static/imagem_carrosel/homem_skate.png" alt="homem_skate">
-            <img src="static/imagem_carrosel/homem2.png" alt="homem2">
-            <img src="static/imagem_carrosel/homem3.png" alt="homem3">
-
+            <!-- botões de controle do carrossel -->
+            <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
+            <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
         </div>
-
     </section>
 
     <!-- destaques -->
-
     <section class="destaques">
+<<<<<<< HEAD
         {% for produto in produtos %}
 
+=======
+>>>>>>> 22236187317bc2fec2d0d1bd1f1684de125746af
         <h2>DESTAQUES</h2>
-
         <div class="cards">
-
             <div class="card">
+<<<<<<< HEAD
 
                 <img src="{{produto.url}}" alt="skate-minimalista">
 
+=======
+                <img src="static/imagens_skates_cards/skate_clean.png" alt="skate-minimalista">
+>>>>>>> 22236187317bc2fec2d0d1bd1f1684de125746af
                 <div class="card-content">
                     <h3>{produto.nome}</h3>
                     <p class="preco">R$ 349,90</p>
-
                     <button class="btn">Comprar</button>
                 </div>
-
             </div>
 
+<<<<<<< HEAD
             {% endfor %}
 
             <!-- <div class="card">
 
+=======
+            <div class="card">
+>>>>>>> 22236187317bc2fec2d0d1bd1f1684de125746af
                 <img src="static/imagens_skates_cards/skate_dragao.png" alt="skate-dragão">
-
                 <div class="card-content">
                     <h3>Skate Supernova Fire</h3>
                     <p class="preco">R$ 189,90</p>
-
                     <button class="btn">Comprar</button>
                 </div>
-
             </div>
 
             <div class="card">
-
                 <img src="static/imagens_skates_cards/skate_peixe.png" alt="skate-peixe">
-
                 <div class="card-content">
                     <h3>Skate Sakura & Flow</h3>
                     <p class="preco">R$ 99,90</p>
-
                     <button class="btn">Comprar</button>
                 </div>
-
             </div>
-
         </div>
+<<<<<<< HEAD
 
     </section> -->
+=======
+    </section>
+>>>>>>> 22236187317bc2fec2d0d1bd1f1684de125746af
 
     <!-- footer -->
-
     <footer>
-
         <div class="contato">
             <h3>CONTATO:</h3>
-
             <p>📞 (16) 99999-9999</p>
             <p>📧 godoflip@gmail.com</p>
         </div>
-
         <div class="footer-logo">
             <img src="static/logo/logohamster.png" alt="logo">
         </div>
-
     </footer>
-
 </body>
 
 </html>

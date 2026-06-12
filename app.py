@@ -32,6 +32,7 @@ def skates():
 def comprar():
     return render_template("pag_comprar_skates.html")
 
+<<<<<<< HEAD
 @app.route('/produto/<int:cod_produto>')
 def produto(cod_produto):
 
@@ -48,6 +49,15 @@ def produto(cod_produto):
         'pag_comprar_skates.html',
         produto=produto
     )
+=======
+@app.route("/pag_acessorios")
+def acessorios():
+    return render_template("pag_acessorios.html")
+
+@app.route("/pag_sobrenos")
+def sobrenos():
+    return render_template("pag_sobrenos.html")
+>>>>>>> 22236187317bc2fec2d0d1bd1f1684de125746af
 
 
 
