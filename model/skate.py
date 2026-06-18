@@ -54,3 +54,19 @@ def achar_produto(cod_produto):
     conexao.close()
 
     return produto
+
+
+def listar_banners():
+    conexao, cursor = conectar()
+
+    cursor.execute("""
+        SELECT *
+        FROM banner
+    """)
+
+    banners = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return banners

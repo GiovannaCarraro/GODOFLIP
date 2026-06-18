@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request, session, jsonify
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto, achar_produto
+from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners
 
 app = Flask(__name__)
 
@@ -36,6 +36,19 @@ def pag_comprar_skates(id_produto):
         "pag_comprar_skates.html",
         produto=produto
     )
+
+@app.route("/")
+def home():
+    produtos = listar_produtos()
+    banners = listar_banners()
+
+    return render_template(
+        "pag_inicial.html",
+        produtos=produtos,
+        banners=banners,
+        
+    )
+
 @app.route("/pag_acessorios")
 def acessorios():
     return render_template("pag_acessorios.html")
