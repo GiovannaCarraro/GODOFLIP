@@ -57,15 +57,11 @@
 
     {% for produto in produtos %}
 
-    <a href="/produto/{{ produto.cod_produto }}" class="card">
+    <img src="{{ url_for('static', filename=produto.url) }}"
+     alt="{{ produto.nome }}">
 
-        <img src="{{produto.url}}"
-             alt="{{ produto.nome }}">
-
-        <div class="card-content">
-            <h3>{{ produto.nome }}</h3>
-            <p class="preco">R$ {{ produto.desc_produto }}</p>
-        </div>
+       <p class="preco">R$ {{ produto.preco }}</p>
+        <p>{{ produto.desc_produto }}</p>
 
     </a>
 
