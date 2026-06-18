@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GodoFlip - Detalhes da Peça</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_pecas.css') }}">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="top-header">
+
+            <div class="logo-area">
+                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo">
+                <h1>GODOFLIP</h1>
+            </div>
+
+            <div class="icons">
+
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="{{ url_for('favoritos') }}">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+                </a>
+            </div>
+
+            <nav>
+                <a href="/pagina_inicial">Início</a>
+                <a href="/skates">Skates</a>
+                <a href="/pag_acessorios">Acessórios</a>
+                <a href="/pag_pecas">Peças</a>
+                <a href="/pag_sobrenos">Sobre Nós</a>
+            </nav>
+
+    </header>
+
+    <main class="container">
+
+        <section class="produto-container">
+
+            <div class="produto-imagem">
+
+                <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Truck Profissional">
+
+            </div>
+
+            <div class="produto-info">
+
+                <h2>Truck Profissional GodoFlip</h2>
+
+                <p class="preco">
+                    R$ 129,90
+                </p>
+
+                <p class="descricao">
+                    Truck fabricado em liga metálica de alta resistência,
+                    desenvolvido para máxima estabilidade, curvas precisas
+                    e excelente durabilidade em sessões intensas de street
+                    e park.
+                </p>
+
+                <div class="detalhes">
+
+                    <p><strong>Material:</strong> Liga Metálica Premium</p>
+
+                    <p><strong>Peso:</strong> 350g</p>
+
+                    <p><strong>Categoria:</strong> Trucks</p>
+
+                    <p><strong>Disponibilidade:</strong> Em estoque</p>
+
+                </div>
+
+                <div class="acoes">
+
+                    <button class="btn favorito">
+                        ❤️ Favoritar
+                    </button>
+
+                    <button class="btn comentar">
+                        💬 Comentar
+                    </button>
+
+                    <button class="btn carrinho">
+                        🛒 Adicionar ao Carrinho
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="comentarios">
+
+            <h2>Comentários</h2>
+
+            <textarea placeholder="Escreva seu comentário..."></textarea>
+
+            <button class="publicar">
+                Publicar Comentário
+            </button>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

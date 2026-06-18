@@ -10,8 +10,8 @@
     <!-- fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Potta+One&display=swap" rel="stylesheet">
-    <script src="{{ url_for('static', filename='js/script_pag_inicial.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -49,15 +49,23 @@
         </nav>
     </header>
 
-    <!-- carrosel -->
-    <section class="carousel">
-        <div class="slides">
-            <img class="active" src="{{ url_for('static', filename='imagem_carrosel/homem2.png') }}" alt="Banner 1">
-            <img src="{{ url_for('static', filename='imagem_carrosel/homem3.png') }}" alt="Banner 2">
 
-            <!-- botões de controle do carrossel -->
+    <!-- carrosel -->
+    <section class="carousel" aria-label="Galeria de Destaques">
+        <div class="carousel-container">
+            <div class="slides">
+                <img class="slide active" src="{{ url_for('static', filename='imagem_carrosel/homem2.png') }}"
+                    alt="Banner 1">
+                <img class="slide" src="{{ url_for('static', filename='imagem_carrosel/homem3.png') }}" alt="Banner 2">
+            </div>
+
             <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
             <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
+
+            <div class="carousel-indicators">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+            </div>
         </div>
     </section>
 
@@ -102,17 +110,20 @@
 
     </section> -->
 
-    <!-- footer -->
-    <footer>
-        <div class="contato">
-            <h3>CONTATO:</h3>
-            <p>📞 (16) 99999-9999</p>
-            <p>📧 godoflip@gmail.com</p>
-        </div>
-        <div class="footer-logo">
-            <img src="static/logo/logohamster.png" alt="logo">
-        </div>
-    </footer>
+            <!-- footer -->
+            <footer>
+                <div class="contato">
+                    <h3>CONTATO:</h3>
+                    <p>📞 (16) 99999-9999</p>
+                    <p>📧 godoflip@gmail.com</p>
+                </div>
+                <div class="footer-logo">
+                    <img src="static/logo/logohamster.png" alt="logo">
+                </div>
+            </footer>
+
+
+            <script src="{{ url_for('static', filename='js/carrosel.js') }}"></script>
 </body>
 
 </html>

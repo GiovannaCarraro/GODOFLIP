@@ -1,0 +1,205 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Courier Prime", monospace;
+}
+
+body{
+    background:#f6f6f6;
+    color:#111;
+}
+
+/* HEADER */
+
+header{
+    background:#0d0d0d;
+    color:#fff;
+    padding:15px 40px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+
+.top-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-area img{
+    width:50px;
+}
+
+.logo-area h1{
+    font-size:22px;
+    letter-spacing:3px;
+}
+
+
+.header-icons a{
+    text-decoration:none;
+    color:white;
+    margin-left:15px;
+    font-size:18px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-top:20px;
+    width:100%;
+}
+
+nav a{
+    text-decoration:none;
+    color:#ddd;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff4d6d;
+}
+
+/* CONTAINER */
+
+.container{
+    padding:50px;
+}
+
+/* PRODUTO */
+
+.produto-container{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    display:flex;
+    gap:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.produto-imagem{
+    flex:1;
+}
+
+.produto-imagem img{
+    width:100%;
+    border-radius:15px;
+}
+
+.produto-info{
+    flex:1;
+}
+
+.produto-info h2{
+    margin-bottom:15px;
+}
+
+.preco{
+    font-size:28px;
+    color:#ff4d6d;
+    margin-bottom:20px;
+}
+
+.descricao{
+    line-height:1.6;
+    margin-bottom:20px;
+    color:#555;
+}
+
+.detalhes p{
+    margin-bottom:8px;
+}
+
+.acoes{
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* BOTÕES */
+
+.btn{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.favorito{
+    background:#ffe3ea;
+}
+
+.comentar{
+    background:#ececec;
+}
+
+.carrinho{
+    background:#0d0d0d;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* COMENTÁRIOS */
+
+.comentarios{
+    margin-top:30px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.comentarios h2{
+    margin-bottom:15px;
+}
+
+.comentarios textarea{
+    width:100%;
+    height:120px;
+    resize:none;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.publicar{
+    margin-top:10px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    .produto-container{
+        flex-direction:column;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+}

@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_pecas.css') }}">
 
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -55,61 +58,57 @@
 
     </header>
 
-    <!-- CONTEÚDO -->
-    <main class="container">
+    <!-- GRID DE PEÇAS -->
+    <section class="grid-pecas">
 
-        <section class="titulo-page">
-            <h1>Peças de Skate</h1>
-            <p>Monte, personalize e evolua seu setup.</p>
-        </section>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Trucks">
+            <h3>Trucks Profissionais</h3>
+            <p>Alta resistência e estabilidade para manobras.</p>
+            <span class="preco">R$ 129,90</span>
+            <a href="{{ url_for('comprar_pecas') }}" class="btn">
+                Comprar
+            </a>
+        </div>
 
-        <!-- GRID DE PEÇAS -->
-        <section class="grid-pecas">
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
+            <h3>Rodas Street</h3>
+            <p>Velocidade e controle para o dia a dia.</p>
+            <span class="preco">R$ 89,90</span>
+            <a href="{{ url_for('comprar_pecas') }}" class="btn">
+                Comprar
+            </a>
+        </div>
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Trucks">
-                <h3>Trucks Profissionais</h3>
-                <p>Alta resistência e estabilidade para manobras.</p>
-                <span class="preco">R$ 129,90</span>
-                <button class="btn">Comprar</button>
-            </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
+            <h3>Rolamentos ABEC-7</h3>
+            <p>Desempenho suave e alta rotação.</p>
+            <span class="preco">R$ 59,90</span>
+            <a href="{{ url_for('comprar_pecas') }}" class="btn">
+                Comprar
+            </a>
+        </div>
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
-                <h3>Rodas Street</h3>
-                <p>Velocidade e controle para o dia a dia.</p>
-                <span class="preco">R$ 89,90</span>
-                <button class="btn">Comprar</button>
-            </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/parafusos.jpg') }}" alt="Parafusos">
+            <h3>Kit Parafusos</h3>
+            <p>Fixação segura para seu setup completo.</p>
+            <span class="preco">R$ 19,90</span>
+            <a href="{{ url_for('comprar_pecas') }}" class="btn">
+                Comprar
+            </a>
+        </div>
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
-                <h3>Rolamentos ABEC-7</h3>
-                <p>Desempenho suave e alta rotação.</p>
-                <span class="preco">R$ 59,90</span>
-                <button class="btn">Comprar</button>
-            </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
+            <h3>Lixa Profissional</h3>
+            <p>Aderência máxima para manobras precisas.</p>
+            <span class="preco">R$ 29,90</span>
+            <a href="{{ url_for('comprar_pecas') }}" class="btn">
+                Comprar
+            </a>
+        </div>
 
-            <div class="card">
-                <img src="{{ url_for('static', filename='img/parafusos.jpg') }}" alt="Parafusos">
-                <h3>Kit Parafusos</h3>
-                <p>Fixação segura para seu setup completo.</p>
-                <span class="preco">R$ 19,90</span>
-                <button class="btn">Comprar</button>
-            </div>
-
-            <div class="card">
-                <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
-                <h3>Lixa Profissional</h3>
-                <p>Aderência máxima para manobras precisas.</p>
-                <span class="preco">R$ 29,90</span>
-                <button class="btn">Comprar</button>
-            </div>
-
-        </section>
-
-    </main>
-
-</body>
-
-</html>
+    </section>

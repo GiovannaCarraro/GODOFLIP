@@ -15,7 +15,7 @@ def pagina_inicial():
     return render_template("pag_inicial.html")
 
 
-
+# pagina skates
 @app.route("/skates")
 def skates():
 
@@ -26,10 +26,12 @@ def skates():
         produtos=produtos
     )
 
+# pagina comprar skates
 @app.route("/pag_comprar")
 def comprar():
     return render_template("pag_comprar_skates.html")
 
+# pagina produtos
 @app.route('/produto/<int:cod_produto>')
 def produto(cod_produto):
 
@@ -43,24 +45,34 @@ def produto(cod_produto):
         produto=produto
     )
 
+# pagina acessorios
 @app.route("/pag_acessorios")
 def acessorios():
     return render_template("pag_acessorios.html")
 
+<<<<<<< HEAD
 @app.route("/comprar_acessorios")
 def comprar_acessorios():
     return render_template("pag_comprar_acessorios.html")
 
+=======
+# pagina sobre nos
+>>>>>>> 0101fbca9888035f487b52683eaf7cce7296b5b4
 @app.route("/pag_sobrenos")
 def sobrenos():
     return render_template("pag_sobrenos.html")
 
+# pagina peças
 @app.route("/pag_pecas")
 def pecas():
     return render_template("pag_pecas.html")
 
+# pagina comprar peças
+@app.route('/pag_comprar_pecas')
+def comprar_pecas():
+    return render_template("pag_comprar_pecas.html")
 
-
+# pagina cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro():
 
@@ -126,6 +138,7 @@ def favoritos():
         'pag_favoritos.html',
         favoritos=favoritos
     )
+
 
 @app.route('/localizacao')
 def localizacao():

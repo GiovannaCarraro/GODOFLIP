@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/loc.css') }}">
 
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
     <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -46,11 +49,11 @@
         </div>
 
         <nav>
-             <a href="/pagina_inicial">Início</a>
-                <a href="/skates">Skates</a>
-                <a href="/pag_acessorios">Acessórios</a>
-                <a href="/pag_pecas">Peças</a>
-                <a href="/pag_sobrenos">Sobre Nós</a>
+            <a href="/pagina_inicial">Início</a>
+            <a href="/skates">Skates</a>
+            <a href="/pag_acessorios">Acessórios</a>
+            <a href="/pag_pecas">Peças</a>
+            <a href="/pag_sobrenos">Sobre Nós</a>
         </nav>
 
     </header>
@@ -72,10 +75,8 @@
             </div>
 
             <div class="mapa">
-                <iframe
-                    src="https://maps.google.com/maps?q=Araraquara%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    allowfullscreen=""
-                    loading="lazy">
+                <iframe src="https://maps.google.com/maps?q=Araraquara%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
 
