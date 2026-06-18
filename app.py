@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request, session, jsonify
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto
+from model.skate import listar_produtos, buscar_produto, achar_produto
 
 app = Flask(__name__)
 
@@ -26,6 +26,7 @@ def skates():
         produtos=produtos
     )
 
+<<<<<<< HEAD
 # pagina comprar skates
 @app.route("/pag_comprar")
 def comprar():
@@ -34,14 +35,17 @@ def comprar():
 # pagina produtos
 @app.route('/produto/<int:cod_produto>')
 def produto(cod_produto):
+=======
 
-    produto = buscar_produto(cod_produto)
+>>>>>>> 7669671e3061df3ee4f3ba8a67060ba8b5a195de
 
-    if not produto:
-        return "Produto não encontrado", 404
+@app.route("/comprar/<int:id_produto>")
+def pag_comprar_skates(id_produto):
+
+    produto = achar_produto(id_produto)
 
     return render_template(
-        'pag_comprar_skates.html',
+        "pag_comprar_skates.html",
         produto=produto
     )
 @app.route("/pag_acessorios")
@@ -114,8 +118,8 @@ def favoritos():
 
     usuario_id = session.get('usuario_id')
 
-    if not usuario_id:
-        return redirect('/login')
+    # if not usuario_id:
+    #     return redirect('/login')
 
     lista = listar_favoritos(usuario_id)
 

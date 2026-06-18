@@ -58,6 +58,7 @@
     </section>
 
     <!-- cards skates -->
+<<<<<<< HEAD
     <section class="produtos">
 
         {% for produto in produtos %}
@@ -86,6 +87,26 @@
         </a>
 =======
     {% endfor %}
+=======
+<section class="produtos">
+{% for produto in produtos %}
+
+<div class="card-produto">
+
+    <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}">
+    <img src="{{ url_for('static', filename=produto.url) }}"
+         alt="{{ produto.nome }}">
+    </a>
+
+
+    <h3>{{ produto.nome }}</h3>
+    <p class="preco">R$ {{ produto.preco }}</p>
+    <p>{{ produto.desc_produto }}</p>
+
+</div>
+
+{% endfor %}
+>>>>>>> 7669671e3061df3ee4f3ba8a67060ba8b5a195de
 
 </section>
 >>>>>>> 9a9023fe657e6163c52a01d9b84791436e4cd828
@@ -95,7 +116,7 @@
     </section>
 >>>>>>> 0101fbca9888035f487b52683eaf7cce7296b5b4
 
-    </section>
+   
 
 </body>
 
