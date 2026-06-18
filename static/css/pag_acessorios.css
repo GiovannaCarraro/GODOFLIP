@@ -3,12 +3,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier Prime", monospace;;
+    font-family: 'Potta One', sans-serif;
+}
+
+/* FAZ O FOOTER FICAR NO FINAL */
+html,
+body {
+    height: 100%;
 }
 
 body {
     background: #f6f6f6;
     color: #111;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ================= HEADER ================= */
@@ -56,6 +64,7 @@ header {
 }
 
 /* NAV */
+
 nav {
     margin-top: 12px;
     display: flex;
@@ -92,6 +101,12 @@ nav ul a::after {
 
 nav ul a:hover::after {
     width: 100%;
+}
+
+/* ================= CONTEÚDO ================= */
+
+.container {
+    flex: 1;
 }
 
 /* ================= TÍTULO ================= */
@@ -164,6 +179,7 @@ nav ul a:hover::after {
 }
 
 /* BOTÃO */
+
 .btn {
     width: 100%;
     padding: 10px;
@@ -182,7 +198,7 @@ nav ul a:hover::after {
 /* ================= FOOTER ================= */
 
 footer {
-    margin-top: 50px;
+    margin-top: auto;
     background: #0d0d0d;
     color: #fff;
     padding: 30px 40px;
