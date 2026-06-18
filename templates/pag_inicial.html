@@ -7,7 +7,6 @@
     <title>Godoflip</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -15,7 +14,6 @@
 </head>
 
 <body>
-    <!-- header -->
     <header>
         <div class="top-header">
             <div class="logo">
@@ -23,19 +21,14 @@
             </div>
             <h1 class="titulo">GODOFLIP</h1>
             <div class="icons">
-
                 <a href="{{ url_for('login') }}">
                     <i class="fa-regular fa-user"></i>
                 </a>
-
                 <a href="{{ url_for('favoritos') }}">
                     <i class="fa-regular fa-heart"></i>
                 </a>
-
                 <a href="{{ url_for('localizacao') }}">
                     <i class="fa-solid fa-location-dot"></i>
-                </a>
-
                 </a>
             </div>
         </div>
@@ -49,81 +42,68 @@
         </nav>
     </header>
 
+    <main>
+        <section class="carousel" aria-label="Galeria de Destaques">
+            <div class="carousel-container">
+                <div class="slides">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/girls_skate.jpg') }}"
+                        alt="Banner 1">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/omg-skate.jpg') }}"
+                        alt="Banner 2">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/skate_preto.jpg') }}"
+                        alt="Banner 3">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-clean.jpg') }}"
+                        alt="Banner 4">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-mens.jpg') }}"
+                        alt="Banner 5">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-pe.jpg') }}"
+                        alt="Banner 6">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/skates-diferentes.jpg') }}"
+                        alt="Banner 7">
+                    <img class="slide active" src="{{ url_for('static', filename='carrossel/wow.jpg') }}"
+                        alt="Banner 8">
 
-    <!-- carrosel -->
-    <section class="carousel" aria-label="Galeria de Destaques">
-        <div class="carousel-container">
-            <div class="slides">
-                <img class="slide active" src="{{ url_for('static', filename='imagem_carrosel/homem2.png') }}"
-                    alt="Banner 1">
-                <img class="slide" src="{{ url_for('static', filename='imagem_carrosel/homem3.png') }}" alt="Banner 2">
+                </div>
+
+                <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
+                <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
+
+                <div class="carousel-indicators">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                </div>
             </div>
+        </section>
 
-            <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
-            <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
-
-            <div class="carousel-indicators">
-                <span class="dot active" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
+        <section class="destaques">
+            <h2>DESTAQUES</h2>
+            <div class="cards">
+                {% for produto in produtos %}
+                <div class="card">
+                    <img src="{{ produto.url }}" alt="{{ produto.nome }}">
+                    <div class="card-content">
+                        <h3>{{ produto.nome }}</h3>
+                        <p class="preco">R$ 349,90</p>
+                        <button class="btn">Comprar</button>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="contato">
+            <h3>CONTATO:</h3>
+            <p>📞 (16) 99999-9999</p>
+            <p>📧 godoflip@gmail.com</p>
         </div>
-    </section>
-
-    <!-- destaques -->
-    <section class="destaques">
-        {% for produto in produtos %}
-
-        <h2>DESTAQUES</h2>
-        <div class="cards">
-            <div class="card">
-
-                <img src="{{produto.url}}" alt="skate-minimalista">
-
-                <div class="card-content">
-                    <h3>{produto.nome}</h3>
-                    <p class="preco">R$ 349,90</p>
-                    <button class="btn">Comprar</button>
-                </div>
-            </div>
-
-            {% endfor %}
-
-            <!-- <div class="card">
-
-                <img src="static/imagens_skates_cards/skate_dragao.png" alt="skate-dragão">
-                <div class="card-content">
-                    <h3>Skate Supernova Fire</h3>
-                    <p class="preco">R$ 189,90</p>
-                    <button class="btn">Comprar</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="static/imagens_skates_cards/skate_peixe.png" alt="skate-peixe">
-                <div class="card-content">
-                    <h3>Skate Sakura & Flow</h3>
-                    <p class="preco">R$ 99,90</p>
-                    <button class="btn">Comprar</button>
-                </div>
-            </div>
+        <div class="footer-logo">
+            <img src="static/logo/logohamster.png" alt="logo">
         </div>
+    </footer>
 
-    </section> -->
-
-            <!-- footer -->
-            <footer>
-                <div class="contato">
-                    <h3>CONTATO:</h3>
-                    <p>📞 (16) 99999-9999</p>
-                    <p>📧 godoflip@gmail.com</p>
-                </div>
-                <div class="footer-logo">
-                    <img src="static/logo/logohamster.png" alt="logo">
-                </div>
-            </footer>
-
-
-            <script src="{{ url_for('static', filename='js/carrosel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/carrosel.js') }}"></script>
 </body>
 
 </html>
