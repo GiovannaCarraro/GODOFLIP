@@ -70,3 +70,28 @@ def listar_banners():
     conexao.close()
 
     return banners
+
+
+def listar_pecas():
+    conexao, cursor = conectar()
+
+    sql = """
+    SELECT
+        p.cod_produto,
+        p.nome,
+        p.desc_produto,
+        p.preco,
+        i.url
+    FROM produtos p
+    INNER JOIN img_produtos i
+        ON p.cod_produto = i.produto_id
+    WHERE p.categoria = 'pecas'
+    """
+
+    cursor.execute(sql)
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return produtos
