@@ -47,3 +47,23 @@ VALUES
 (3, 'imagens/skate3_angulo01.webp'),
 (4, 'imagens/skate4_angulo1.webp'),
 (5, 'imagens/skate5_angulo1.webp');
+
+USE db_skate;
+
+INSERT INTO produtos
+(nome, desc_produto, preco, categoria)
+VALUES
+('Truck Profissional', 'Alta resistência e estabilidade para manobras.', 129.90, 'pecas'),
+('Rodas Street', 'Velocidade e controle para o dia a dia.', 89.90, 'pecas'),
+('Rolamentos ABEC-7', 'Desempenho suave e alta rotação.', 59.90, 'pecas'),
+('Kit Parafusos', 'Fixação segura para seu setup completo.', 19.90, 'pecas'),
+('Lixa Profissional', 'Aderência máxima para manobras precisas.', 29.90, 'pecas');
+
+INSERT INTO img_produtos
+(produto_id, url)
+VALUES
+(1, 'img_pecas/truck.webp'),
+(2, 'img_pecas/rodas.webp'),
+(3, 'img_pecas/rolamentos.jpg'),
+(4, 'img_pecas/parafusos.webp'),
+(5, 'img_pecas/lixa.webp');

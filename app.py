@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, request, session, jsonify
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto, achar_produto
+from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas
 
 app = Flask(__name__)
 
@@ -36,6 +36,27 @@ def pag_comprar_skates(id_produto):
         "pag_comprar_skates.html",
         produto=produto
     )
+
+@app.route("/")
+def home():
+    produtos = listar_produtos()
+    banners = listar_banners()
+
+    return render_template(
+        "pag_inicial.html",
+        produtos=produtos,
+        banners=banners, 
+    )
+
+@app.route("/pag_pecas")
+def pecas():
+    produtos = listar_pecas()
+
+    return render_template(
+        "pag_pecas.html",
+        produtos=produtos
+    )
+
 @app.route("/pag_acessorios")
 def acessorios():
     return render_template("pag_acessorios.html")
@@ -49,15 +70,10 @@ def comprar_acessorios():
 def sobrenos():
     return render_template("pag_sobrenos.html")
 
-# pagina peças
-@app.route("/pag_pecas")
-def pecas():
-    return render_template("pag_pecas.html")
 
-# pagina comprar peças
-@app.route('/pag_comprar_pecas')
-def comprar_pecas():
-    return render_template("pag_comprar_pecas.html")
+@app.route("/comprar_pecas/<int:id_produto>")
+def comprar_pecas(id_produto):
+    return render_template("comprar_pecas.html")
 
 # pagina cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
