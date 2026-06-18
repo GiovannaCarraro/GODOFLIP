@@ -4,7 +4,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Potta One', sans-serif;
+    font-family:"Courier Prime", monospace;
 }
 
 body{
@@ -42,6 +42,7 @@ header{
     letter-spacing:3px;
 }
 
+
 .header-icons a{
     text-decoration:none;
     color:white;
@@ -50,10 +51,12 @@ header{
 }
 
 nav{
-    margin-top:12px;
     display:flex;
     justify-content:center;
-    gap:30px;
+    align-items:center;
+    gap:40px;
+    margin-top:20px;
+    width:100%;
 }
 
 nav a{

@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GodoFlip - Detalhes da Peça</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_peca.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_pecas.css') }}">
 </head>
 
 <body>
@@ -22,21 +25,30 @@
                 <h1>GODOFLIP</h1>
             </div>
 
-            <div class="header-icons">
-                <a href="#"><i>👤</i></a>
-                <a href="#"><i>❤️</i></a>
-                <a href="#"><i>📍</i></a>
+            <div class="icons">
+
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="{{ url_for('favoritos') }}">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+                </a>
             </div>
 
-        </div>
-
-        <nav>
-            <a href="/pagina_inicial">Início</a>
-            <a href="/skates">Skates</a>
-            <a href="/pag_acessorios">Acessórios</a>
-            <a href="/pag_pecas">Peças</a>
-            <a href="/pag_sobrenos">Sobre Nós</a>
-        </nav>
+            <nav>
+                <a href="/pagina_inicial">Início</a>
+                <a href="/skates">Skates</a>
+                <a href="/pag_acessorios">Acessórios</a>
+                <a href="/pag_pecas">Peças</a>
+                <a href="/pag_sobrenos">Sobre Nós</a>
+            </nav>
 
     </header>
 
@@ -46,8 +58,7 @@
 
             <div class="produto-imagem">
 
-                <img src="{{ url_for('static', filename='img/trucks.jpg') }}"
-                    alt="Truck Profissional">
+                <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Truck Profissional">
 
             </div>
 
