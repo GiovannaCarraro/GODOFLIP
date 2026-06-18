@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skates</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_skates.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_skates.css') }}">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
     <header>
         <div class="top-header">
 
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="logo">
-            </div>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="logo">
+    </div>
             <h1 class="titulo">GODOFLIP</h1>
             <div class="icons">
 
@@ -31,23 +26,23 @@
                     <i class="fa-regular fa-heart"></i>
                 </a>
                 <a href="/carrinho">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-
-                <a href="/localizacao">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
-
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>  
+            
+            <a href="/localizacao">
+            <i class="fa-solid fa-location-dot"></i>
+            </a>
+            
             </div>
         </div>
 
-        </div>
+</div>
         <nav>
-            <a href="/pagina_inicial">Início</a>
-            <a href="/skates">Skates</a>
-            <a href="/pag_acessorios">Acessórios</a>
-            <a href="/pag_pecas">Peças</a>
-            <a href="/pag_sobrenos">Sobre Nós</a>
+              <a href="/pagina_inicial">Início</a>
+                <a href="/skates">Skates</a>
+                <a href="/pag_acessorios">Acessórios</a>
+                <a href="/pag_pecas">Peças</a>
+                <a href="/sobre_nos">Sobre Nós</a>
         </nav>
     </header>
 
@@ -57,46 +52,32 @@
         <p>Escolha o que mais te atrai.</p>
     </section>
 
-    <!-- cards skates -->
-    <section class="produtos">
+<section class="produtos">
+{% for produto in produtos %}
 
-        {% for produto in produtos %}
+<div class="card-produto">
 
-        <a href="/produto/{{ produto.cod_produto }}" class="card">
+    <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}">
+    <img src="{{ url_for('static', filename=produto.url) }}"
+         alt="{{ produto.nome }}">
+    </a>
 
-            <img src="{{produto.url}}" alt="{{ produto.nome }}">
 
-            <div class="card-content">
-                <h3>{{ produto.nome }}</h3>
-                <p class="preco">R$ {{ produto.desc_produto }}</p>
-            </div>
+    <h3>{{ produto.nome }}</h3>
+    <p class="preco">R$ {{ produto.preco }}</p>
+    <p>{{ produto.desc_produto }}</p>
 
-        </a>
+</div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate1_angulo1.webp" alt="skate1_angulo1">
-            <img src="static/imagens/skate1_angulo2.webp" alt="skate1_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate1_angulo3">
-            <div class="card-content">
-                <h3>Street Monster</h3>
-                <p class="preco">R$ 200,00</p>
-            </div>
-        </a>
-=======
-    {% endfor %}
+{% endfor %}
 
 </section>
->>>>>>> 9a9023fe657e6163c52a01d9b84791436e4cd828
-=======
-        {% endfor %}
+       
 
     </section>
->>>>>>> 0101fbca9888035f487b52683eaf7cce7296b5b4
 
-    </section>
+
+   
 
 </body>
-
 </html>

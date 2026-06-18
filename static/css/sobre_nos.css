@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+/* BANNER */
+
+.banner-sobre{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.banner-sobre h2{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.banner-sobre p{
+    font-size: 18px;
+    color: #666;
+}
+
+/* HISTÓRIA */
+
+.historia{
+    width: 85%;
+    margin: 0 auto 80px auto;
+
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.historia img{
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.texto{
+    flex: 1;
+}
+
+.texto h2{
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.texto p{
+    font-size: 17px;
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px){
+
+    .historia{
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .historia img{
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .texto h2{
+        text-align: center;
+    }
+}
