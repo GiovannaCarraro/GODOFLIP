@@ -1,137 +1,57 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
+GodoFlip - Peças de Skate
+{% endblock %}
 
-    <title>GodoFlip - Peças de Skate</title>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_pecas.css') }}">
+{% endblock %}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_pecas.css') }}">
+{% block content %}
 
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+<section class="grid-pecas">
 
-    <!-- Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+    <div class="card">
+        <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Trucks">
+        <h3>Trucks Profissionais</h3>
+        <p>Alta resistência e estabilidade para manobras.</p>
+        <span class="preco">R$ 129,90</span>
+        <a href="{{ url_for('comprar_pecas') }}" class="btn">Comprar</a>
+    </div>
 
-<body>
+    <div class="card">
+        <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
+        <h3>Rodas Street</h3>
+        <p>Velocidade e controle para o dia a dia.</p>
+        <span class="preco">R$ 89,90</span>
+        <a href="{{ url_for('comprar_pecas') }}" class="btn">Comprar</a>
+    </div>
 
-    <!-- HEADER PADRÃO -->
-    <header>
+    <div class="card">
+        <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
+        <h3>Rolamentos ABEC-7</h3>
+        <p>Desempenho suave e alta rotação.</p>
+        <span class="preco">R$ 59,90</span>
+        <a href="{{ url_for('comprar_pecas') }}" class="btn">Comprar</a>
+    </div>
 
-        <div class="top-header">
+    <div class="card">
+        <img src="{{ url_for('static', filename='img/parafusos.jpg') }}" alt="Parafusos">
+        <h3>Kit Parafusos</h3>
+        <p>Fixação segura para seu setup completo.</p>
+        <span class="preco">R$ 19,90</span>
+        <a href="{{ url_for('comprar_pecas') }}" class="btn">Comprar</a>
+    </div>
 
-            <div class="logo-area">
-                <img src="{{ url_for('static', filename='img/hamster-logo.png') }}" alt="Logo GodoFlip">
-                <h1>GODOFLIP</h1>
-            </div>
+    <div class="card">
+        <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
+        <h3>Lixa Profissional</h3>
+        <p>Aderência máxima para manobras precisas.</p>
+        <span class="preco">R$ 29,90</span>
+        <a href="{{ url_for('comprar_pecas') }}" class="btn">Comprar</a>
+    </div>
 
-            <div class="header-icons">
-                <a href="{{ url_for('login') }}">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+</section>
 
-                <a href="{{ url_for('favoritos') }}">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
-
-                <a href="{{ url_for('localizacao') }}">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
-            </div>
-
-        </div>
-
-        <nav>
-            <a href="/pagina_inicial">Início</a>
-            <a href="/skates">Skates</a>
-            <a href="/pag_acessorios">Acessórios</a>
-            <a href="/pag_pecas">Peças</a>
-            <a href="/sobre_nos">Sobre Nós</a>
-        </nav>
-
-    </header>
-
-    <!-- GRID DE PEÇAS -->
-    <section class="grid-pecas">
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Trucks">
-            <h3>Trucks Profissionais</h3>
-            <p>Alta resistência e estabilidade para manobras.</p>
-            <span class="preco">R$ 129,90</span>
-            <a href="{{ url_for('comprar_pecas') }}" class="btn">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
-            <h3>Rodas Street</h3>
-            <p>Velocidade e controle para o dia a dia.</p>
-            <span class="preco">R$ 89,90</span>
-            <a href="{{ url_for('comprar_pecas') }}" class="btn">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
-            <h3>Rolamentos ABEC-7</h3>
-            <p>Desempenho suave e alta rotação.</p>
-            <span class="preco">R$ 59,90</span>
-            <a href="{{ url_for('comprar_pecas') }}" class="btn">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/parafusos.jpg') }}" alt="Parafusos">
-            <h3>Kit Parafusos</h3>
-            <p>Fixação segura para seu setup completo.</p>
-            <span class="preco">R$ 19,90</span>
-            <a href="{{ url_for('comprar_pecas') }}" class="btn">
-                Comprar
-            </a>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
-            <h3>Lixa Profissional</h3>
-            <p>Aderência máxima para manobras precisas.</p>
-            <span class="preco">R$ 29,90</span>
-            <a href="{{ url_for('comprar_pecas') }}" class="btn">
-                Comprar
-            </a>
-        </div>
-
-        </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="footer-content">
-
-            <div>
-                <h3>Contato</h3>
-                <p>contato@godoflip.com</p>
-            </div>
-
-            <div class="footer-logo">
-                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo">
-                <h3>GODOFLIP</h3>
-            </div>
-
-        </div>
-
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}

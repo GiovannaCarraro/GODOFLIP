@@ -1,17 +1,17 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
+body {
+    font-family: "Courier Prime", monospace;
     background-color: #f5f5f5;
     color: #111;
 }
 
 /* HISTÓRIA */
-.historia{
+.historia {
     width: 90%;
     max-width: 1200px;
     margin: 80px auto;
@@ -24,11 +24,11 @@ body{
     padding: 40px;
     border-radius: 20px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* IMAGEM */
-.historia img{
+.historia img {
     width: 450px;
     border-radius: 20px;
     object-fit: cover;
@@ -36,26 +36,25 @@ body{
     transition: transform 0.3s ease;
 }
 
-.historia img:hover{
+.historia img:hover {
     transform: scale(1.03);
 }
 
 /* TEXTO */
-.texto{
+.texto {
     flex: 1;
 }
 
-/* 🛹 TÍTULO GRAFITE */
-.texto h2{
-    font-family: 'Bangers', cursive;
+/* TÍTULO */
+.texto h2 {
+    font-family: "Bangers", cursive;
     font-size: 55px;
     letter-spacing: 2px;
     margin-bottom: 25px;
 }
 
-/* ✨ TEXTO LIMPO */
-.texto p{
-    font-family: 'Poppins', sans-serif;
+/* TEXTO */
+.texto p {
     font-size: 17px;
     line-height: 1.8;
     text-align: justify;
@@ -64,19 +63,19 @@ body{
 }
 
 /* RESPONSIVO */
-@media(max-width: 900px){
+@media (max-width: 900px) {
 
-    .historia{
+    .historia {
         flex-direction: column;
         padding: 25px;
     }
 
-    .historia img{
+    .historia img {
         width: 100%;
         max-width: 500px;
     }
 
-    .texto h2{
+    .texto h2 {
         text-align: center;
     }
 }
