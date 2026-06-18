@@ -3,12 +3,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier Prime", monospace;;
+}
+
+/* FAZ O FOOTER FICAR NO FINAL */
+html,
+body {
+    height: 100%;
 }
 
 body {
     background: #f6f6f6;
     color: #111;
+    display: flex;
+    flex-direction: column;
 }
 
 /* ================= HEADER ================= */
@@ -20,6 +27,16 @@ header {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+h1 {
+    font-size: 85px;
+    letter-spacing: 3px;
+    font-family: "Sedgwick Ave", cursive;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
 .top-header {
     display: flex;
     justify-content: space-between;
@@ -27,15 +44,14 @@ header {
 }
 
 .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 85px;
+    letter-spacing: 3px;
+    font-family: "Sedgwick Ave", cursive;
 }
 
 .logo-area img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+   width: 150px;
+    height: auto;
 }
 
 .logo-area h1 {
@@ -56,6 +72,7 @@ header {
 }
 
 /* NAV */
+
 nav {
     margin-top: 12px;
     display: flex;
@@ -94,21 +111,30 @@ nav ul a:hover::after {
     width: 100%;
 }
 
+/* ================= CONTEÚDO ================= */
+
+.container {
+    flex: 1;
+}
+
 /* ================= TÍTULO ================= */
 
 .titulo {
     text-align: center;
     margin: 40px 0 20px;
+    font-family: "Courier Prime", monospace;;
 }
 
 .titulo h1 {
     font-size: 28px;
     letter-spacing: 2px;
+    font-family: "Courier Prime", monospace;;
 }
 
 .titulo p {
     color: #555;
     margin-top: 8px;
+    font-family: "Courier Prime", monospace;
 }
 
 /* ================= GRID ================= */
@@ -164,6 +190,7 @@ nav ul a:hover::after {
 }
 
 /* BOTÃO */
+
 .btn {
     width: 100%;
     padding: 10px;
@@ -182,7 +209,7 @@ nav ul a:hover::after {
 /* ================= FOOTER ================= */
 
 footer {
-    margin-top: 50px;
+    margin-top: auto;
     background: #0d0d0d;
     color: #fff;
     padding: 30px 40px;
@@ -195,5 +222,6 @@ footer {
 }
 
 .footer-logo img {
-    width: 50px;
+    width: 150px;
+    height: auto;
 }
