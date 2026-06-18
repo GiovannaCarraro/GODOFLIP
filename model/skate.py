@@ -80,14 +80,16 @@ def listar_pecas():
 
     sql = """
     SELECT
-    p.cod_produto,
-    p.nome,
-    p.categoria,
-    i.url
-FROM produtos p
-INNER JOIN img_produtos i
-ON p.cod_produto = i.produto_id
-WHERE p.categoria = 'pecas';
+        p.cod_produto,
+        p.nome,
+        p.desc_produto,  -- Adicionado: Descrição do produto
+        p.preco,         -- Adicionado: Preço do produto
+        p.categoria,
+        i.url
+    FROM produtos p
+    INNER JOIN img_produtos i
+    ON p.cod_produto = i.produto_id
+    WHERE p.categoria = 'pecas';
     """
 
     cursor.execute(sql)
