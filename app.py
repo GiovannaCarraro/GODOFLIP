@@ -26,18 +26,6 @@ def skates():
         produtos=produtos
     )
 
-<<<<<<< HEAD
-# pagina comprar skates
-@app.route("/pag_comprar")
-def comprar():
-    return render_template("pag_comprar_skates.html")
-
-# pagina produtos
-@app.route('/produto/<int:cod_produto>')
-def produto(cod_produto):
-=======
-
->>>>>>> 7669671e3061df3ee4f3ba8a67060ba8b5a195de
 
 @app.route("/comprar/<int:id_produto>")
 def pag_comprar_skates(id_produto):
