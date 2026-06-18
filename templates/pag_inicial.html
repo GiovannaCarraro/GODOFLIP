@@ -62,45 +62,24 @@
     </section>
 
     <!-- destaques -->
+      {% for produto in produtos %}
     <section class="destaques">
-        {% for produto in produtos %}
+       
 
         <h2>DESTAQUES</h2>
         <div class="cards">
             <div class="card">
 
-                <img src="{{produto.url}}" alt="skate-minimalista">
+                <img src="{{produto.url}}" alt="{{produto.desc_produto}}">
 
                 <div class="card-content">
                     <h3>{produto.nome}</h3>
-                    <p class="preco">R$ 349,90</p>
-                    <button class="btn">Comprar</button>
+                    <p class="preco">{produto.preco}</p>
+                    <button type="submit">Comprar</button>
                 </div>
             </div>
-
-            {% endfor %}
-
-            <!-- <div class="card">
-
-                <img src="static/imagens_skates_cards/skate_dragao.png" alt="skate-dragão">
-                <div class="card-content">
-                    <h3>Skate Supernova Fire</h3>
-                    <p class="preco">R$ 189,90</p>
-                    <button class="btn">Comprar</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="static/imagens_skates_cards/skate_peixe.png" alt="skate-peixe">
-                <div class="card-content">
-                    <h3>Skate Sakura & Flow</h3>
-                    <p class="preco">R$ 99,90</p>
-                    <button class="btn">Comprar</button>
-                </div>
-            </div>
-        </div>
-
-    </section> -->
+    </section>
+        {% endfor %}
 
     <!-- footer -->
     <footer>

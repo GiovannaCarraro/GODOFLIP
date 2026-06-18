@@ -5,8 +5,8 @@ def listar_produtos():
     conexao, cursor = conectar()
 
     cursor.execute("""
-        SELECT *
-        FROM produtos
+        select * from produtos
+        inner join img_produtos on produtos.cod_produto = img_produtos.produto_id;
     """)
 
     produtos = cursor.fetchall()
@@ -28,6 +28,25 @@ def buscar_produto(cod_produto):
         """,
         (cod_produto,)
     )
+
+    produto = cursor.fetchone()
+
+    cursor.close()
+    conexao.close()
+
+    return produto
+
+
+def achar_produto(cod_produto):
+    conexao, cursor = conectar()
+
+    cursor.execute("""
+        SELECT *
+        FROM produtos
+        INNER JOIN img_produtos
+            ON produtos.cod_produto = img_produtos.produto_id
+        WHERE produtos.cod_produto = %s
+    """, (cod_produto,))
 
     produto = cursor.fetchone()
 

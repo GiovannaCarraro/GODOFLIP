@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -20,12 +21,13 @@
         <div class="top-header">
 
             <div class="logo-area">
-                <img src="{{ url_for('static', filename='static/logo/logohamster.png') }}" alt="Logo GodoFlip">
+                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo GodoFlip">
 
                 <h1>GODOFLIP</h1>
             </div>
 
             <div class="header-icons">
+
                 <a href="{{ url_for('login') }}">
                     <i class="fa-regular fa-user"></i>
                 </a>
@@ -59,7 +61,7 @@
         <section class="produto-section">
 
             <h1 class="titulo-pagina">
-                Detalhes do Skate
+                Detalhes do Produto
             </h1>
 
             <div class="produto-container">
@@ -67,35 +69,41 @@
                 <div class="produto-galeria">
 
                     <div class="imagem-principal">
-                        <img src="{{ url_for('static', filename='img/skate1.jpg') }}" alt="Skate">
-                    </div>
-
-                    <div class="miniaturas">
-                        <img src="{{ url_for('static', filename='img/skate1.jpg') }}" alt="">
-                        <img src="{{ url_for('static', filename='img/skate2.jpg') }}" alt="">
-                        <img src="{{ url_for('static', filename='img/skate3.jpg') }}" alt="">
+                        <img src="{{ url_for('static', filename=produto.url) }}"
+                             alt="{{ produto.nome }}">
                     </div>
 
                 </div>
 
                 <div class="produto-info">
 
-                    <h2>Skate GodoFlip Pro X</h2>
+                    <h2>{{ produto.nome }}</h2>
 
                     <div class="preco">
-                        R$ 399,90
+                        R$ {{ produto.preco }}
                     </div>
 
                     <p class="descricao">
-                        Skate premium desenvolvido para performance urbana e
-                        manobras avançadas. Construído com materiais de alta
-                        resistência e excelente estabilidade.
+                        {{ produto.desc_produto }}
                     </p>
 
                     <div class="info-extra">
-                        <p><strong>Categoria:</strong> Skate Street</p>
-                        <p><strong>Marca:</strong> GodoFlip</p>
-                        <p><strong>Disponibilidade:</strong> Em estoque</p>
+
+                        <p>
+                            <strong>Categoria:</strong>
+                            {{ produto.categoria }}
+                        </p>
+
+                        <p>
+                            <strong>Disponibilidade:</strong>
+
+                            {% if produto.disponibilidade %}
+                                Em estoque
+                            {% else %}
+                                Indisponível
+                            {% endif %}
+                        </p>
+
                     </div>
 
                     <div class="acoes">
@@ -129,8 +137,6 @@
                 </button>
 
                 <div class="lista-comentarios">
-
-
                 </div>
 
             </section>
@@ -149,7 +155,7 @@
             </div>
 
             <div class="footer-logo">
-                <img src="{{ url_for('static', filename='static/logo/logohamster.png') }}" alt="Logo">
+                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo">
 
                 <h3>GODOFLIP</h3>
             </div>
