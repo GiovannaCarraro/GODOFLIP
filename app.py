@@ -1,8 +1,12 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
+from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
+from model.skate import listar_produtos, buscar_produto
 
 app = Flask(__name__)
+
+app.secret_key = "chiclete"
 
 # pagina inicial 
 @app.route("/")
@@ -10,13 +14,47 @@ app = Flask(__name__)
 def pagina_inicial():
     return render_template("pag_inicial.html")
 
+
+
 @app.route("/skates")
 def skates():
-    return render_template("pag_skates.html")
 
-@app.route("/detalhes")
-def detalhes():
-    return render_template("pag_detalhes_skates.html")
+    produtos = listar_produtos()
+
+    return render_template(
+        "pag_skates.html",
+        produtos=produtos
+    )
+
+@app.route("/pag_comprar")
+def comprar():
+    return render_template("pag_comprar_skates.html")
+
+@app.route('/produto/<int:cod_produto>')
+def produto(cod_produto):
+
+    produto = buscar_produto(cod_produto)
+
+    if not produto:
+        return "Produto não encontrado", 404
+
+    return render_template(
+        'pag_comprar_skates.html',
+        produto=produto
+    )
+
+@app.route("/pag_acessorios")
+def acessorios():
+    return render_template("pag_acessorios.html")
+
+@app.route("/pag_sobrenos")
+def sobrenos():
+    return render_template("pag_sobrenos.html")
+
+@app.route("/pag_pecas")
+def pecas():
+    return render_template("pag_pecas.html")
+
 
 
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -63,14 +101,16 @@ def login():
 @app.route('/favoritos')
 def favoritos():
 
-    usuario_id = 1
+    usuario_id = session.get('usuario_id')
+
+    if not usuario_id:
+        return redirect('/login')
 
     lista = listar_favoritos(usuario_id)
 
     favoritos = []
 
     for item in lista:
-
         favoritos.append({
             "id": item[0],
             "nome": item[1],
@@ -78,7 +118,14 @@ def favoritos():
             "imagem": item[3]
         })
 
-    return render_template('pag_favoritos.html',favoritos=favoritos)
+    return render_template(
+        'pag_favoritos.html',
+        favoritos=favoritos
+    )
+
+@app.route('/localizacao')
+def localizacao():
+    return render_template('pag_loc.html')
 
 
 if __name__ == "__main__":

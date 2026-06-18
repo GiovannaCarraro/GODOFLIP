@@ -12,23 +12,37 @@
 <body>
     <header>
         <div class="top-header">
-            <div class="logo">
-                <img src="img/logo.png" alt="">
-            </div>
-            <h1>GODOFLIP</h1>
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="logo">
+    </div>
+            <h1 class="titulo">GODOFLIP</h1>
             <div class="icons">
-                <i class="fa-solid fa-location-dot"></i>
-                <i class="fa-regular fa-user"></i>
-                <i class="fa-regular fa-heart"></i>
+
+                <a href="/login">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="/favoritos">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="/carrinho">
                 <i class="fa-solid fa-cart-shopping"></i>
+            </a>  
+            
+            <a href="/localizacao">
+            <i class="fa-solid fa-location-dot"></i>
+            </a>
+            
             </div>
         </div>
+
+</div>
         <nav>
-            <a href="index.html">Início</a>
-            <a href="skates.html">Skates</a>
-            <a href="#">Acessórios</a>
-            <a href="#">Peças</a>
-            <a href="#">Sobre Nós</a>
+              <a href="/pagina_inicial">Início</a>
+                <a href="/skates">Skates</a>
+                <a href="/pag_acessorios">Acessórios</a>
+                <a href="/pag_pecas">Peças</a>
+                <a href="/pag_sobrenos">Sobre Nós</a>
         </nav>
     </header>
 
@@ -39,58 +53,23 @@
     </section>
 
     <!-- cards skates -->
-    <section class="produtos">
+<section class="produtos">
 
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate1_angulo1.webp" alt="skate1_angulo1">
-            <img src="static/imagens/skate1_angulo2.webp" alt="skate1_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate1_angulo3">
-            <div class="card-content">
-                <h3>Skate Street Black</h3>
-                <p class="preco">R$ 300,00</p>
-            </div>
-        </a>
+    {% for produto in produtos %}
 
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate2_angulo1.webp" alt="skate2_angulo1">
-            <img src="static/imagens/skate2_angulo2.webp" alt="skate2_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate2_angulo3">
-            <div class="card-content">
-                <h3>Skate Fire Wheels</h3>
-                <p class="preco">R$ 250,00</p>
-            </div>
-        </a>
+    <a href="/produto/{{ produto.cod_produto }}" class="card">
 
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate3_angulo01.webp" alt="skate3_angulo1">
-            <img src="static/imagens/skate3_angulo2.webp" alt="skate3_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate3_angulo3">
-            <div class="card-content">
-                <h3>Godoflip Classic</h3>
-                <p class="preco">R$ 220,00</p>
-            </div>
-        </a>
+        <img src="{{produto.url}}"
+             alt="{{ produto.nome }}">
 
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate4_angulo1.webp" alt="skate4_angulo1">
-            <img src="static/imagens/skate4_angulo2.webp" alt="skate4_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate4_angulo3">
-            <div class="card-content">
-                <h3>Urban Skate Pro</h3>
-                <p class="preco">R$ 380,00</p>
-            </div>
-        </a>
+        <div class="card-content">
+            <h3>{{ produto.nome }}</h3>
+            <p class="preco">R$ {{ produto.desc_produto }}</p>
+        </div>
 
-        <a href="produto.html" class="card">
-            <img src="static/imagens/skate5_angulo1.webp" alt="skate5_angulo1">
-            <img src="static/imagens/skate5_angulo2.webp" alt="skate5_angulo2">
-            <img src="static/imagens/prancha_lixa.png" alt="skate5_angulo3">
-            <div class="card-content">
-                <h3>Flip Dark Edition</h3>
-                <p class="preco">R$ 365</p>
-            </div>
-        </a>
+    </a>
 
+<<<<<<< HEAD
         <a href="produto.html" class="card">
             <img src="static/imagens/skate1_angulo1.webp" alt="skate1_angulo1">
             <img src="static/imagens/skate1_angulo2.webp" alt="skate1_angulo2">
@@ -100,6 +79,11 @@
                 <p class="preco">R$ 200,00</p>
             </div>
         </a>
+=======
+    {% endfor %}
+
+</section>
+>>>>>>> 9a9023fe657e6163c52a01d9b84791436e4cd828
 
     </section>
 

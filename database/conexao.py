@@ -10,6 +10,6 @@ def conectar():
         database="db_skate"
     )
 
-    cursor = conexao.cursor()
+    cursor = conexao.cursor(dictionary=True)
 
     return conexao, cursor

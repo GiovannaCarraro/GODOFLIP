@@ -1,0 +1,1 @@
+tenho que fazer o model da pagina de compras, arrumar o bd pra puxar as imagens (pag inicial), fazer a parte dos comentarios, fazer o favoritar funcionar

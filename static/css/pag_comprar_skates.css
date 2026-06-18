@@ -1,0 +1,270 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Potta One', sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    color: #111;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background: #0d0d0d;
+    color: #fff;
+    padding: 15px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-area img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo-area h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.header-icons a {
+    color: white;
+    margin-left: 18px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.header-icons a:hover {
+    color: #ff4d6d;
+    transform: scale(1.1);
+}
+
+/* NAV */
+nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 14px;
+    transition: 0.3s;
+    position: relative;
+}
+
+nav ul a:hover {
+    color: #fff;
+}
+
+/* linha animada embaixo */
+nav ul a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ff4d6d;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav ul a:hover::after {
+    width: 100%;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    padding: 40px;
+}
+
+/* TÍTULO */
+.titulo-pagina {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ================= PRODUTO ================= */
+
+.produto-container {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* GALERIA */
+.produto-galeria {
+    flex: 1;
+}
+
+.imagem-principal img {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.imagem-principal img:hover {
+    transform: scale(1.02);
+}
+
+.miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.miniaturas img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.miniaturas img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* INFO PRODUTO */
+.produto-info {
+    flex: 1;
+}
+
+.produto-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.preco {
+    font-size: 22px;
+    color: #ff4d6d;
+    margin-bottom: 15px;
+}
+
+.descricao {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.info-extra p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* BOTÕES */
+.acoes {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.btn-favorito {
+    background: #fff0f3;
+}
+
+.btn-comentar {
+    background: #f1f1f1;
+}
+
+.btn-carrinho {
+    background: #0d0d0d;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ================= COMENTÁRIOS ================= */
+
+.comentarios {
+    margin-top: 40px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.comentarios h2 {
+    margin-bottom: 15px;
+}
+
+.comentarios textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+.btn-publicar {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #ff4d6d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 50px;
+    background: #0d0d0d;
+    color: #fff;
+    padding: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 40px;
+}
