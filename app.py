@@ -2,17 +2,17 @@ from flask import Flask, render_template, redirect, request, session, jsonify
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas
+from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques
 
 app = Flask(__name__)
 
 app.secret_key = "chiclete"
 
 # pagina inicial 
-@app.route("/")
-@app.route("/pagina_inicial")
-def pagina_inicial():
-    return render_template("pag_inicial.html")
+@app.route('/')
+def index():
+    produtos_destaque = listar_destaques()
+    return render_template('pag_inicial.html', produtos=produtos_destaque)
 
 
 # pagina skates

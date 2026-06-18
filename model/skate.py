@@ -5,8 +5,11 @@ def listar_produtos():
     conexao, cursor = conectar()
 
     cursor.execute("""
-        select * from produtos
-        inner join img_produtos on produtos.cod_produto = img_produtos.produto_id;
+        SELECT *
+        FROM produtos
+        INNER JOIN img_produtos
+        ON produtos.cod_produto = img_produtos.produto_id
+        WHERE produtos.categoria = 'Skate Completo';
     """)
 
     produtos = cursor.fetchall()
@@ -77,15 +80,38 @@ def listar_pecas():
 
     sql = """
     SELECT
-        p.cod_produto,
-        p.nome,
-        p.desc_produto,
-        p.preco,
-        i.url
+    p.cod_produto,
+    p.nome,
+    p.categoria,
+    i.url
+FROM produtos p
+INNER JOIN img_produtos i
+ON p.cod_produto = i.produto_id
+WHERE p.categoria = 'pecas';
+    """
+
+    cursor.execute(sql)
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return produtos
+
+def listar_destaques():
+    conexao, cursor = conectar()
+
+    # Busca 4 produtos aleatórios que tenham imagem
+    sql = """
+    SELECT 
+        p.cod_produto, 
+        p.nome, 
+        p.preco, 
+        i.url 
     FROM produtos p
-    INNER JOIN img_produtos i
-        ON p.cod_produto = i.produto_id
-    WHERE p.categoria = 'pecas'
+    INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
+    ORDER BY RAND()
+    LIMIT 4;
     """
 
     cursor.execute(sql)

@@ -50,12 +50,16 @@ Godoflip
     <div class="cards">
         {% for produto in produtos %}
         <div class="card">
-            <img src="{{ produto.url }}" alt="{{ produto.nome }}">
+            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
 
             <div class="card-content">
-                <h3>{{ produto.nome }}</h3>
-                <p class="preco">R$ 349,90</p>
-                <button class="btn">Comprar</button>
+                <h3>{{ produto['nome'] }}</h3>
+                
+                <p class="preco">R$ {{ produto['preco'] }}</p>
+                
+                <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn">
+                    Comprar
+                </a>
             </div>
         </div>
         {% endfor %}
