@@ -1,83 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skates</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_skates.css') }}">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+{% extends 'base.html' %}
 
-<body>
-    <header>
-        <div class="top-header">
+{% block title %}
+Skates - GodoFlip
+{% endblock %}
 
-    <div class="logo">
-        <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="logo">
-    </div>
-            <h1 class="titulo">GODOFLIP</h1>
-            <div class="icons">
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_skates.css') }}">
+{% endblock %}
 
-                <a href="/login">
-                    <i class="fa-regular fa-user"></i>
-                </a>
-                <a href="/favoritos">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
-                <a href="/carrinho">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>  
-            
-            <a href="/localizacao">
-            <i class="fa-solid fa-location-dot"></i>
-            </a>
-            
-            </div>
-        </div>
+{% block content %}
 
-</div>
-        <nav>
-              <a href="/pagina_inicial">Início</a>
-                <a href="/skates">Skates</a>
-                <a href="/pag_acessorios">Acessórios</a>
-                <a href="/pag_pecas">Peças</a>
-                <a href="/sobre_nos">Sobre Nós</a>
-        </nav>
-    </header>
-
-    <!-- titulo -->
-    <section class="titulo-page">
-        <h2>SKATES</h2>
-        <p>Escolha o que mais te atrai.</p>
-    </section>
+<!-- título -->
+<section class="titulo-page">
+    <h2>SKATES</h2>
+    <p>Escolha o que mais te atrai.</p>
+</section>
 
 <section class="produtos">
-{% for produto in produtos %}
 
-<div class="card-produto">
+    {% for produto in produtos %}
 
-    <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}">
-    <img src="{{ url_for('static', filename=produto.url) }}"
-         alt="{{ produto.nome }}">
-    </a>
+    <div class="card-produto">
 
+        <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
+        </a>
 
-    <h3>{{ produto.nome }}</h3>
-    <p class="preco">R$ {{ produto.preco }}</p>
-    <p>{{ produto.desc_produto }}</p>
+        <h3>{{ produto.nome }}</h3>
+        <p class="preco">R$ {{ produto.preco }}</p>
+        <p>{{ produto.desc_produto }}</p>
 
-</div>
+    </div>
 
-{% endfor %}
+    {% endfor %}
 
 </section>
-       
 
-    </section>
-
-
-   
-
-</body>
-</html>
+{% endblock %}

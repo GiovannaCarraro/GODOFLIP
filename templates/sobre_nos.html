@@ -1,107 +1,65 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Godoflip</title>
+{% extends 'base.html' %}
 
-   
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre_nos.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Potta+One&display=swap" rel="stylesheet">
-</head>
-<body>
+{% block title %}
+Sobre Nós - GodoFlip
+{% endblock %}
 
-    <header>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sobre_nos.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Potta+One&display=swap" rel="stylesheet">
+{% endblock %}
 
-        <div class="top-header">
+{% block content %}
 
-            <div class="logo">
-                <img src="static/logo/logohamster.png" alt="logo">
-            </div>
+<main>
 
-            <h1 class="titulo">GODOFLIP</h1>
+    <section class="banner-sobre">
+        <h2>SOBRE A GODOFLIP</h2>
+        <p>Mais que uma loja, uma paixão pelo skate.</p>
+    </section>
 
-            <div class="icons">
+    <section class="historia">
 
-                <a href="/login">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+        <img src="{{ url_for('static', filename='imagens/godoflip_equipe.png') }}" alt="Equipe Godoflip">
 
-                <a href="/favoritos">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
+        <div class="texto">
 
-                <a href="/localizacao">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
+            <h2>Nossa História</h2>
 
-            </div>
+            <p>
+                Toda grande marca de skate nasce de uma obsessão: a busca pela manobra perfeita, pelo shape ideal ou pela adrenalina do asfalto.
+                A Godoflip nasceu de tudo isso... e de um roedor de cinco centímetros chamado Godofredo.
+            </p>
+
+            <p>
+                Isso mesmo. Você não leu errado.
+            </p>
+
+            <p>
+                Em 2018, quando a marca era apenas um sonho rabiscado no fundo de um caderno de escola, nossa maior inspiração não vinha dos vídeos de canais gringos, mas sim da gaiola que ficava no canto da nossa primeira oficina improvisada.
+            </p>
+
+            <p>
+                Godofredo era o hamster da galera. Enquanto a gente passava noites em claro cortando madeira e testando resinas, ele passava as noites na sua rodinha de exercícios.
+            </p>
+
+            <p>
+                Quando decidimos oficializar a marca, a fusão foi inevitável: a audácia do nosso pequeno mentor Godofredo com a manobra mais clássica do skate, o Flip.
+            </p>
+
+            <p>
+                Assim nasceu a Godoflip.
+            </p>
+
+            <p>
+                Seja bem-vindo à família. Agora bota o shape no chão e manda um flip!
+            </p>
 
         </div>
 
-        <nav>
-            <a href="/">Início</a>
-            <a href="/skates">Skates</a>
-            <a href="pag_acessorios">Acessórios</a>
-            <a href="/pag_pecas">Peças</a>
-            <a href="/sobre_nos">Sobre Nós</a>
-        </nav>
+    </section>
 
-    </header>
+</main>
 
-    <main>
-
-        <section class="banner-sobre">
-            <h2>SOBRE A GODOFLIP</h2>
-            <p>Mais que uma loja, uma paixão pelo skate.</p>
-        </section>
-
-        <section class="historia">
-
-            <img src="static/imagens/godoflip_equipe.png" alt="Equipe Godoflip">
-
-            <div class="texto">
-
-                <h2>Nossa História</h2>
-
-                <p>
-                    Toda grande marca de skate nasce de uma obsessão: a busca pela manobra perfeita, pelo shape ideal ou pela adrenalina do asfalto.
-                    A Godoflip nasceu de tudo isso... e de um roedor de cinco centímetros chamado Godofredo.
-                </p>
-
-                <p>
-                    Isso mesmo. Você não leu errado.
-                </p>
-
-                <p>
-                    Em 2018, quando a marca era apenas um sonho rabiscado no fundo de um caderno de escola, nossa maior inspiração não vinha dos vídeos de canais gringos, mas sim da gaiola que ficava no canto da nossa primeira oficina improvisada.
-                </p>
-
-                <p>
-                    Godofredo era o hamster da galera. Enquanto a gente passava noites em claro cortando madeira e testando resinas, ele passava as noites na sua rodinha de exercícios.
-                </p>
-
-                <p>
-                    Quando decidimos oficializar a marca, a fusão foi inevitável: a audácia do nosso pequeno mentor Godofredo com a manobra mais clássica do skate, o Flip.
-                </p>
-
-                <p>
-                    Assim nasceu a Godoflip.
-                </p>
-
-                <p>
-                    Seja bem-vindo à família. Agora bota o shape no chão e manda um flip!
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-</body>
-
-</html>
+{% endblock %}

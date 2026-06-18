@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Potta One', sans-serif;
 }
 
 /* FAZ O FOOTER FICAR NO FINAL */
@@ -45,15 +44,14 @@ h1 {
 }
 
 .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-size: 85px;
+    letter-spacing: 3px;
+    font-family: "Sedgwick Ave", cursive;
 }
 
 .logo-area img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+   width: 150px;
+    height: auto;
 }
 
 .logo-area h1 {
@@ -124,16 +122,19 @@ nav ul a:hover::after {
 .titulo {
     text-align: center;
     margin: 40px 0 20px;
+    font-family: "Courier Prime", monospace;;
 }
 
 .titulo h1 {
     font-size: 28px;
     letter-spacing: 2px;
+    font-family: "Courier Prime", monospace;;
 }
 
 .titulo p {
     color: #555;
     margin-top: 8px;
+    font-family: "Courier Prime", monospace;
 }
 
 /* ================= GRID ================= */
@@ -221,5 +222,6 @@ footer {
 }
 
 .footer-logo img {
-    width: 50px;
+    width: 150px;
+    height: auto;
 }
