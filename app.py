@@ -50,14 +50,7 @@ def produto(cod_produto):
 def acessorios():
     return render_template("pag_acessorios.html")
 
-<<<<<<< HEAD
-@app.route("/comprar_acessorios")
-def comprar_acessorios():
-    return render_template("pag_comprar_acessorios.html")
-
-=======
 # pagina sobre nos
->>>>>>> 0101fbca9888035f487b52683eaf7cce7296b5b4
 @app.route("/pag_sobrenos")
 def sobrenos():
     return render_template("pag_sobrenos.html")
