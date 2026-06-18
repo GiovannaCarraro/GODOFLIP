@@ -43,6 +43,12 @@ header {
     letter-spacing: 3px;
 }
 
+.titulo {
+    font-size: 85px;
+    letter-spacing: 3px;
+    font-family: "Sedgwick Ave", cursive;
+}
+
 .header-icons a {
     color: #fff;
     margin-left: 18px;
