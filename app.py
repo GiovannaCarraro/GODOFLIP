@@ -2,8 +2,11 @@ from flask import Flask, render_template, redirect, request, session, jsonify
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos
+from model.skate import listar_produtos, buscar_produto
 
 app = Flask(__name__)
+
+app.secret_key = "chiclete"
 
 # pagina inicial 
 @app.route("/")
@@ -11,17 +14,12 @@ app = Flask(__name__)
 def pagina_inicial():
     return render_template("pag_inicial.html")
 
+
+
 @app.route("/skates")
 def skates():
 
-    conexao, cursor = conectar()
-
-    cursor.execute("""
-        SELECT *
-        FROM produtos
-    """)
-
-    produtos = cursor.fetchall()
+    produtos = listar_produtos()
 
     return render_template(
         "pag_skates.html",
@@ -35,19 +33,16 @@ def comprar():
 @app.route('/produto/<int:cod_produto>')
 def produto(cod_produto):
 
-    conexao, cursor = conectar()
+    produto = buscar_produto(cod_produto)
 
-    cursor.execute(
-        "SELECT * FROM produtos WHERE cod_produto = %s",
-        (cod_produto,)
-    )
-
-    produto = cursor.fetchone()
+    if not produto:
+        return "Produto não encontrado", 404
 
     return render_template(
         'pag_comprar_skates.html',
         produto=produto
     )
+
 @app.route("/pag_acessorios")
 def acessorios():
     return render_template("pag_acessorios.html")
@@ -106,14 +101,16 @@ def login():
 @app.route('/favoritos')
 def favoritos():
 
-    usuario_id = 1
+    usuario_id = session.get('usuario_id')
+
+    if not usuario_id:
+        return redirect('/login')
 
     lista = listar_favoritos(usuario_id)
 
     favoritos = []
 
     for item in lista:
-
         favoritos.append({
             "id": item[0],
             "nome": item[1],
@@ -121,7 +118,10 @@ def favoritos():
             "imagem": item[3]
         })
 
-    return render_template('pag_favoritos.html',favoritos=favoritos)
+    return render_template(
+        'pag_favoritos.html',
+        favoritos=favoritos
+    )
 
 @app.route('/localizacao')
 def localizacao():
