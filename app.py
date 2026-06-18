@@ -69,11 +69,17 @@ def comprar_acessorios():
 @app.route("/pag_sobrenos")
 def sobrenos():
     return render_template("pag_sobrenos.html")
+ 
 
-
-@app.route("/comprar_pecas/<int:id_produto>")
+@app.route('/comprar_pecas/<int:id_produto>')
 def comprar_pecas(id_produto):
-    return render_template("comprar_pecas.html")
+
+    produto = achar_produto(id_produto)
+    
+    if not produto:
+        abort(404)
+        
+    return render_template('pag_comprar_pecas.html', produto=produto)
 
 # pagina cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
