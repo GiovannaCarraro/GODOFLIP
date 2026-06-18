@@ -1,79 +1,81 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ffffff;
-}
-
-/* BANNER */
-
-.banner-sobre{
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.banner-sobre h2{
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-.banner-sobre p{
-    font-size: 18px;
-    color: #666;
+body {
+    font-family: "Courier Prime", monospace;
+    background-color: #f5f5f5;
+    color: #111;
 }
 
 /* HISTÓRIA */
-
-.historia{
-    width: 85%;
-    margin: 0 auto 80px auto;
+.historia {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
 
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
+
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.historia img{
+/* IMAGEM */
+.historia img {
     width: 450px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 20px;
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
 }
 
-.texto{
+.historia img:hover {
+    transform: scale(1.03);
+}
+
+/* TEXTO */
+.texto {
     flex: 1;
 }
 
-.texto h2{
-    font-size: 38px;
+/* TÍTULO */
+.texto h2 {
+    font-family: "Bangers", cursive;
+    font-size: 55px;
+    letter-spacing: 2px;
     margin-bottom: 25px;
 }
 
-.texto p{
+/* TEXTO */
+.texto p {
     font-size: 17px;
-    line-height: 1.9;
+    line-height: 1.8;
     text-align: justify;
     margin-bottom: 15px;
+    color: #333;
 }
 
 /* RESPONSIVO */
+@media (max-width: 900px) {
 
-@media(max-width: 900px){
-
-    .historia{
+    .historia {
         flex-direction: column;
-        width: 95%;
+        padding: 25px;
     }
 
-    .historia img{
+    .historia img {
         width: 100%;
         max-width: 500px;
     }
 
-    .texto h2{
+    .texto h2 {
         text-align: center;
     }
 }
