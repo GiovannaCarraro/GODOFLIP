@@ -130,8 +130,7 @@ nav a:hover::after {
 
 /* IMAGENS (efeito stack tipo produto girando) */
 .card img {
-    width: 100%;
-    height: 180px;
+    width: 300px;
     object-fit: cover;
     display: none;
 }
