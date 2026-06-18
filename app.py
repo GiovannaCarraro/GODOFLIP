@@ -57,9 +57,15 @@ def pecas():
         produtos=produtos
     )
 
+
+
 @app.route("/pag_acessorios")
 def acessorios():
-    return render_template("pag_acessorios.html")
+    
+    produtos = listar_acessorios()
+    
+  
+    return render_template("pag_acessorios.html", produtos=produtos)
 
 @app.route("/comprar_acessorios")
 def comprar_acessorios():

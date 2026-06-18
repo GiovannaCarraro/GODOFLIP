@@ -18,37 +18,23 @@ GodoFlip - Acessórios
 
     <section class="grid-acessorios">
 
+        {% for produto in produtos %}
         <div class="card">
-            <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
-            <h3>Lixa Profissional</h3>
-            <p>Alta aderência para manobras precisas.</p>
-            <span class="preco">R$ 29,90</span>
-            <button class="btn" onclick="window.location.href='/comprar_acessorios'">Comprar</button>
+            
+            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
+            
+            <h3>{{ produto['nome'] }}</h3>
+            
+            <p>{{ produto['desc_produto'] }}</p>
+            
+            <span class="preco">R$ {{ produto['preco'] }}</span>
+            
+            <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn" style="text-decoration: none; display: inline-block; text-align: center;">
+                Comprar
+            </a>
+            
         </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/lixa.jpg') }}" alt="Lixa">
-            <h3>Lixa Profissional</h3>
-            <p>Alta aderência para manobras precisas.</p>
-            <span class="preco">R$ 29,90</span>
-            <button class="btn" onclick="window.location.href='/comprar_acessorios'">Comprar</button>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/rodas.jpg') }}" alt="Rodas">
-            <h3>Rodas Street</h3>
-            <p>Durabilidade e velocidade para o dia a dia.</p>
-            <span class="preco">R$ 89,90</span>
-            <button class="btn" onclick="window.location.href='/comprar_acessorios'">Comprar</button>
-        </div>
-
-        <div class="card">
-            <img src="{{ url_for('static', filename='img/rolamento.jpg') }}" alt="Rolamentos">
-            <h3>Rolamentos ABEC-7</h3>
-            <p>Desempenho suave e rápido.</p>
-            <span class="preco">R$ 59,90</span>
-            <button class="btn" onclick="window.location.href='/comprar_acessorios'">Comprar</button>
-        </div>
+        {% endfor %}
 
     </section>
 
