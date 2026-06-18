@@ -33,12 +33,7 @@ header {
     justify-content: space-between;
 }
 
-.logo img,
-.logo-area img {
-    max-width: 120px;
-    height: auto;
-    object-fit: contain;
-}
+
 
 .titulo {
     font-size: 24px;
