@@ -1,100 +1,53 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos - Godoflip</title>
+{% block title %}
+Favoritos - Godoflip
+{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+{% endblock %}
 
-<body>
+{% block content %}
 
-    <header>
+<section class="destaques">
 
-        <div class="top-header">
+    <h2>MEUS FAVORITOS ❤️</h2>
 
-            <div class="logo">
-                <img src="{{ url_for('static', filename='logo/lo.png') }}" alt="logo">
-            </div>
+    <div class="cards">
 
-            <h1 class="titulo">GODOFLIP</h1>
+        {% for produto in favoritos %}
 
-            <div class="icons">
+        <div class="card">
 
-                <a href="{{ url_for('login') }}">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+            <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
 
-                <a href="{{ url_for('favoritos') }}">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
+            <div class="card-content">
 
-                <a href="{{ url_for('localizacao') }}">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
+                <h3>{{ produto.nome }}</h3>
 
-                </a>
+                <p class="preco">
+                    R$ {{ produto.preco }}
+                </p>
+
+                <button class="btn">
+                    Comprar
+                </button>
+
+                <button class="btn-remover">
+                    Remover
+                </button>
+
             </div>
 
         </div>
 
-    </header>
+        {% endfor %}
 
-    <section class="destaques">
+    </div>
 
-        <h2>MEUS FAVORITOS ❤️</h2>
+</section>
 
-        <div class="cards">
-
-            {% for produto in favoritos %}
-
-            <div class="card">
-
-                <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
-
-                <div class="card-content">
-
-                    <h3>{{ produto.nome }}</h3>
-
-                    <p class="preco">
-                        R$ {{ produto.preco }}
-                    </p>
-
-                    <button class="btn">
-                        Comprar
-                    </button>
-
-                    <button class="btn-remover">
-                        Remover
-                    </button>
-
-                </div>
-
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <div class="contato">
-            <h3>CONTATO:</h3>
-            <p>📞 (16) 99999-9999</p>
-            <p>📧 godoflip@gmail.com</p>
-        </div>
-
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}

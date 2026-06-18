@@ -1,173 +1,92 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GodoFlip - Detalhes do Skate</title>
+{% block title %}
+GodoFlip - Detalhes do Skate
+{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_skates.css') }}">
+{% endblock %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+{% block content %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_skates.css') }}">
-</head>
+<main class="container">
 
-<body>
+    <section class="produto-section">
 
-    <header>
+        <h1 class="titulo-pagina">
+            Detalhes do Produto
+        </h1>
 
-        <div class="top-header">
+        <div class="produto-container">
 
-            <div class="logo-area">
-                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo GodoFlip">
+            <div class="produto-galeria">
 
-                <h1>GODOFLIP</h1>
+                <div class="imagem-principal">
+                    <img src="{{ url_for('static', filename=produto.url) }}"
+                         alt="{{ produto.nome }}">
+                </div>
+
             </div>
 
-            <div class="header-icons">
+            <div class="produto-info">
 
-                <a href="{{ url_for('login') }}">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+                <h2>{{ produto.nome }}</h2>
 
-                <a href="{{ url_for('favoritos') }}">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
+                <div class="preco">
+                    R$ {{ produto.preco }}
+                </div>
 
-                <a href="{{ url_for('localizacao') }}">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
+                <p class="descricao">
+                    {{ produto.desc_produto }}
+                </p>
+
+                <div class="info-extra">
+
+                    <p>
+                        <strong>Categoria:</strong>
+                        {{ produto.categoria }}
+                    </p>
+
+                    <p>
+                        <strong>Disponibilidade:</strong>
+                        {% if produto.disponibilidade %}
+                            Em estoque
+                        {% else %}
+                            Indisponível
+                        {% endif %}
+                    </p>
+
+                </div>
+
+                <div class="acoes">
+
+                    <button class="btn btn-favorito">❤️ Favoritar</button>
+                    <button class="btn btn-comentar">💬 Comentar</button>
+                    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+
+                </div>
 
             </div>
 
         </div>
 
-        <nav>
-            <ul>
-                <a href="/pagina_inicial">Início</a>
-                <a href="/skates">Skates</a>
-                <a href="/pag_acessorios">Acessórios</a>
-                <a href="/pag_pecas">Peças</a>
-                <a href="/pag_sobrenos">Sobre Nós</a>
-            </ul>
-        </nav>
+        <section class="comentarios">
 
-    </header>
+            <h2>Comentários</h2>
 
-    <main class="container">
+            <textarea placeholder="Escreva seu comentário..."></textarea>
 
-        <section class="produto-section">
+            <button class="btn-publicar">
+                Publicar Comentário
+            </button>
 
-            <h1 class="titulo-pagina">
-                Detalhes do Produto
-            </h1>
-
-            <div class="produto-container">
-
-                <div class="produto-galeria">
-
-                    <div class="imagem-principal">
-                        <img src="{{ url_for('static', filename=produto.url) }}"
-                             alt="{{ produto.nome }}">
-                    </div>
-
-                </div>
-
-                <div class="produto-info">
-
-                    <h2>{{ produto.nome }}</h2>
-
-                    <div class="preco">
-                        R$ {{ produto.preco }}
-                    </div>
-
-                    <p class="descricao">
-                        {{ produto.desc_produto }}
-                    </p>
-
-                    <div class="info-extra">
-
-                        <p>
-                            <strong>Categoria:</strong>
-                            {{ produto.categoria }}
-                        </p>
-
-                        <p>
-                            <strong>Disponibilidade:</strong>
-
-                            {% if produto.disponibilidade %}
-                                Em estoque
-                            {% else %}
-                                Indisponível
-                            {% endif %}
-                        </p>
-
-                    </div>
-
-                    <div class="acoes">
-
-                        <button class="btn btn-favorito">
-                            ❤️ Favoritar
-                        </button>
-
-                        <button class="btn btn-comentar">
-                            💬 Comentar
-                        </button>
-
-                        <button class="btn btn-carrinho">
-                            🛒 Adicionar ao Carrinho
-                        </button>
-                
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <section class="comentarios">
-
-                <h2>Comentários</h2>
-
-                <textarea placeholder="Escreva seu comentário..."></textarea>
-
-                <button class="btn-publicar">
-                    Publicar Comentário
-                </button>
-
-                <div class="lista-comentarios">
-                </div>
-
-            </section>
+            <div class="lista-comentarios"></div>
 
         </section>
 
-    </main>
+    </section>
 
-    <footer>
+</main>
 
-        <div class="footer-content">
-
-            <div>
-                <h3>Contato</h3>
-                <p>contato@godoflip.com</p>
-            </div>
-
-            <div class="footer-logo">
-                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo">
-
-                <h3>GODOFLIP</h3>
-            </div>
-
-        </div>
-
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}

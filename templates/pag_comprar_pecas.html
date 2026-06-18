@@ -1,128 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GodoFlip - Detalhes da Peça</title>
+{% block title %}
+GodoFlip - Detalhes da Peça
+{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_pecas.css') }}">
+{% endblock %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_pecas.css') }}">
-</head>
+{% block content %}
 
-<body>
+<main class="container">
 
-    <header>
+    <section class="produto-container">
 
-        <div class="top-header">
+        <div class="produto-imagem">
 
-            <div class="logo-area">
-                <img src="{{ url_for('static', filename='logo/logohamster.png') }}" alt="Logo">
-                <h1>GODOFLIP</h1>
-            </div>
+            <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Truck Profissional">
 
-            <div class="icons">
+        </div>
 
-                <a href="{{ url_for('login') }}">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+        <div class="produto-info">
 
-                <a href="{{ url_for('favoritos') }}">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
+            <h2>Truck Profissional GodoFlip</h2>
 
-                <a href="{{ url_for('localizacao') }}">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
+            <p class="preco">
+                R$ 129,90
+            </p>
 
-                </a>
-            </div>
+            <p class="descricao">
+                Truck fabricado em liga metálica de alta resistência,
+                desenvolvido para máxima estabilidade, curvas precisas
+                e excelente durabilidade em sessões intensas de street
+                e park.
+            </p>
 
-            <nav>
-                <a href="/pagina_inicial">Início</a>
-                <a href="/skates">Skates</a>
-                <a href="/pag_acessorios">Acessórios</a>
-                <a href="/pag_pecas">Peças</a>
-                <a href="/pag_sobrenos">Sobre Nós</a>
-            </nav>
+            <div class="detalhes">
 
-    </header>
-
-    <main class="container">
-
-        <section class="produto-container">
-
-            <div class="produto-imagem">
-
-                <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Truck Profissional">
+                <p><strong>Material:</strong> Liga Metálica Premium</p>
+                <p><strong>Peso:</strong> 350g</p>
+                <p><strong>Categoria:</strong> Trucks</p>
+                <p><strong>Disponibilidade:</strong> Em estoque</p>
 
             </div>
 
-            <div class="produto-info">
+            <div class="acoes">
 
-                <h2>Truck Profissional GodoFlip</h2>
-
-                <p class="preco">
-                    R$ 129,90
-                </p>
-
-                <p class="descricao">
-                    Truck fabricado em liga metálica de alta resistência,
-                    desenvolvido para máxima estabilidade, curvas precisas
-                    e excelente durabilidade em sessões intensas de street
-                    e park.
-                </p>
-
-                <div class="detalhes">
-
-                    <p><strong>Material:</strong> Liga Metálica Premium</p>
-
-                    <p><strong>Peso:</strong> 350g</p>
-
-                    <p><strong>Categoria:</strong> Trucks</p>
-
-                    <p><strong>Disponibilidade:</strong> Em estoque</p>
-
-                </div>
-
-                <div class="acoes">
-
-                    <button class="btn favorito">
-                        ❤️ Favoritar
-                    </button>
-
-                    <button class="btn comentar">
-                        💬 Comentar
-                    </button>
-
-                    <button class="btn carrinho">
-                        🛒 Adicionar ao Carrinho
-                    </button>
-
-                </div>
+                <button class="btn favorito">❤️ Favoritar</button>
+                <button class="btn comentar">💬 Comentar</button>
+                <button class="btn carrinho">🛒 Adicionar ao Carrinho</button>
 
             </div>
 
-        </section>
+        </div>
 
-        <section class="comentarios">
+    </section>
 
-            <h2>Comentários</h2>
+    <section class="comentarios">
 
-            <textarea placeholder="Escreva seu comentário..."></textarea>
+        <h2>Comentários</h2>
 
-            <button class="publicar">
-                Publicar Comentário
-            </button>
+        <textarea placeholder="Escreva seu comentário..."></textarea>
 
-        </section>
+        <button class="publicar">
+            Publicar Comentário
+        </button>
 
-    </main>
+    </section>
 
-</body>
+</main>
 
-</html>
+{% endblock %}

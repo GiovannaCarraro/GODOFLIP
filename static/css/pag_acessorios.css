@@ -1,13 +1,12 @@
-/* RESET */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* FAZ O FOOTER FICAR NO FINAL */
-html,
-body {
+/* ================= BASE ================= */
+html, body {
     height: 100%;
 }
 
@@ -19,7 +18,6 @@ body {
 }
 
 /* ================= HEADER ================= */
-
 header {
     background: #0d0d0d;
     color: #fff;
@@ -27,38 +25,35 @@ header {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-h1 {
-    font-size: 85px;
-    letter-spacing: 3px;
-    font-family: "Sedgwick Ave", cursive;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-
+/* topo */
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
-.logo-area {
-    font-size: 85px;
+.titulo{
+     font-size: 85px;
     letter-spacing: 3px;
-    font-family: "Sedgwick Ave", cursive;
+}
+
+/* logo */
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .logo-area img {
-   width: 150px;
+    width: 150px;
     height: auto;
 }
 
 .logo-area h1 {
     font-size: 22px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
+/* ícones */
 .header-icons a {
     color: #fff;
     margin-left: 18px;
@@ -68,11 +63,10 @@ h1 {
 
 .header-icons a:hover {
     color: #ff4d6d;
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
-/* NAV */
-
+/* ================= NAV ================= */
 nav {
     margin-top: 12px;
     display: flex;
@@ -82,6 +76,7 @@ nav {
 nav ul {
     display: flex;
     gap: 30px;
+    list-style: none;
 }
 
 nav ul a {
@@ -112,33 +107,28 @@ nav ul a:hover::after {
 }
 
 /* ================= CONTEÚDO ================= */
-
 .container {
     flex: 1;
 }
 
 /* ================= TÍTULO ================= */
-
 .titulo {
     text-align: center;
     margin: 40px 0 20px;
-    font-family: "Courier Prime", monospace;;
+
 }
 
 .titulo h1 {
     font-size: 28px;
     letter-spacing: 2px;
-    font-family: "Courier Prime", monospace;;
 }
 
 .titulo p {
     color: #555;
     margin-top: 8px;
-    font-family: "Courier Prime", monospace;
 }
 
 /* ================= GRID ================= */
-
 .grid-acessorios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -147,7 +137,6 @@ nav ul a:hover::after {
 }
 
 /* ================= CARD ================= */
-
 .card {
     background: #fff;
     border-radius: 15px;
@@ -189,8 +178,7 @@ nav ul a:hover::after {
     margin-bottom: 10px;
 }
 
-/* BOTÃO */
-
+/* ================= BOTÃO ================= */
 .btn {
     width: 100%;
     padding: 10px;
@@ -207,7 +195,6 @@ nav ul a:hover::after {
 }
 
 /* ================= FOOTER ================= */
-
 footer {
     margin-top: auto;
     background: #0d0d0d;
@@ -222,6 +209,5 @@ footer {
 }
 
 .footer-logo img {
-    width: 150px;
-    height: auto;
+    width: 140px;
 }
