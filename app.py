@@ -47,6 +47,10 @@ def produto(cod_produto):
 def acessorios():
     return render_template("pag_acessorios.html")
 
+@app.route("/comprar_acessorios")
+def comprar_acessorios():
+    return render_template("pag_comprar_acessorios.html")
+
 @app.route("/pag_sobrenos")
 def sobrenos():
     return render_template("pag_sobrenos.html")
