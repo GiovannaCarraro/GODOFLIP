@@ -3,6 +3,7 @@ from database.conexao import conectar
 
 def listar_produtos():
     conexao, cursor = conectar()
+    # Cursor normal com dicionário
     cursor = conexao.cursor(dictionary=True) 
 
     sql = """
@@ -17,14 +18,18 @@ def listar_produtos():
     INNER JOIN img_produtos
         ON produtos.cod_produto = img_produtos.produto_id
         
-    -- O NOME AQUI TEM QUE SER IGUAL AO DO BANCO:
-    WHERE produtos.categoria = 'Skate Completo'; 
+    -- O SEGREDO ESTÁ AQUI: Filtra para não trazer peças nem acessórios!
+    WHERE produtos.categoria = 'Skate Completo'
     """
 
     cursor.execute(sql)
-    produtos = cursor.fetchall()
+    
+    # fetchall() puxa tudo de uma vez e evita o erro de "Unread result"
+    produtos = cursor.fetchall() 
+
     cursor.close()
     conexao.close()
+    
     return produtos
 
 def buscar_produto(cod_produto):
@@ -94,50 +99,52 @@ def listar_banners():
 
 def listar_pecas():
     conexao, cursor = conectar()
+    cursor = conexao.cursor(dictionary=True) 
 
     sql = """
-    SELECT
-        p.cod_produto,
-        p.nome,
-        p.desc_produto,  -- Adicionado: Descrição do produto
-        p.preco,         -- Adicionado: Preço do produto
-        p.categoria,
-        i.url
-    FROM produtos p
-    INNER JOIN img_produtos i
-    ON p.cod_produto = i.produto_id
-    WHERE p.categoria = 'pecas';
+    SELECT 
+        produtos.cod_produto,
+        produtos.nome,
+        produtos.desc_produto,
+        produtos.preco,
+        produtos.categoria,
+        img_produtos.url
+    FROM produtos
+    INNER JOIN img_produtos
+        ON produtos.cod_produto = img_produtos.produto_id
+    WHERE produtos.categoria = 'pecas'
     """
 
     cursor.execute(sql)
-    produtos = cursor.fetchall()
+    pecas = cursor.fetchall() 
 
     cursor.close()
     conexao.close()
-
-    return produtos
+    
+    return pecas
 
 def listar_destaques():
     conexao, cursor = conectar()
+    cursor = conexao.cursor(dictionary=True)
 
-    # Busca 4 produtos aleatórios que tenham imagem
+   
     sql = """
     SELECT 
-        p.cod_produto, 
-        p.nome, 
-        p.preco, 
-        i.url 
+        p.cod_produto,
+        p.nome,
+        p.preco,
+        p.categoria,
+        (SELECT url FROM img_produtos WHERE produto_id = p.cod_produto LIMIT 1) AS url
     FROM produtos p
-    INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
-    ORDER BY RAND()
-    LIMIT 4;
     """
 
     cursor.execute(sql)
-    produtos = cursor.fetchall()
+    destaques = cursor.fetchall()
 
     cursor.close()
     conexao.close()
+    
+    return destaques
 
     return produtos
 
