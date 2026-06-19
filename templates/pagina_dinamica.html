@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ pagina.titulo }} - Godoflip{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_dinamica.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container-dinamico">
+    <h1 class="titulo-pagina">{{ pagina.titulo }}</h1>
+    <div class="linha-divisoria"></div>
+
+    <div class="conteudo-dinamico">
+        {{ pagina.conteudo | safe }}
+    </div>
+</div>
+{% endblock %}
