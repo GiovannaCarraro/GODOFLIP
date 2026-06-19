@@ -21,20 +21,20 @@ Favoritos - Godoflip
         {% for produto in favoritos %}
 
         <div class="card">
-
-            <img src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+            
+            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
 
             <div class="card-content">
 
-                <h3>{{ produto.nome }}</h3>
+                <h3>{{ produto['nome'] }}</h3>
 
                 <p class="preco">
-                    R$ {{ produto.preco }}
+                    R$ {{ produto['preco'] }}
                 </p>
 
-                <button class="btn">
+                <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn" style="text-decoration: none; display: inline-block; text-align: center;">
                     Comprar
-                </button>
+                </a>
 
                 <button class="btn-remover">
                     Remover
@@ -49,5 +49,4 @@ Favoritos - Godoflip
     </div>
 
 </section>
-
 {% endblock %}

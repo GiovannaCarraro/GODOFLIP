@@ -130,30 +130,23 @@ def login():
 
 
 @app.route('/favoritos')
-def favoritos():
+def favoritos(): 
+    if 'usuario_id' not in session:
+        return redirect('/login') 
+        
+    id_usuario = session['usuario_id']
+    meus_favoritos = listar_favoritos(id_usuario)
+    return render_template('pag_favoritos.html', favoritos=meus_favoritos)
 
-    usuario_id = session.get('usuario_id')
-
-    # if not usuario_id:
-    #     return redirect('/login')
-
-    lista = listar_favoritos(usuario_id)
-
-    favoritos = []
-
-    for item in lista:
-        favoritos.append({
-            "id": item[0],
-            "nome": item[1],
-            "preco": item[2],
-            "imagem": item[3]
-        })
-
-    return render_template(
-        'pag_favoritos.html',
-        favoritos=favoritos
-    )
-
+@app.route('/adicionar_favorito', methods=['POST'])
+def rota_adicionar_favorito():
+    # Esse print vai mostrar no seu terminal o que tem dentro da sessão:
+    print("CONTEÚDO DA SESSÃO:", session) 
+    
+    if 'usuario_id' not in session:
+        return redirect('/login')
+    
+    # ... resto do código
 
 @app.route('/localizacao')
 def localizacao():

@@ -1,7 +1,10 @@
 from database.conexao import conectar
-def listar_favoritos(usuario_id):
 
+def listar_favoritos(usuario_id):
     conexao, cursor = conectar()
+
+    # Adicione esta linha para podermos usar texto no HTML
+    cursor = conexao.cursor(dictionary=True)
 
     sql = """
     SELECT
@@ -18,7 +21,6 @@ def listar_favoritos(usuario_id):
     """
 
     cursor.execute(sql, (usuario_id,))
-
     favoritos = cursor.fetchall()
 
     cursor.close()
@@ -26,3 +28,17 @@ def listar_favoritos(usuario_id):
 
     return favoritos
 
+def adicionar_favorito(usuario_id, produto_id):
+    conexao, cursor = conectar()
+
+    
+    sql = """
+    INSERT IGNORE INTO favoritos (usuario_id, produto_id)
+    VALUES (%s, %s)
+    """
+
+    cursor.execute(sql, (usuario_id, produto_id))
+    conexao.commit() 
+
+    cursor.close()
+    conexao.close()
