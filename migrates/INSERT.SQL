@@ -102,3 +102,15 @@ ALTER TABLE usuarios ADD CONSTRAINT UNIQUE (email);
 -- 'Política de Trocas', 
  --    '<h2>Regras para Trocas e Devoluções</h2><p>Na GODOFLIP, você tem até 7 dias para trocar o seu skate ou peça caso não tenha curtido ou tenha vindo com defeito.</p><p>Para solicitar, envie um email para godoflip@gmail.com.</p>'
 -- );
+
+
+
+
+-- Desativa temporariamente as travas de chave estrangeira para limpar os testes antigos
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Limpa a tabela de usuários antigos (ou limpe também favoritos/comentarios se der erro)
+TRUNCATE TABLE usuarios;
+
+-- Reativa as chaves estrangeiras
+SET FOREIGN_KEY_CHECKS = 1;
