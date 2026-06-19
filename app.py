@@ -1,8 +1,12 @@
-from flask import Flask, render_template, redirect, request, session, jsonify
+from flask import Flask, render_template, redirect, request, session, jsonify, abort
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
-from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques, listar_acessorios
+
+from model.favoritos import listar_favoritos, adicionar_favorito
+
+
+from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques
+from model.skate import listar_acessorios, achar_acessorio
 
 app = Flask(__name__)
 
@@ -122,6 +126,9 @@ def login():
         usuario = verificar_login(email, senha)
 
         if usuario:
+          
+            session['usuario_id'] = usuario['cod_usuario'] 
+            
             return redirect('/')
 
         return "Email ou senha incorretos"
@@ -140,14 +147,21 @@ def favoritos():
 
 @app.route('/adicionar_favorito', methods=['POST'])
 def rota_adicionar_favorito():
-    # Esse print vai mostrar no seu terminal o que tem dentro da sessão:
-    print("CONTEÚDO DA SESSÃO:", session) 
     
     if 'usuario_id' not in session:
         return redirect('/login')
     
-    # ... resto do código
-
+    id_usuario = session['usuario_id']
+    id_produto = request.form.get('produto_id')
+    
+    
+    if id_produto:
+        adicionar_favorito(id_usuario, id_produto)
+    
+   
+    pagina_anterior = request.referrer or '/favoritos'
+    
+    return redirect(pagina_anterior)
 @app.route('/localizacao')
 def localizacao():
     return render_template('pag_loc.html')

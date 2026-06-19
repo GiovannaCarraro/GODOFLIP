@@ -28,8 +28,9 @@ def cadastrar_usuario(nome, email, senha, telefone, endereco):
 
 
 def verificar_login(email, senha):
-
     conexao, cursor = conectar()
+
+    cursor = conexao.cursor(dictionary=True, buffered=True)
 
     sql = """
     SELECT *
