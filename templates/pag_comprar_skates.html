@@ -59,13 +59,17 @@ GodoFlip - Detalhes do Skate
 
                 </div>
 
-                <div class="acoes">
+                        <div class="acoes">
 
-                    <button class="btn btn-favorito">❤️ Favoritar</button>
-                    <button class="btn btn-comentar">💬 Comentar</button>
-                    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+            <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
+                <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
+                <button type="submit" class="btn btn-favorito">❤️ Favoritar</button>
+            </form>
 
-                </div>
+            <button class="btn btn-comentar">💬 Comentar</button>
+            <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+
+        </div>
 
             </div>
 
