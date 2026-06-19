@@ -176,7 +176,6 @@ def favoritos():
         favoritos=meus_favoritos
     )
 
-<<<<<<< HEAD
 # adiciona um produto aos favoritos
 @app.route('/adicionar_favorito', methods=['POST'])
 def rota_adicionar_favorito():
@@ -232,27 +231,5 @@ def pag_comprar_skates(id_produto):
     )
 
 # inicia o servidor
-=======
-# Lembre-se de importar a função buscar_pagina_por_slug lá no topo!
-
-# @app.route("/p/<slug_da_pagina>")
-# def pagina_dinamica(slug_da_pagina):
-#     # 1. Tenta achar a página no banco de dados usando a palavra da URL
-#     pagina = buscar_pagina_por_slug(slug_da_pagina)
-    
-#     # 2. Se não achar nada, dá erro 404 (Página não encontrada)
-#     if not pagina:
-#         abort(404)
-        
-#     # 3. Se achar, envia os dados para o HTML genérico
-#     return render_template("pagina_dinamica.html", pagina=pagina)
-
-@app.route('/logout')
-def logout():
-    # Limpa todos os dados da sessão (remove o usuário fantasma)
-    session.clear() 
-    return redirect('/login')
-
->>>>>>> 60e35719a7035b1153b2278329d155e5633b33a5
 if __name__ == "__main__":
     app.run(debug=True)
