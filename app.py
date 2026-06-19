@@ -38,13 +38,6 @@ def pecas():
         produtos=produtos
     )
 
-# 4. COMPRAR PECAS
-@app.route('/comprar_pecas/<int:id_produto>')
-def comprar_pecas(id_produto):
-    produto = achar_produto(id_produto)
-    if not produto:
-        abort(404)
-    return render_template('pag_comprar_pecas.html', produto=produto)
 
 # 5. PAGINA ACESSORIOS
 @app.route("/pag_acessorios")
@@ -52,14 +45,39 @@ def acessorios():
     produtos = listar_acessorios()
     return render_template("pag_acessorios.html", produtos=produtos)
 
-@app.route("/comprar_acessorios")
-def comprar_acessorios():
-    return render_template("pag_comprar_acessorios.html")
+# 4. COMPRAR PECAS
+@app.route('/comprar_pecas/<int:id_produto>')
+def comprar_pecas(id_produto):
+    produto = achar_produto(id_produto)
+    if not produto:
+        abort(404)
+        
+    # BUSCA OS COMENTÁRIOS DA PEÇA
+    comentarios_da_peca = listar_comentarios_produto(id_produto)
+        
+    return render_template(
+        'pag_comprar_pecas.html', 
+        produto=produto, 
+        comentarios=comentarios_da_peca # Passa para o HTML
+    )
 
-# 6. PAGINA SOBRE NOS
-@app.route("/pag_sobrenos")
-def sobrenos():
-    return render_template("pag_sobrenos.html")
+# 5. COMPRAR ACESSORIOS 
+# (Nota: Ajustei sua rota para receber o id_produto, igual às outras!)
+@app.route("/comprar_acessorios/<int:id_produto>")
+def comprar_acessorios(id_produto):
+    produto = achar_acessorio(id_produto) # Usa a sua função que busca acessório
+    if not produto:
+        abort(404)
+
+    # BUSCA OS COMENTÁRIOS DO ACESSÓRIO
+    comentarios_do_acessorio = listar_comentarios_produto(id_produto)
+
+    return render_template(
+        "pag_comprar_acessorios.html", 
+        produto=produto, 
+        comentarios=comentarios_do_acessorio # Passa para o HTML
+    )
+
 
 @app.route('/sobre_nos')
 def sobre_nos():
