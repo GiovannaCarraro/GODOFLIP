@@ -182,5 +182,11 @@ def pag_comprar_skates(id_produto):
 #     # 3. Se achar, envia os dados para o HTML genérico
 #     return render_template("pagina_dinamica.html", pagina=pagina)
 
+@app.route('/logout')
+def logout():
+    # Limpa todos os dados da sessão (remove o usuário fantasma)
+    session.clear() 
+    return redirect('/login')
+
 if __name__ == "__main__":
     app.run(debug=True)
