@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Potta One', sans-serif;
 }
 
 body {
@@ -32,6 +31,12 @@ header {
     gap: 10px;
 }
 
+h1.titulo{
+    font-size: 85px;
+    letter-spacing: 3px;
+    font-family: "Sedgwick Ave", cursive;
+}
+
 .logo-area img {
     width: 50px;
     height: 50px;
@@ -43,11 +48,11 @@ header {
     letter-spacing: 3px;
 }
 
-.titulo {
+/* .titulo {
     font-size: 85px;
     letter-spacing: 3px;
     font-family: "Sedgwick Ave", cursive;
-}
+} */
 
 .header-icons a {
     color: #fff;
