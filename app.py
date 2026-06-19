@@ -90,37 +90,57 @@ def localizacao():
     return render_template('pag_loc.html')
 
 # 8. SISTEMA DE CADASTRO E LOGIN
+# 8. SISTEMA DE CADASTRO
+# 8. SISTEMA DE CADASTRO CORRIGIDO
 @app.route('/cadastro', methods=['GET', 'POST'])
 def rota_cadastro():
-    print(f"Recebi uma requisição com o método: {request.method}") # Isso vai aparecer no seu terminal!
-    
     if request.method == 'POST':
-        # Pegando os dados do formulário
         nome = request.form.get('nome')
         email = request.form.get('email')
         senha = request.form.get('senha')
         
-        print(f"Tentativa de cadastro: Nome={nome}, Email={email}")
+        # Se você tiver esses inputs no seu HTML (name="telefone" e name="endereco"), 
+        # o Flask vai pegar os valores. Se não tiver, ele envia uma string vazia "" por padrão.
+        telefone = request.form.get('telefone', '')
+        endereco = request.form.get('endereco', '')
         
-        # Por enquanto, apenas redireciona para o login para testar a rota
+        # 🔴 CORREÇÃO: Agora passamos os 5 argumentos que a sua função exige!
+        cadastrar_usuario(nome, email, senha, telefone, endereco)
+        
+        print(f"🟢 USUÁRIO CADASTRADO NO BANCO: Nome={nome}, Email={email}")
         return redirect('/login')
 
-    # Se for GET, renderiza o HTML correspondente
     return render_template('cadastro.html')
 
 
+# SISTEMA DE LOGIN (Com tratamento de Tupla/Dicionário e Logs)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
         
-        # Aqui entra a sua lógica de checar o login no banco...
-        return redirect('/')
+        usuario = verificar_login(email, senha)
         
-    # Se o método for GET, apenas renderiza a página de login
+        # 🔍 OLHE O TERMINAL DO VS CODE AQUI: Vai mostrar o que veio do banco
+        print(f"🔎 DEBUG LOGIN - Retorno do banco para {email}: {usuario}")
+        
+        if usuario:
+            # Proteção: verifica se o banco devolveu um Dicionário ou uma Tupla
+            if isinstance(usuario, dict):
+                # Se for dicionário, usa a chave string
+                session['usuario_id'] = usuario['cod_usuario']
+            else:
+                # Se for tupla, o cod_usuario é a primeira coluna (posição 0)
+                session['usuario_id'] = usuario[0]
+            
+            print(f"🔒 SESSÃO ATIVADA - ID do usuário logado: {session['usuario_id']}")
+            return redirect('/')
+        else:
+            print("❌ LOGIN FALHOU - Usuário não encontrado ou senha incorreta no banco.")
+            return render_template('login.html', erro="Email ou senha incorretos")
+            
     return render_template('login.html')
-
 # 9. SISTEMA DE FAVORITOS
 @app.route('/favoritos')
 def favoritos(): 
