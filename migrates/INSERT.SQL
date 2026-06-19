@@ -79,7 +79,7 @@ INSERT INTO img_produtos (produto_id, url)
 VALUES 
 (11, 'img_acessorios/lixa.webp'),
 (12, 'img_acessorios/rodas.webp'),
-(13, 'img_acessorios/rolamento.jpg');
+(13, 'img_acessorios/rolamentos.jpg');
 
 INSERT INTO img_produtos (produto_id, url)
 VALUES
