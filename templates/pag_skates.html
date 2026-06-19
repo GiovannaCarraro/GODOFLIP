@@ -10,7 +10,6 @@ Skates - GodoFlip
 
 {% block content %}
 
-<!-- título -->
 <section class="titulo-page">
     <h2>SKATES</h2>
     <p>Escolha o que mais te atrai.</p>
@@ -29,6 +28,11 @@ Skates - GodoFlip
         <h3>{{ produto.nome }}</h3>
         <p class="preco">R$ {{ produto.preco }}</p>
         <p>{{ produto.desc_produto }}</p>
+
+        <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}" 
+           style="display: inline-block; background-color: #000; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold;">
+            Comprar
+        </a>
 
     </div>
 

@@ -3,28 +3,23 @@ from database.conexao import conectar
 
 def listar_produtos():
     conexao, cursor = conectar()
-    # Cursor normal com dicionário
     cursor = conexao.cursor(dictionary=True) 
 
     sql = """
     SELECT 
-        produtos.cod_produto,
-        produtos.nome,
-        produtos.desc_produto,
-        produtos.preco,
-        produtos.categoria,
-        img_produtos.url
-    FROM produtos
-    INNER JOIN img_produtos
-        ON produtos.cod_produto = img_produtos.produto_id
-        
-    -- O SEGREDO ESTÁ AQUI: Filtra para não trazer peças nem acessórios!
-    WHERE produtos.categoria = 'Skate Completo'
+        p.cod_produto,
+        p.nome,
+        p.desc_produto,
+        p.preco,
+        p.categoria,
+        MIN(i.url) AS url
+    FROM produtos p
+    INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
+    WHERE p.categoria = 'Skate Completo'
+    GROUP BY p.cod_produto
     """
 
     cursor.execute(sql)
-    
-    # fetchall() puxa tudo de uma vez e evita o erro de "Unread result"
     produtos = cursor.fetchall() 
 
     cursor.close()
@@ -127,15 +122,16 @@ def listar_destaques():
     conexao, cursor = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-   
     sql = """
     SELECT 
         p.cod_produto,
         p.nome,
         p.preco,
         p.categoria,
-        (SELECT url FROM img_produtos WHERE produto_id = p.cod_produto LIMIT 1) AS url
+        MIN(i.url) AS url
     FROM produtos p
+    INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
+    GROUP BY p.cod_produto
     """
 
     cursor.execute(sql)
@@ -145,9 +141,6 @@ def listar_destaques():
     conexao.close()
     
     return destaques
-
-    return produtos
-
 
 def listar_acessorios():
     conexao, cursor = conectar()
