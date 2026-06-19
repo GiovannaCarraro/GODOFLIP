@@ -123,3 +123,52 @@ def listar_destaques():
     conexao.close()
 
     return produtos
+
+
+def listar_acessorios():
+    conexao, cursor = conectar()
+    
+    # Cursor como dicionário para podermos usar texto no HTML
+    cursor = conexao.cursor(dictionary=True) 
+
+    sql = """
+    SELECT
+        p.cod_produto,
+        p.nome,
+        p.desc_produto,
+        p.preco,
+        p.categoria,
+        i.url
+    FROM produtos p
+    INNER JOIN img_produtos i
+        ON p.cod_produto = i.produto_id
+    WHERE p.categoria = 'acessorios';
+    """
+
+    cursor.execute(sql)
+    produtos = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return produtos
+
+def achar_acessorio(cod_produto):
+    conexao, cursor = conectar()
+    cursor = conexao.cursor(dictionary=True)
+
+    sql = """
+    SELECT *
+    FROM produtos
+    INNER JOIN img_produtos
+        ON produtos.cod_produto = img_produtos.produto_id
+    WHERE produtos.cod_produto = %s
+    """
+    
+    cursor.execute(sql, (cod_produto,))
+    produto = cursor.fetchone()
+
+    cursor.close()
+    conexao.close()
+
+    return produto

@@ -48,7 +48,6 @@ VALUES
 (4, 'imagens/skate4_angulo1.webp'),
 (5, 'imagens/skate5_angulo1.webp');
 
-USE db_skate;
 
 INSERT INTO produtos
 (nome, desc_produto, preco, categoria)
@@ -67,3 +66,25 @@ VALUES
 (3, 'img_pecas/rolamentos.jpg'),
 (4, 'img_pecas/parafusos.webp'),
 (5, 'img_pecas/lixa.webp');
+
+
+INSERT INTO produtos (nome, desc_produto, preco, categoria) 
+VALUES 
+('Lixa Profissional', 'Alta aderência para manobras precisas.', 29.90, 'acessorios'),
+('Rodas Street', 'Durabilidade e velocidade para o dia a dia.', 89.90, 'acessorios'),
+('Rolamentos ABEC-7', 'Desempenho suave e rápido.', 59.90, 'acessorios');
+
+
+INSERT INTO img_produtos (produto_id, url) 
+VALUES 
+(11, 'img_acessorios/lixa.webp'),
+(12, 'img_acessorios/rodas.webp'),
+(13, 'img_acessorios/rolamento.jpg');
+
+INSERT INTO img_produtos (produto_id, url)
+VALUES
+(6, 'img_pecas/truck.webp'),
+(7, 'img_pecas/rodas.webp'),
+(8, 'img_pecas/rolamentos.jpg'),
+(9, 'img_pecas/parafusos.webp'),
+(10, 'img_pecas/lixa.webp');
