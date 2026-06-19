@@ -202,7 +202,7 @@ def rota_remover_favorito():
 
     return redirect('/favoritos')
 
-
+#BAIXAR O MODELLLL
 
 # @app.route("/p/<slug_da_pagina>")
 # def pagina_dinamica(slug_da_pagina):
