@@ -3,22 +3,29 @@ from database.conexao import conectar
 
 def listar_produtos():
     conexao, cursor = conectar()
+    cursor = conexao.cursor(dictionary=True) 
 
-    cursor.execute("""
-        SELECT *
-        FROM produtos
-        INNER JOIN img_produtos
+    sql = """
+    SELECT 
+        produtos.cod_produto,
+        produtos.nome,
+        produtos.desc_produto,
+        produtos.preco,
+        produtos.categoria,
+        img_produtos.url
+    FROM produtos
+    INNER JOIN img_produtos
         ON produtos.cod_produto = img_produtos.produto_id
-        WHERE produtos.categoria = 'Skate Completo';
-    """)
+        
+    -- O NOME AQUI TEM QUE SER IGUAL AO DO BANCO:
+    WHERE produtos.categoria = 'Skate Completo'; 
+    """
 
+    cursor.execute(sql)
     produtos = cursor.fetchall()
-
     cursor.close()
     conexao.close()
-
     return produtos
-
 
 def buscar_produto(cod_produto):
     conexao, cursor = conectar()
