@@ -48,19 +48,17 @@ Godoflip
     <h2>DESTAQUES</h2>
 
     <div class="cards">
-        {% for produto in produtos %}
-        <div class="card">
-            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
-
-            <div class="card-content">
-                <h3>{{ produto['nome'] }}</h3>
-                
-                <p class="preco">R$ {{ produto['preco'] }}</p>
-                
-                <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn">
-                    Comprar
-                </a>
-            </div>
+                {% for produto in produtos_destaque %}
+        <div class="card-produto">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
+            
+            <h3>{{ produto.nome }}</h3>
+            
+            <p class="descricao-curta">{{ produto.desc_produto | truncate(60) }}</p>
+            
+            <span class="preco">R$ {{ produto.preco }}</span>
+            
+            <a href="/comprar/{{ produto.cod_produto }}" class="btn-comprar">Comprar</a>
         </div>
         {% endfor %}
     </div>

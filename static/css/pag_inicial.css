@@ -219,10 +219,14 @@ main,
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+/* Localize onde está o estilo da imagem dentro do card_produto */
+.card-produto img {
+    width: 100%;             /* Ocupa toda a largura disponível do card */
+    height: 250px;           /* Altere para a altura que preferir (ex: 220px, 250px, 280px) */
+    object-fit: contain;     /* ISSO É O SEGREDO: ajusta a foto dentro do tamanho sem distorcer */
+    background-color: #f9f9f9; /* Opcional: um fundo bem clarinho para preencher o espaço se o fundo da foto for transparente */
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
 .card-content {

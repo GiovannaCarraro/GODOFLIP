@@ -10,7 +10,7 @@ from model.comentarios import listar_comentarios_produto, adicionar_comentario_d
 app = Flask(__name__)
 app.secret_key = "chiclete"
 
-# 1. PAGINA INICIAL (Resolvido o clone que tinha aqui)
+
 @app.route("/")
 def index():
     produtos_destaque = listar_destaques()
