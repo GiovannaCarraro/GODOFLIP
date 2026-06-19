@@ -14,9 +14,25 @@ GodoFlip - {{ produto['nome'] }}
 
     <section class="produto-container">
 
-        <div class="produto-imagem">
-            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
+       <div class="produto-galeria">
+
+    <div class="imagem-principal">
+        <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
+    </div>
+
+    <div class="miniaturas-container">
+        <div class="miniatura active">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 1">
         </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 2">
+        </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 3">
+        </div>
+    </div>
+
+</div>
 
         <div class="produto-info">
 

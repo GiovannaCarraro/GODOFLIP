@@ -93,3 +93,12 @@ ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE;
 
 -- Ativa o destaque apenas para alguns IDs específicos
 UPDATE produtos SET destaque = TRUE WHERE cod_produto IN (1, 2, 3);
+
+ALTER TABLE usuarios ADD CONSTRAINT UNIQUE (email);
+
+-- INSERT INTO paginas_dinamicas (slug, titulo, conteudo) 
+-- VALUES (
+-- 'politica-de-trocas', 
+-- 'Política de Trocas', 
+ --    '<h2>Regras para Trocas e Devoluções</h2><p>Na GODOFLIP, você tem até 7 dias para trocar o seu skate ou peça caso não tenha curtido ou tenha vindo com defeito.</p><p>Para solicitar, envie um email para godoflip@gmail.com.</p>'
+-- );

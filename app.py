@@ -5,7 +5,7 @@ from model.skate import listar_produtos, buscar_produto, achar_produto, listar_b
 from model.skate import listar_acessorios, achar_acessorio
 from model.comentarios import listar_comentarios_produto, adicionar_comentario_db
 
-# from model.pagina import buscar_pagina_por_slug
+from model.pagina import buscar_pagina_por_slug
 
 app = Flask(__name__)
 app.secret_key = "chiclete"
@@ -190,14 +190,9 @@ def rota_remover_favorito():
 
 # @app.route("/p/<slug_da_pagina>")
 # def pagina_dinamica(slug_da_pagina):
-#     # 1. Tenta achar a página no banco de dados usando a palavra da URL
 #     pagina = buscar_pagina_por_slug(slug_da_pagina)
-    
-#     # 2. Se não achar nada, dá erro 404 (Página não encontrada)
 #     if not pagina:
 #         abort(404)
-        
-#     # 3. Se achar, envia os dados para o HTML genérico
 #     return render_template("pagina_dinamica.html", pagina=pagina)
 
 @app.route('/logout')

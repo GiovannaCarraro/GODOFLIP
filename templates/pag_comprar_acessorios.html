@@ -20,17 +20,23 @@ GodoFlip - Detalhes do Acessório
 
             <div class="produto-galeria">
 
-                <div class="imagem-principal">
-                    <img src="{{ url_for('static', filename='img/acessorio1.jpg') }}" alt="Acessório">
-                </div>
+    <div class="imagem-principal">
+        <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
+    </div>
 
-                <div class="miniaturas">
-                    <img src="{{ url_for('static', filename='img/acessorio1.jpg') }}" alt="">
-                    <img src="{{ url_for('static', filename='img/acessorio2.jpg') }}" alt="">
-                    <img src="{{ url_for('static', filename='img/acessorio3.jpg') }}" alt="">
-                </div>
+    <div class="miniaturas-container">
+        <div class="miniatura active">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 1">
+        </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 2">
+        </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Ângulo 3">
+        </div>
+    </div>
 
-            </div>
+</div>
 
             <div class="produto-info">
 
