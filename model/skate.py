@@ -121,26 +121,24 @@ def listar_pecas():
 def listar_destaques():
     conexao, cursor = conectar()
     cursor = conexao.cursor(dictionary=True)
-
+    
+    # Mudamos o WHERE de 'p.disponibilidade = TRUE' para 'p.destaque = TRUE'
     sql = """
-    SELECT 
-        p.cod_produto,
-        p.nome,
-        p.preco,
-        p.categoria,
-        MIN(i.url) AS url
-    FROM produtos p
-    INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
-    GROUP BY p.cod_produto
+        SELECT p.*, i.url 
+        FROM produtos p
+        INNER JOIN img_produtos i ON p.cod_produto = i.produto_id
+        WHERE p.destaque = TRUE AND p.disponibilidade = TRUE
+        GROUP BY p.cod_produto
+        LIMIT 5
     """
-
+    
     cursor.execute(sql)
-    destaques = cursor.fetchall()
-
+    produtos = cursor.fetchall()
+    
     cursor.close()
     conexao.close()
     
-    return destaques
+    return produtos
 
 def listar_acessorios():
     conexao, cursor = conectar()

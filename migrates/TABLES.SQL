@@ -106,3 +106,10 @@ CREATE TABLE itens_pedidos (
     FOREIGN KEY (produto_id)
     REFERENCES produtos(cod_produto)
 );
+
+CREATE TABLE paginas_dinamicas (
+    cod_pagina INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(50) UNIQUE, 
+    titulo VARCHAR(100),     
+    conteudo TEXT           
+);

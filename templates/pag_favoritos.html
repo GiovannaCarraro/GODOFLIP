@@ -24,6 +24,7 @@ Favoritos - Godoflip
     <!-- área onde os cards serão exibidos -->
     <div class="cards">
 
+<<<<<<< HEAD
         <!-- percorre todos os produtos favoritados -->
         {% for produto in favoritos %}
 
@@ -31,9 +32,20 @@ Favoritos - Godoflip
 
             <!-- imagem do produto -->
             <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
+=======
+{% for produto in favoritos %}
+<div class="card">
+    <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
 
-            <div class="card-content">
+    <div class="card-content">
+        <h3>{{ produto['nome'] }}</h3>
+>>>>>>> bee1bc2fbfe4e11321b6d5b02609713a5147d0e7
 
+        <p class="descricao-curta" style="font-size: 14px; color: #555; margin-bottom: 8px;">
+            {{ produto['desc_produto'] | truncate(60) }}
+        </p>
+
+<<<<<<< HEAD
                 <!-- nome do produto -->
                 <h3>{{ produto['nome'] }}</h3>
 
@@ -58,7 +70,24 @@ Favoritos - Godoflip
         </div>
 
         {% endfor %}
+=======
+        <p class="preco">R$ {{ produto['preco'] }}</p>
 
+        <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn" style="text-decoration: none; display: inline-block; text-align: center;">
+            Comprar
+        </a>
+
+        <form action="/remover_favorito" method="POST" style="margin-top: 8px;">
+    <input type="hidden" name="produto_id" value="{{ produto['cod_produto'] }}">
+    <button type="submit" class="btn-remover" style="width: 100%; padding: 10px; border: 1px solid #ff4d6d; background: #fff; color: #ff4d6d; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s;">
+        Remover
+    </button>
+</form>
+>>>>>>> bee1bc2fbfe4e11321b6d5b02609713a5147d0e7
+
+    </div>
+</div>
+{% endfor %}
     </div>
 
 </section>

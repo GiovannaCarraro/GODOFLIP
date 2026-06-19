@@ -5,16 +5,13 @@ from database.conexao import conectar
 
 # importa as funções de usuario
 from model.usuario import cadastrar_usuario, verificar_login
-
-# importa as funções de favoritos
-from model.favoritos import listar_favoritos, adicionar_favorito
-
-# importa as funções relacionadas aos produtos
+from model.favoritos import listar_favoritos, adicionar_favorito, remover_favorito
 from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques
 from model.skate import listar_acessorios, achar_acessorio
 
 # importa as funções de comentários
 from model.comentarios import listar_comentarios_produto, adicionar_comentario_db
+
 # from model.pagina import buscar_pagina_por_slug
 
 # cria a aplicação flask
@@ -23,7 +20,6 @@ app = Flask(__name__)
 # chave usada para controlar as sessões
 app.secret_key = "chiclete"
 
-# pagina inicial
 @app.route("/")
 def index():
 
@@ -113,48 +109,35 @@ def localizacao():
 
 # sistema de cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro():
-
-    # verifica se o formulario foi enviado
+def rota_cadastro():
+    print(f"Recebi uma requisição com o método: {request.method}") # Isso vai aparecer no seu terminal!
+    
     if request.method == 'POST':
-
-        # recebe os dados digitados
-        nome = request.form['nome']
-        email = request.form['email']
-        senha = request.form['senha']
-        telefone = request.form['telefone']
-        endereco = request.form['endereco']
-
-        # cadastra o usuario no banco
-        cadastrar_usuario(nome, email, senha, telefone, endereco)
-
+        # Pegando os dados do formulário
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        print(f"Tentativa de cadastro: Nome={nome}, Email={email}")
+        
+        # Por enquanto, apenas redireciona para o login para testar a rota
         return redirect('/login')
 
+    # Se for GET, renderiza o HTML correspondente
     return render_template('cadastro.html')
 
-# sistema de login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
     # verifica se o formulario foi enviado
     if request.method == 'POST':
-
-        # recebe email e senha
-        email = request.form['email']
-        senha = request.form['senha']
-
-        # verifica se o usuario existe
-        usuario = verificar_login(email, senha)
-
-        if usuario:
-
-            # salva o id do usuario na sessão
-            session['usuario_id'] = usuario['cod_usuario']
-
-            return redirect('/')
-
-        return "Email ou senha incorretos"
-
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        # Aqui entra a sua lógica de checar o login no banco...
+        return redirect('/')
+        
+    # Se o método for GET, apenas renderiza a página de login
     return render_template('login.html')
 
 # pagina de favoritos
@@ -176,9 +159,23 @@ def favoritos():
         favoritos=meus_favoritos
     )
 
-# adiciona um produto aos favoritos
-@app.route('/adicionar_favorito', methods=['POST'])
-def rota_adicionar_favorito():
+@app.route('/remover_favorito', methods=['POST'])
+def rota_remover_favorito():
+    # Se o usuário não estiver logado, manda para o login
+    if 'usuario_id' not in session:
+        return redirect('/login')
+    
+    id_usuario = session['usuario_id']
+    id_produto = request.form.get('produto_id')
+    
+    if id_produto:
+        # Chama a função que criamos no model para deletar do banco
+        remover_favorito(id_usuario, id_produto)
+        
+    # Atualiza a própria página de favoritos para mostrar que sumiu
+    return redirect('/favoritos')
+
+# Lembre-se de importar a função buscar_pagina_por_slug lá no topo!
 
     # impede acesso sem login
     if 'usuario_id' not in session:

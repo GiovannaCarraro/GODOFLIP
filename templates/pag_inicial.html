@@ -74,6 +74,7 @@ Godoflip
     <h2>DESTAQUES</h2>
 
     <div class="cards">
+<<<<<<< HEAD
 
         <!-- percorre os produtos cadastrados -->
         {% for produto in produtos %}
@@ -100,6 +101,19 @@ Godoflip
 
             </div>
 
+=======
+                {% for produto in produtos_destaque %}
+        <div class="card-produto">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
+            
+            <h3>{{ produto.nome }}</h3>
+            
+            <p class="descricao-curta">{{ produto.desc_produto | truncate(60) }}</p>
+            
+            <span class="preco">R$ {{ produto.preco }}</span>
+            
+            <a href="/comprar/{{ produto.cod_produto }}" class="btn-comprar">Comprar</a>
+>>>>>>> bee1bc2fbfe4e11321b6d5b02609713a5147d0e7
         </div>
 
         {% endfor %}
