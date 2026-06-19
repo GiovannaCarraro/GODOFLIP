@@ -274,3 +274,40 @@ footer {
 .footer-logo img {
     width: 40px;
 }
+
+/* ================= GALERIA DE MINIATURAS ================= */
+
+/* Container que segura as 3 fotinhos lado a lado */
+.miniaturas-container {
+    display: flex;
+    justify-content: center; /* Centraliza as miniaturas abaixo da foto principal */
+    gap: 15px;               /* Espaçamento entre elas */
+    margin-top: 20px;        /* Afasta as miniaturas da imagem grande */
+    width: 100%;
+}
+
+/* Estilo individual de cada caixinha de miniatura */
+.miniatura {
+    width: 75px;             /* Largura ideal para o shape do skate aparecer bem */
+    height: 75px;            /* Altura padrão quadradinha */
+    border: 2px solid #ddd;  /* Bordinha cinza claro padrão */
+    border-radius: 8px;      /* Cantos arredondados */
+    overflow: hidden;
+    background-color: #fff;  /* Fundo branco caso o fundo do produto seja transparente */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse ou quando a imagem estiver ativa */
+.miniatura:hover, .miniatura.active {
+    border-color: #ff4d6d;   /* Borda rosa marcante do Godoflip */
+    transform: scale(1.05);  /* Dá um leve zoom bem sutil e elegante */
+}
+
+/* Garante que a foto do skate caiba e fique perfeita dentro do quadradinho */
+.miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;     /* Não deixa a imagem distorcer nem amassar */
+    display: block;
+}
