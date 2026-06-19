@@ -29,12 +29,22 @@ def listar_favoritos(id_usuario):
 
 def adicionar_favorito(id_usuario, id_produto):
     conexao, cursor = conectar()
-    
-    sql = "INSERT INTO favoritos (usuario_id, produto_id) VALUES (%s, %s)"
-    cursor.execute(sql, (id_usuario, id_produto))
-    
-    # SE FALTAR ESSA LINHA, O BANCO NÃO SALVA! 🔴
-    conexao.commit() 
-    
+    # Usamos o cursor normal aqui para essa verificação rápida
+    cursor = conexao.cursor() 
+
+    # 1. Pergunta para o banco se esse usuário já favoritou esse produto específico
+    sql_verificar = "SELECT * FROM favoritos WHERE usuario_id = %s AND produto_id = %s"
+    cursor.execute(sql_verificar, (id_usuario, id_produto))
+    ja_existe = cursor.fetchone()
+
+    # 2. Se o banco disser "não encontrei nada" (None), aí sim a gente faz o INSERT
+    if not ja_existe:
+        sql_insert = "INSERT INTO favoritos (usuario_id, produto_id) VALUES (%s, %s)"
+        cursor.execute(sql_insert, (id_usuario, id_produto))
+        conexao.commit()
+    else:
+        # Se já existir, o Python ignora silenciosamente e não duplica nada!
+        print("Este produto já está nos favoritos do usuário.")
+
     cursor.close()
     conexao.close()
