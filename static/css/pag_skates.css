@@ -1,4 +1,4 @@
-/* RESET */
+/* remove as configurações padrão do navegador */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
     font-family:"Courier Prime", monospace;
 }
 
+/* estilização geral da página */
 body {
     background: #f6f6f6;
     color: #111;
 }
 
-/* ================= HEADER ================= */
-
+/* cabeçalho principal */
 header {
     background: #0d0d0d;
     color: #fff;
@@ -20,23 +20,27 @@ header {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* organiza os elementos do topo */
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* logo do site */
 .logo img {
     width: 150px;
     height: auto;
 }
 
+/* titulo principal */
 .titulo {
     font-size: 85px;
     letter-spacing: 3px;
     font-family: "Sedgwick Ave", cursive;
 }
 
+/* icones do cabeçalho */
 .icons a {
     color: #fff;
     margin-left: 18px;
@@ -44,12 +48,13 @@ header {
     transition: 0.3s;
 }
 
+/* efeito ao passar o mouse nos icones */
 .icons a:hover {
     color: #ff4d6d;
     transform: scale(1.15);
 }
 
-/* NAV */
+/* menu de navegação */
 nav {
     margin-top: 12px;
     display: flex;
@@ -57,6 +62,7 @@ nav {
     gap: 30px;
 }
 
+/* links do menu */
 nav a {
     text-decoration: none;
     color: #ddd;
@@ -65,10 +71,12 @@ nav a {
     transition: 0.3s;
 }
 
+/* efeito ao passar o mouse nos links */
 nav a:hover {
     color: #fff;
 }
 
+/* linha animada dos links */
 nav a::after {
     content: "";
     position: absolute;
@@ -80,29 +88,30 @@ nav a::after {
     transition: 0.3s;
 }
 
+/* faz a linha aparecer */
 nav a:hover::after {
     width: 100%;
 }
 
-/* ================= TITULO ================= */
-
+/* titulo da página */
 .titulo-page {
     text-align: center;
     margin: 40px 0 20px;
 }
 
+/* texto do titulo */
 .titulo-page h2 {
     font-size: 28px;
     letter-spacing: 2px;
 }
 
+/* subtitulo */
 .titulo-page p {
     color: #555;
     margin-top: 8px;
 }
 
-/* ================= PRODUTOS ================= */
-
+/* área dos produtos */
 .produtos {
     display: flex;
     justify-content: center;
@@ -111,7 +120,7 @@ nav a:hover::after {
     padding: 20px 40px 60px;
 }
 
-/* CARD */
+/* card do produto */
 .card {
     width: 250px;
     background: #fff;
@@ -123,37 +132,41 @@ nav a:hover::after {
     transition: 0.3s;
 }
 
+/* efeito ao passar o mouse no card */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-/* IMAGENS (efeito stack tipo produto girando) */
+/* imagens dos produtos */
 .card img {
     width: 300px;
     object-fit: cover;
     display: none;
 }
 
+/* exibe apenas a primeira imagem */
 .card img:first-child {
     display: block;
 }
 
-/* se quiser futuramente JS pra trocar imagens */
+/* efeito na imagem ao passar o mouse */
 .card:hover img {
     filter: brightness(0.95);
 }
 
-/* CONTEÚDO */
+/* conteúdo do card */
 .card-content {
     padding: 15px;
 }
 
+/* nome do produto */
 .card-content h3 {
     font-size: 15px;
     margin-bottom: 8px;
 }
 
+/* preço do produto */
 .preco {
     color: #ff4d6d;
     font-size: 18px;

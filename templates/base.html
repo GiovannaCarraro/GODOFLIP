@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+<<<<<<< HEAD
 {% block title %}
 Sobre Nós - Godoflip
 {% endblock %}
@@ -22,11 +23,43 @@ Sobre Nós - Godoflip
                 Toda grande marca de skate nasce de uma obsessão: a busca pela manobra perfeita, pelo shape ideal ou pela adrenalina do asfalto.
                 A Godoflip nasceu de tudo isso... e de um roedor de cinco centímetros chamado Godofredo.
             </p>
+=======
+<head>
+
+    <!-- define os caracteres e deixa funcionar acentos -->
+    <meta charset="UTF-8">
+
+    <!-- deixa o site responsivo em celular e tablet -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- titulo da pagina que pode ser alterado em outras paginas -->
+    <title>{% block title %}Godoflip{% endblock %}</title>
+
+    <!-- importa as fontes usadas no site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Sedgwick+Ave&display=swap"
+        rel="stylesheet">
+
+    <!-- importa os icones do font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- css principal usado em todo o site -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_inicial.css') }}">
+
+    <!-- bloco para adicionar css especifico de cada pagina -->
+    {% block css %}{% endblock %}
+
+</head>
+>>>>>>> 1ecbf0cccc1bdea663e53e974cb3d1494df3e138
 
             <p>
                 Isso mesmo. Você não leu errado.
             </p>
 
+<<<<<<< HEAD
             <p>
                 Em 2018, quando a marca era apenas um sonho rabiscado no fundo de um caderno de escola, nossa maior inspiração não vinha dos vídeos de canais gringos, mas sim da gaiola que ficava no canto da nossa primeira oficina improvisada.
             </p>
@@ -42,6 +75,40 @@ Sobre Nós - Godoflip
             <p>
                 Assim nasceu a Godoflip.
             </p>
+=======
+    <!-- cabeçalho principal -->
+    <header>
+
+        <div class="top-header">
+
+            <!-- logo da loja -->
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo/logo-hamster.png') }}" alt="logo">
+            </div>
+
+            <!-- nome da marca -->
+            <h1 class="titulo">GODOFLIP</h1>
+
+            <!-- icones de acesso rapido -->
+            <div class="icons">
+
+                <!-- pagina de login -->
+                <a href="{{ url_for('login') }}">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <!-- pagina de favoritos -->
+                <a href="{{ url_for('favoritos') }}">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+
+                <!-- pagina de localização -->
+                <a href="{{ url_for('localizacao') }}">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+            </div>
+>>>>>>> 1ecbf0cccc1bdea663e53e974cb3d1494df3e138
 
             <p>
                 Seja bem-vindo à família. Agora bota o shape no chão e manda um flip!
@@ -50,4 +117,46 @@ Sobre Nós - Godoflip
     </section>
 </main>
 
+<<<<<<< HEAD
 {% endblock %}
+=======
+        <!-- menu de navegação -->
+        <nav>
+            <a href="/">Início</a>
+            <a href="/skates">Skates</a>
+            <a href="/pag_acessorios">Acessórios</a>
+            <a href="/pag_pecas">Peças</a>
+            <a href="/sobre_nos">Sobre Nós</a>
+        </nav>
+
+    </header>
+
+    <!-- conteudo que muda em cada pagina -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- rodape do site -->
+    <footer>
+
+        <!-- informações de contato -->
+        <div class="contato">
+            <h3>CONTATO:</h3>
+            <p>📞 (16) 99999-9999</p>
+            <p>📧 godoflip@gmail.com</p>
+        </div>
+
+        <!-- logo no rodape -->
+        <div class="footer-logo">
+            <img src="{{ url_for('static', filename='logo/logo-hamster.png') }}" alt="logo">
+        </div>
+
+    </footer>
+
+    <!-- bloco para adicionar javascript especifico de cada pagina -->
+    {% block js %}{% endblock %}
+
+</body>
+
+</html>
+>>>>>>> 1ecbf0cccc1bdea663e53e974cb3d1494df3e138

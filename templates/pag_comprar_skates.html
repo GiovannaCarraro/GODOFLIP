@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 GodoFlip - Detalhes do Skate
 {% endblock %}
 
+<!-- css especifico da pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_skates.css') }}">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
 <main class="container">
 
+    <!-- seção principal do produto -->
     <section class="produto-section">
 
+        <!-- titulo da pagina -->
         <h1 class="titulo-pagina">
             Detalhes do Produto
         </h1>
 
         <div class="produto-container">
 
+            <!-- imagem do produto -->
             <div class="produto-galeria">
 
                 <div class="imagem-principal">
@@ -29,18 +35,23 @@ GodoFlip - Detalhes do Skate
 
             </div>
 
+            <!-- informações do produto -->
             <div class="produto-info">
 
+                <!-- nome do produto -->
                 <h2>{{ produto.nome }}</h2>
 
+                <!-- preço -->
                 <div class="preco">
                     R$ {{ produto.preco }}
                 </div>
 
+                <!-- descrição -->
                 <p class="descricao">
                     {{ produto.desc_produto }}
                 </p>
 
+                <!-- informações extras -->
                 <div class="info-extra">
 
                     <p>
@@ -50,60 +61,97 @@ GodoFlip - Detalhes do Skate
 
                     <p>
                         <strong>Disponibilidade:</strong>
+
+                        <!-- verifica se o produto esta disponivel -->
                         {% if produto.disponibilidade %}
                             Em estoque
                         {% else %}
                             Indisponível
                         {% endif %}
+
                     </p>
 
                 </div>
 
-                        <div class="acoes">
+                <!-- área de ações do produto -->
+                <div class="acoes">
 
-            <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
-                <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
-                <button type="submit" class="btn btn-favorito">❤️ Favoritar</button>
-            </form>
+                    <!-- botão para adicionar aos favoritos -->
+                    <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
+                        <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
+                        <button type="submit" class="btn btn-favorito">❤️ Favoritar</button>
+                    </form>
 
-            <button class="btn btn-comentar">💬 Comentar</button>
-            <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+                    <!-- botão para comentar -->
+                    <button class="btn btn-comentar">💬 Comentar</button>
 
-        </div>
+                    <!-- botão para adicionar ao carrinho -->
+                    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+
+                </div>
 
             </div>
 
         </div>
 
+        <!-- seção de comentários -->
         <section class="comentarios">
 
-    <h2>Comentários</h2>
+            <h2>Comentários</h2>
 
-    <form action="/adicionar_comentario" method="POST" style="margin-bottom: 20px;">
-        <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
-        
-        <textarea name="texto" placeholder="Escreva seu comentário..." required style="width: 100%; height: 80px; margin-bottom: 10px; padding: 10px;"></textarea>
+            <!-- formulario para adicionar comentários -->
+            <form action="/adicionar_comentario" method="POST" style="margin-bottom: 20px;">
 
-        <button type="submit" class="btn-publicar" style="background-color: #000; color: #fff; padding: 10px 15px; border: none; cursor: pointer;">
-            Publicar Comentário
-        </button>
-    </form>
+                <!-- envia o id do produto junto com o comentário -->
+                <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
 
-    <div class="lista-comentarios">
-        {% if comentarios %}
-            {% for c in comentarios %}
-                <div class="comentario-item" style="border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 10px;">
-                    <strong>{{ c.nome_usuario }}</strong> 
-                    <span style="font-size: 12px; color: gray;">disse:</span>
-                    <p style="margin-top: 5px;">{{ c.comentario }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>
-        {% endif %}
-    </div>
+                <!-- campo para escrever o comentário -->
+                <textarea name="texto" placeholder="Escreva seu comentário..." required
+                    style="width: 100%; height: 80px; margin-bottom: 10px; padding: 10px;"></textarea>
 
-</section>
+                <!-- botão para publicar comentário -->
+                <button type="submit" class="btn-publicar"
+                    style="background-color: #000; color: #fff; padding: 10px 15px; border: none; cursor: pointer;">
+                    Publicar Comentário
+                </button>
+
+            </form>
+
+            <!-- lista de comentários -->
+            <div class="lista-comentarios">
+
+                <!-- verifica se existem comentários -->
+                {% if comentarios %}
+
+                    <!-- percorre todos os comentários -->
+                    {% for c in comentarios %}
+
+                        <div class="comentario-item"
+                            style="border-bottom: 1px solid #ccc; padding-bottom: 10px; margin-bottom: 10px;">
+
+                            <!-- nome do usuário -->
+                            <strong>{{ c.nome_usuario }}</strong>
+
+                            <span style="font-size: 12px; color: gray;">disse:</span>
+
+                            <!-- comentário enviado -->
+                            <p style="margin-top: 5px;">{{ c.comentario }}</p>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <!-- mensagem caso não existam comentários -->
+                    <p>Nenhum comentário ainda. Seja o primeiro a comentar!</p>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
     </section>
 
 </main>

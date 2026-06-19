@@ -1,26 +1,40 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 Sobre Nós - Godoflip
 {% endblock %}
 
+<!-- css e fontes usados nesta pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre_nos.css') }}">
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
 <main>
 
+    <!-- seção contando a historia da marca -->
     <section class="historia">
 
+<<<<<<< HEAD
         <img src="{{ url_for('static', filename='imagens/static/imagens/equipe_godoflip.png') }}" alt="Equipe Godoflip">
+=======
+        <!-- imagem da equipe -->
+        <img src="{{ url_for('static', filename='imagens/godoflip_equipe.png') }}"
+             alt="Equipe Godoflip">
+>>>>>>> 1ecbf0cccc1bdea663e53e974cb3d1494df3e138
 
         <div class="texto">
 
+            <!-- titulo da história -->
             <h2>Nossa História</h2>
 
+            <!-- texto contando como a marca surgiu -->
             <p>
                 Toda grande marca de skate nasce de uma obsessão: a busca pela manobra perfeita, pelo shape ideal ou pela adrenalina do asfalto.
                 A Godoflip nasceu de tudo isso... e de um roedor de cinco centímetros chamado Godofredo.

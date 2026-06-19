@@ -1,4 +1,4 @@
-/* RESET */
+/* remove as configurações padrão do navegador */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@
     font-family: "Courier Prime", monospace;
 }
 
+/* centraliza todo o conteúdo da página */
 body {
     height: 100vh;
     display: flex;
@@ -15,7 +16,7 @@ body {
     color: #fff;
 }
 
-/* CONTAINER */
+/* caixa principal do login/cadastro */
 .container {
     background: #111;
     padding: 40px 30px;
@@ -26,26 +27,27 @@ body {
     animation: fadeIn 0.6s ease-in-out;
 }
 
-/* BOAS_VINDAS */
+/* mensagem de boas-vindas */
 .boas-vindas {
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-/* TÍTULO */
+/* titulo da página */
 h1 {
     font-size: 22px;
     letter-spacing: 2px;
     margin-bottom: 25px;
 }
 
-/* INPUTS */
+/* organiza os campos do formulário */
 form {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
+/* campos de entrada */
 input {
     padding: 12px;
     border: none;
@@ -56,12 +58,13 @@ input {
     transition: 0.3s;
 }
 
+/* efeito ao clicar no campo */
 input:focus {
     background: #2a2a2a;
     box-shadow: 0 0 0 2px #ff4d6d;
 }
 
-/* BOTÃO */
+/* botão principal */
 button {
     padding: 12px;
     border: none;
@@ -73,12 +76,13 @@ button {
     font-size: 14px;
 }
 
+/* efeito do botão */
 button:hover {
     background: #ff2e55;
     transform: translateY(-2px);
 }
 
-/* LINK */
+/* link para trocar entre login e cadastro */
 a {
     display: block;
     margin-top: 15px;
@@ -88,16 +92,18 @@ a {
     transition: 0.3s;
 }
 
+/* efeito do link */
 a:hover {
     color: #ff4d6d;
 }
 
-/* ANIMAÇÃO */
+/* animação de entrada da caixa */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

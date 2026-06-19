@@ -1,29 +1,36 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 GodoFlip - Detalhes do Acessório
 {% endblock %}
 
+<!-- css e fontes usados nesta pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_comprar_acessorios.css') }}">
 
 <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
 <main class="container">
 
+    <!-- seção principal do produto -->
     <section class="produto-section">
 
         <div class="produto-container">
 
+            <!-- galeria de imagens do produto -->
             <div class="produto-galeria">
 
+                <!-- imagem principal -->
                 <div class="imagem-principal">
                     <img src="{{ url_for('static', filename='img/acessorio1.jpg') }}" alt="Acessório">
                 </div>
 
+                <!-- miniaturas das imagens -->
                 <div class="miniaturas">
                     <img src="{{ url_for('static', filename='img/acessorio1.jpg') }}" alt="">
                     <img src="{{ url_for('static', filename='img/acessorio2.jpg') }}" alt="">
@@ -32,52 +39,66 @@ GodoFlip - Detalhes do Acessório
 
             </div>
 
+            <!-- informações do produto -->
             <div class="produto-info">
 
+                <!-- nome do produto -->
                 <h2>Capacete GodoFlip Street</h2>
 
+                <!-- preço -->
                 <div class="preco">
                     R$ 149,90
                 </div>
 
+                <!-- descrição do produto -->
                 <p class="descricao">
                     Capacete resistente e confortável, desenvolvido para
                     skatistas que buscam segurança sem abrir mão do estilo.
                     Possui ajuste regulável e ventilação reforçada.
                 </p>
 
+                <!-- informações extras -->
                 <div class="info-extra">
                     <p><strong>Categoria:</strong> Equipamento de Segurança</p>
                     <p><strong>Marca:</strong> GodoFlip</p>
                     <p><strong>Disponibilidade:</strong> Em estoque</p>
                 </div>
 
+                <!-- área de ações do produto -->
                 <div class="acoes">
 
-    <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
-        <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
-        <button type="submit" class="btn btn-favorito">❤️ Favoritar</button>
-    </form>
+                    <!-- botão para adicionar aos favoritos -->
+                    <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
+                        <input type="hidden" name="produto_id" value="{{ produto.cod_produto }}">
+                        <button type="submit" class="btn btn-favorito">❤️ Favoritar</button>
+                    </form>
 
-    <button class="btn btn-comentar">💬 Comentar</button>
-    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+                    <!-- botão para comentar -->
+                    <button class="btn btn-comentar">💬 Comentar</button>
 
-</div>
+                    <!-- botão para adicionar ao carrinho -->
+                    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+
+                </div>
 
             </div>
 
         </div>
 
+        <!-- seção de comentários -->
         <section class="comentarios">
 
             <h2>Comentários</h2>
 
+            <!-- campo para escrever comentários -->
             <textarea placeholder="Escreva seu comentário..."></textarea>
 
+            <!-- botão para publicar comentário -->
             <button class="btn-publicar">
                 Publicar Comentário
             </button>
 
+            <!-- local onde os comentários aparecerão -->
             <div class="lista-comentarios"></div>
 
         </section>

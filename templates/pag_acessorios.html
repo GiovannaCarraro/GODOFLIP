@@ -1,38 +1,50 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 GodoFlip - Acessórios
 {% endblock %}
 
+<!-- css especifico desta pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_acessorios.css') }}">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
 <main class="container">
 
+    <!-- titulo da seção -->
     <section class="titulo">
         <h1>Acessórios de Skate</h1>
     </section>
 
+    <!-- grade onde os produtos serão exibidos -->
     <section class="grid-acessorios">
 
+        <!-- percorre todos os produtos cadastrados -->
         {% for produto in produtos %}
         <div class="card">
-            
+
+            <!-- imagem do produto -->
             <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
-            
+
+            <!-- nome do produto -->
             <h3>{{ produto['nome'] }}</h3>
-            
+
+            <!-- descrição do produto -->
             <p>{{ produto['desc_produto'] }}</p>
-            
+
+            <!-- preço do produto -->
             <span class="preco">R$ {{ produto['preco'] }}</span>
-            
-            <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn" style="text-decoration: none; display: inline-block; text-align: center;">
+
+            <!-- botão para comprar -->
+            <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn"
+                style="text-decoration: none; display: inline-block; text-align: center;">
                 Comprar
             </a>
-            
+
         </div>
         {% endfor %}
 

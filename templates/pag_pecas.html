@@ -1,35 +1,47 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 GodoFlip - Peças de Skate
 {% endblock %}
 
+<!-- css especifico da pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_pecas.css') }}">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
+<!-- grade onde as peças serão exibidas -->
 <section class="grid-pecas">
 
+    <!-- percorre todos os produtos cadastrados -->
     {% for produto in produtos %}
 
     <div class="card">
+
+        <!-- imagem da peça -->
         <img src="{{ url_for('static', filename=produto['url']) }}"
              alt="{{ produto['nome'] }}">
 
+        <!-- nome do produto -->
         <h3>{{ produto['nome'] }}</h3>
 
+        <!-- descrição do produto -->
         <p>{{ produto['desc_produto'] }}</p>
 
+        <!-- preço -->
         <span class="preco">
             R$ {{ produto['preco'] }}
         </span>
 
+        <!-- botão para acessar a compra -->
         <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}"
            class="btn">
            Comprar
         </a>
+
     </div>
 
     {% endfor %}

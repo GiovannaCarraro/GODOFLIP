@@ -1,36 +1,51 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 GodoFlip - Localização
 {% endblock %}
 
+<!-- css especifico da pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/loc.css') }}">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
 <main class="container">
 
+    <!-- card com as informações de localização -->
     <section class="localizacao-card">
 
+        <!-- titulo da seção -->
         <h1 class="titulo">Nossa Localização</h1>
 
+        <!-- pequeno texto de apresentação -->
         <p class="subtitulo">
             Venha nos visitar e conhecer a essência da GodoFlip.
         </p>
 
+        <!-- informações do local -->
         <div class="info-local">
+
             <h2>📍 Araraquara - SP</h2>
-            <p>Estamos localizados no coração da cidade, sempre prontos para te atender.</p>
+
+            <p>
+                Estamos localizados no coração da cidade, sempre prontos para te atender.
+            </p>
+
         </div>
 
+        <!-- mapa incorporado do google maps -->
         <div class="mapa">
+
             <iframe
                 src="https://maps.google.com/maps?q=Araraquara%20SP&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 allowfullscreen
                 loading="lazy">
             </iframe>
+
         </div>
 
     </section>
