@@ -12,13 +12,17 @@ app = Flask(__name__)
 
 app.secret_key = "chiclete"
 
-# pagina inicial 
-@app.route('/')
+@app.route("/")
 def index():
     produtos_destaque = listar_destaques()
-    return render_template('pag_inicial.html', produtos=produtos_destaque)
+    produtos = listar_produtos()
 
-
+    # Removemos o listar_banners() e a variável banners do render_template
+    return render_template(
+        "pag_inicial.html",
+        produtos_destaque=produtos_destaque,
+        produtos=produtos
+    )
 # pagina skates
 @app.route("/skates")
 def skates():
