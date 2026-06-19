@@ -245,19 +245,98 @@ main,
     font-weight: bold;
 }
 
-.btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background: #0d0d0d;
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+/* ================= DESTAQUES E CARDS ATUALIZADOS ================= */
+.destaques {
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.btn:hover {
+.destaques h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Alterado de .card para .card-produto para casar com seu HTML */
+.card-produto {
+    background: #fff;
+    width: 260px;
+    border-radius: 15px;
+    padding: 20px; /* Garante espaço interno para os textos respirarem */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Configuração essencial para alinhar tudo igualmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    min-height: 460px; /* Força uma altura padrão para alinhar os botões */
+}
+
+.card-produto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Alinhamento de imagem dentro do card-produto */
+.card-produto img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #fff;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.card-produto h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.descricao-curta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.preco {
+    color: #ff4d6d;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: block;
+}
+
+/* ================= O BOTÃO CORRIGIDO (.btn-comprar) ================= */
+.btn-comprar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #0d0d0d;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background 0.3s ease;
+}
+
+.btn-comprar:hover {
     background: #ff4d6d;
+    color: #ffffff !important;
 }
 
 /* ================= FOOTER ================= */
