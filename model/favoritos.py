@@ -4,11 +4,12 @@ def listar_favoritos(id_usuario):
     conexao, cursor = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-    # O segredo está no MIN(i.url) e no GROUP BY no final
+    # Adicionamos 'p.desc_produto' logo após o nome do produto
     sql = """
     SELECT 
         p.cod_produto,
         p.nome,
+        p.desc_produto,
         p.preco,
         p.categoria,
         MIN(i.url) AS url
@@ -46,5 +47,17 @@ def adicionar_favorito(id_usuario, id_produto):
         # Se já existir, o Python ignora silenciosamente e não duplica nada!
         print("Este produto já está nos favoritos do usuário.")
 
+    cursor.close()
+    conexao.close()
+
+def remover_favorito(id_usuario, id_produto):
+    conexao, cursor = conectar()
+    
+    # Executa a remoção usando as duas chaves para não apagar o favorito de outra pessoa
+    sql = "DELETE FROM favoritos WHERE usuario_id = %s AND produto_id = %s"
+    
+    cursor.execute(sql, (id_usuario, id_produto))
+    conexao.commit()  # IMPORTANTÍSSIMO para salvar a alteração no banco!
+    
     cursor.close()
     conexao.close()

@@ -283,3 +283,29 @@ footer {
     width: 150px;
     height: auto;
 }
+
+/* Ajuste o seletor conforme o nome das suas classes */
+/* ================= CORREÇÃO DOS CARDS (DESTAQUES E FAVORITOS) ================= */
+
+/* 1. Alinha a imagem de qualquer produto dentro do card */
+.card img, .favorito-item img {
+    width: 100%;             /* Ocupa toda a largura do card */
+    height: 250px;           /* Força TODAS as imagens a terem a mesma altura */
+    object-fit: contain;     /* Corta e ajusta sem distorcer o shape ou os parafusos */
+    background-color: #fff;  /* Fundo branco para preencher as sobras */
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+/* 2. Força o card a se comportar como uma coluna flexível */
+.card, .favorito-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra o botão "Comprar/Remover" sempre para o rodapé */
+    min-height: 440px;              /* Define uma altura mínima igual para todos os cards ficarem alinhados */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

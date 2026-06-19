@@ -1,10 +1,11 @@
 from flask import Flask, render_template, redirect, request, session, jsonify, abort
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
-from model.favoritos import listar_favoritos, adicionar_favorito
+from model.favoritos import listar_favoritos, adicionar_favorito, remover_favorito
 from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques
 from model.skate import listar_acessorios, achar_acessorio
 from model.comentarios import listar_comentarios_produto, adicionar_comentario_db
+
 # from model.pagina import buscar_pagina_por_slug
 
 app = Flask(__name__)
@@ -91,32 +92,34 @@ def localizacao():
 
 # 8. SISTEMA DE CADASTRO E LOGIN
 @app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro():
+def rota_cadastro():
+    print(f"Recebi uma requisição com o método: {request.method}") # Isso vai aparecer no seu terminal!
+    
     if request.method == 'POST':
-        nome = request.form['nome']
-        email = request.form['email']
-        senha = request.form['senha']
-        telefone = request.form['telefone']
-        endereco = request.form['endereco']
-
-        cadastrar_usuario(nome, email, senha, telefone, endereco)
+        # Pegando os dados do formulário
+        nome = request.form.get('nome')
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        print(f"Tentativa de cadastro: Nome={nome}, Email={email}")
+        
+        # Por enquanto, apenas redireciona para o login para testar a rota
         return redirect('/login')
 
+    # Se for GET, renderiza o HTML correspondente
     return render_template('cadastro.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        senha = request.form['senha']
-        usuario = verificar_login(email, senha)
-
-        if usuario:
-            session['usuario_id'] = usuario['cod_usuario'] 
-            return redirect('/')
-
-        return "Email ou senha incorretos"
-
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        
+        # Aqui entra a sua lógica de checar o login no banco...
+        return redirect('/')
+        
+    # Se o método for GET, apenas renderiza a página de login
     return render_template('login.html')
 
 # 9. SISTEMA DE FAVORITOS
@@ -167,6 +170,22 @@ def pag_comprar_skates(id_produto):
         produto=produto, 
         comentarios=comentarios_do_produto 
     )
+
+@app.route('/remover_favorito', methods=['POST'])
+def rota_remover_favorito():
+    # Se o usuário não estiver logado, manda para o login
+    if 'usuario_id' not in session:
+        return redirect('/login')
+    
+    id_usuario = session['usuario_id']
+    id_produto = request.form.get('produto_id')
+    
+    if id_produto:
+        # Chama a função que criamos no model para deletar do banco
+        remover_favorito(id_usuario, id_produto)
+        
+    # Atualiza a própria página de favoritos para mostrar que sumiu
+    return redirect('/favoritos')
 
 # Lembre-se de importar a função buscar_pagina_por_slug lá no topo!
 
