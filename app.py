@@ -147,6 +147,7 @@ def favoritos():
     meus_favoritos = listar_favoritos(id_usuario)
     return render_template('pag_favoritos.html', favoritos=meus_favoritos)
 
+
 @app.route('/adicionar_favorito', methods=['POST'])
 def rota_adicionar_favorito():
     if 'usuario_id' not in session:
