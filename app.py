@@ -21,7 +21,7 @@ def index():
         produtos=produtos
     )
 
-# 2. PAGINA SKATES
+
 @app.route("/skates")
 def skates():
     produtos = listar_produtos()
@@ -30,7 +30,7 @@ def skates():
         produtos=produtos
     )
 
-# 3. PAGINA PECAS
+
 @app.route("/pag_pecas")
 def pecas():
     produtos = listar_pecas()
@@ -40,43 +40,42 @@ def pecas():
     )
 
 
-# 5. PAGINA ACESSORIOS
+
 @app.route("/pag_acessorios")
 def acessorios():
     produtos = listar_acessorios()
     return render_template("pag_acessorios.html", produtos=produtos)
 
-# 4. COMPRAR PECAS
+
 @app.route('/comprar_pecas/<int:id_produto>')
 def comprar_pecas(id_produto):
     produto = achar_produto(id_produto)
     if not produto:
         abort(404)
         
-    # BUSCA OS COMENTÁRIOS DA PEÇA
+   
     comentarios_da_peca = listar_comentarios_produto(id_produto)
         
     return render_template(
         'pag_comprar_pecas.html', 
         produto=produto, 
-        comentarios=comentarios_da_peca # Passa para o HTML
+        comentarios=comentarios_da_peca 
     )
 
-# 5. COMPRAR ACESSORIOS 
-# (Nota: Ajustei sua rota para receber o id_produto, igual às outras!)
+
 @app.route("/comprar_acessorios/<int:id_produto>")
 def comprar_acessorios(id_produto):
-    produto = achar_acessorio(id_produto) # Usa a sua função que busca acessório
+    produto = achar_acessorio(id_produto) 
     if not produto:
         abort(404)
 
-    # BUSCA OS COMENTÁRIOS DO ACESSÓRIO
+  
     comentarios_do_acessorio = listar_comentarios_produto(id_produto)
 
     return render_template(
         "pag_comprar_acessorios.html", 
         produto=produto, 
-        comentarios=comentarios_do_acessorio # Passa para o HTML
+        comentarios=comentarios_do_acessorio 
     )
 
 
@@ -84,14 +83,12 @@ def comprar_acessorios(id_produto):
 def sobre_nos():
     return render_template('sobre_nos.html')
 
-# 7. LOCALIZACAO
+
 @app.route('/localizacao')
 def localizacao():
     return render_template('pag_loc.html')
 
-# 8. SISTEMA DE CADASTRO E LOGIN
-# 8. SISTEMA DE CADASTRO
-# 8. SISTEMA DE CADASTRO CORRIGIDO
+
 @app.route('/cadastro', methods=['GET', 'POST'])
 def rota_cadastro():
     if request.method == 'POST':
@@ -99,21 +96,20 @@ def rota_cadastro():
         email = request.form.get('email')
         senha = request.form.get('senha')
         
-        # Se você tiver esses inputs no seu HTML (name="telefone" e name="endereco"), 
-        # o Flask vai pegar os valores. Se não tiver, ele envia uma string vazia "" por padrão.
+        
         telefone = request.form.get('telefone', '')
         endereco = request.form.get('endereco', '')
         
-        # 🔴 CORREÇÃO: Agora passamos os 5 argumentos que a sua função exige!
+
         cadastrar_usuario(nome, email, senha, telefone, endereco)
         
-        print(f"🟢 USUÁRIO CADASTRADO NO BANCO: Nome={nome}, Email={email}")
+        print(f"USUÁRIO CADASTRADO NO BANCO: Nome={nome}, Email={email}")
         return redirect('/login')
 
     return render_template('cadastro.html')
 
 
-# SISTEMA DE LOGIN (Com tratamento de Tupla/Dicionário e Logs)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -122,26 +118,26 @@ def login():
         
         usuario = verificar_login(email, senha)
         
-        # 🔍 OLHE O TERMINAL DO VS CODE AQUI: Vai mostrar o que veio do banco
-        print(f"🔎 DEBUG LOGIN - Retorno do banco para {email}: {usuario}")
+  
+        print(f"DEBUG LOGIN - Retorno do banco para {email}: {usuario}")
         
         if usuario:
-            # Proteção: verifica se o banco devolveu um Dicionário ou uma Tupla
+
             if isinstance(usuario, dict):
-                # Se for dicionário, usa a chave string
+
                 session['usuario_id'] = usuario['cod_usuario']
             else:
-                # Se for tupla, o cod_usuario é a primeira coluna (posição 0)
+  
                 session['usuario_id'] = usuario[0]
             
-            print(f"🔒 SESSÃO ATIVADA - ID do usuário logado: {session['usuario_id']}")
+            print(f"SESSÃO ATIVADA - ID do usuário logado: {session['usuario_id']}")
             return redirect('/')
         else:
-            print("❌ LOGIN FALHOU - Usuário não encontrado ou senha incorreta no banco.")
+            print("LOGIN FALHOU - Usuário não encontrado ou senha incorreta no banco.")
             return render_template('login.html', erro="Email ou senha incorretos")
             
     return render_template('login.html')
-# 9. SISTEMA DE FAVORITOS
+
 @app.route('/favoritos')
 def favoritos(): 
     if 'usuario_id' not in session:
@@ -165,7 +161,7 @@ def rota_adicionar_favorito():
     pagina_anterior = request.referrer or '/favoritos'
     return redirect(pagina_anterior)
 
-# 10. SISTEMA DE COMENTARIOS
+
 @app.route("/adicionar_comentario", methods=["POST"])
 def adicionar_comentario():
     if 'usuario_id' not in session:
@@ -178,7 +174,7 @@ def adicionar_comentario():
     adicionar_comentario_db(id_usuario, id_produto, texto)
     return redirect(request.referrer)
 
-# 11. PAGINA DE COMPRA DO SKATE (Única, com os comentários inclusos)
+
 @app.route("/comprar/<int:id_produto>") 
 def pag_comprar_skates(id_produto):
     produto = achar_produto(id_produto) 
@@ -192,7 +188,7 @@ def pag_comprar_skates(id_produto):
 
 @app.route('/remover_favorito', methods=['POST'])
 def rota_remover_favorito():
-    # Se o usuário não estiver logado, manda para o login
+ 
     if 'usuario_id' not in session:
         return redirect('/login')
     
@@ -200,13 +196,13 @@ def rota_remover_favorito():
     id_produto = request.form.get('produto_id')
     
     if id_produto:
-        # Chama a função que criamos no model para deletar do banco
+
         remover_favorito(id_usuario, id_produto)
         
-    # Atualiza a própria página de favoritos para mostrar que sumiu
+
     return redirect('/favoritos')
 
-# Lembre-se de importar a função buscar_pagina_por_slug lá no topo!
+
 
 # @app.route("/p/<slug_da_pagina>")
 # def pagina_dinamica(slug_da_pagina):

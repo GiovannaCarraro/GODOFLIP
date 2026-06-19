@@ -51,7 +51,7 @@ def achar_produto(id_produto):
     conexao, cursor = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-    # Adicionamos o INNER JOIN para puxar a url da imagem novamente
+  
     sql = """
     SELECT 
         produtos.cod_produto,
@@ -72,7 +72,7 @@ def achar_produto(id_produto):
     cursor.close()
     conexao.close()
 
-    # Retorna o produto com a imagem dentro ou None se não achar
+ 
     return resultados[0] if resultados else None
 
 
@@ -122,7 +122,7 @@ def listar_destaques():
     conexao, cursor = conectar()
     cursor = conexao.cursor(dictionary=True)
     
-    # Mudamos o WHERE de 'p.disponibilidade = TRUE' para 'p.destaque = TRUE'
+    
     sql = """
         SELECT p.*, i.url 
         FROM produtos p
@@ -143,7 +143,7 @@ def listar_destaques():
 def listar_acessorios():
     conexao, cursor = conectar()
     
-    # Cursor como dicionário para podermos usar texto no HTML
+    
     cursor = conexao.cursor(dictionary=True) 
 
     sql = """

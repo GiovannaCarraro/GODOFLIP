@@ -34,11 +34,11 @@ def verificar_login(email, senha):
     sql = "SELECT * FROM usuarios WHERE email = %s AND senha = %s"
     cursor.execute(sql, (email, senha))
 
-    # Puxa tudo e limpa a linha de transmissão do banco
+  
     resultados = cursor.fetchall()
 
     cursor.close()
     conexao.close()
 
-    # Se achou o usuário, retorna o primeiro da lista. Se não, retorna None.
+  
     return resultados[0] if resultados else None
