@@ -47,23 +47,33 @@ def buscar_produto(cod_produto):
     return produto
 
 
-def achar_produto(cod_produto):
+def achar_produto(id_produto):
     conexao, cursor = conectar()
+    cursor = conexao.cursor(dictionary=True)
 
-    cursor.execute("""
-        SELECT *
-        FROM produtos
-        INNER JOIN img_produtos
-            ON produtos.cod_produto = img_produtos.produto_id
-        WHERE produtos.cod_produto = %s
-    """, (cod_produto,))
-
-    produto = cursor.fetchone()
+    # Adicionamos o INNER JOIN para puxar a url da imagem novamente
+    sql = """
+    SELECT 
+        produtos.cod_produto,
+        produtos.nome,
+        produtos.desc_produto,
+        produtos.preco,
+        produtos.categoria,
+        img_produtos.url
+    FROM produtos
+    INNER JOIN img_produtos
+        ON produtos.cod_produto = img_produtos.produto_id
+    WHERE produtos.cod_produto = %s
+    """
+    
+    cursor.execute(sql, (id_produto,))
+    resultados = cursor.fetchall()
 
     cursor.close()
     conexao.close()
 
-    return produto
+    # Retorna o produto com a imagem dentro ou None se não achar
+    return resultados[0] if resultados else None
 
 
 def listar_banners():
