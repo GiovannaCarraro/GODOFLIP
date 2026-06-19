@@ -1,17 +1,17 @@
-/* RESET */
+/* remove as configurações padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* configurações gerais da página */
 body {
     background: #f6f6f6;
     color: #111;
 }
 
-/* ================= HEADER ================= */
-
+/* cabeçalho principal */
 header {
     background: #0d0d0d;
     color: #fff;
@@ -19,41 +19,41 @@ header {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* organiza os elementos do topo */
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* área da logo */
 .logo-area {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* titulo principal da marca */
 h1.titulo{
     font-size: 85px;
     letter-spacing: 3px;
     font-family: "Sedgwick Ave", cursive;
 }
 
+/* imagem da logo */
 .logo-area img {
     width: 50px;
     height: 50px;
     object-fit: contain;
 }
 
+/* nome da marca */
 .logo-area h1 {
     font-size: 22px;
     letter-spacing: 3px;
 }
 
-/* .titulo {
-    font-size: 85px;
-    letter-spacing: 3px;
-    font-family: "Sedgwick Ave", cursive;
-} */
-
+/* icones do cabeçalho */
 .header-icons a {
     color: #fff;
     margin-left: 18px;
@@ -61,19 +61,20 @@ h1.titulo{
     transition: 0.3s;
 }
 
+/* efeito dos icones */
 .header-icons a:hover {
     color: #ff4d6d;
     transform: scale(1.15);
 }
 
-/* ================= NAV ================= */
-
+/* menu de navegação */
 nav {
     margin-top: 12px;
     display: flex;
     justify-content: center;
 }
 
+/* links do menu */
 nav a {
     text-decoration: none;
     color: #ddd;
@@ -83,10 +84,12 @@ nav a {
     transition: 0.3s;
 }
 
+/* efeito dos links */
 nav a:hover {
     color: #fff;
 }
 
+/* linha animada dos links */
 nav a::after {
     content: "";
     position: absolute;
@@ -98,19 +101,19 @@ nav a::after {
     transition: 0.3s;
 }
 
+/* faz a linha aparecer */
 nav a:hover::after {
     width: 100%;
 }
 
-/* ================= CONTAINER ================= */
-
+/* container principal */
 .container {
     padding: 50px 20px;
     display: flex;
     justify-content: center;
 }
 
-/* CARD PRINCIPAL */
+/* card principal da localização */
 .localizacao-card {
     background: #fff;
     width: 100%;
@@ -121,36 +124,37 @@ nav a:hover::after {
     text-align: center;
 }
 
-/* TÍTULO */
+/* titulo da página */
 .titulo {
     font-size: 28px;
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
 
-/* SUBTÍTULO */
+/* subtitulo */
 .subtitulo {
     color: #555;
     margin-bottom: 25px;
 }
 
-/* INFO */
+/* informações da localização */
 .info-local {
     margin-bottom: 25px;
 }
 
+/* cidade/local */
 .info-local h2 {
     font-size: 20px;
     margin-bottom: 8px;
 }
 
+/* descrição da localização */
 .info-local p {
     color: #555;
     font-size: 14px;
 }
 
-/* ================= MAPA ================= */
-
+/* área do mapa */
 .mapa {
     width: 100%;
     border-radius: 15px;
@@ -159,6 +163,7 @@ nav a:hover::after {
     transition: 0.3s;
 }
 
+/* mapa incorporado */
 .mapa iframe {
     width: 100%;
     height: 450px;
@@ -166,25 +171,30 @@ nav a:hover::after {
     display: block;
 }
 
+/* efeito ao passar o mouse no mapa */
 .mapa:hover {
     transform: scale(1.01);
 }
 
-/* ================= RESPONSIVO ================= */
-
+/* ajustes para celular */
 @media (max-width: 768px) {
+
+    /* reduz o espaçamento do cabeçalho */
     header {
         padding: 15px 20px;
     }
 
+    /* reduz o espaçamento do card */
     .localizacao-card {
         padding: 20px;
     }
 
+    /* diminui a altura do mapa */
     .mapa iframe {
         height: 300px;
     }
 
+    /* quebra o menu em telas menores */
     nav {
         flex-wrap: wrap;
         gap: 10px;

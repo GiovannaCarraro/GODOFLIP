@@ -1,5 +1,4 @@
-/* RESET */
-
+/* remove as configurações padrão do navegador */
 *{
     margin:0;
     padding:0;
@@ -7,13 +6,13 @@
     font-family:"Courier Prime", monospace;
 }
 
+/* configurações gerais da página */
 body{
     background:#f6f6f6;
     color:#111;
 }
 
-/* HEADER */
-
+/* cabeçalho principal */
 header{
     background:#0d0d0d;
     color:#fff;
@@ -21,30 +20,32 @@ header{
     box-shadow:0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* organiza os elementos do topo */
 .top-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
+/* área da logo */
 .logo-area{
     display:flex;
     align-items:center;
     gap:10px;
 }
 
-
-
+/* imagem da logo */
 .logo-area img{
     width:50px;
 }
 
+/* nome da marca */
 .logo-area h1{
     font-size:22px;
     letter-spacing:3px;
 }
 
-
+/* icones do cabeçalho */
 .header-icons a{
     text-decoration:none;
     color:white;
@@ -52,6 +53,7 @@ header{
     font-size:18px;
 }
 
+/* menu de navegação */
 nav{
     display:flex;
     justify-content:center;
@@ -61,24 +63,24 @@ nav{
     width:100%;
 }
 
+/* links do menu */
 nav a{
     text-decoration:none;
     color:#ddd;
     transition:.3s;
 }
 
+/* efeito dos links */
 nav a:hover{
     color:#ff4d6d;
 }
 
-/* CONTAINER */
-
+/* container principal */
 .container{
     padding:50px;
 }
 
-/* PRODUTO */
-
+/* área principal do produto */
 .produto-container{
     background:white;
     border-radius:20px;
@@ -88,39 +90,47 @@ nav a:hover{
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
+/* imagem do produto */
 .produto-imagem{
     flex:1;
 }
 
+/* foto do produto */
 .produto-imagem img{
     width:100%;
     border-radius:15px;
 }
 
+/* informações do produto */
 .produto-info{
     flex:1;
 }
 
+/* nome do produto */
 .produto-info h2{
     margin-bottom:15px;
 }
 
+/* preço */
 .preco{
     font-size:28px;
     color:#ff4d6d;
     margin-bottom:20px;
 }
 
+/* descrição */
 .descricao{
     line-height:1.6;
     margin-bottom:20px;
     color:#555;
 }
 
+/* detalhes extras */
 .detalhes p{
     margin-bottom:8px;
 }
 
+/* área dos botões */
 .acoes{
     margin-top:25px;
     display:flex;
@@ -128,8 +138,7 @@ nav a:hover{
     gap:10px;
 }
 
-/* BOTÕES */
-
+/* estilo padrão dos botões */
 .btn{
     padding:12px;
     border:none;
@@ -138,25 +147,28 @@ nav a:hover{
     transition:.3s;
 }
 
+/* botão de favorito */
 .favorito{
     background:#ffe3ea;
 }
 
+/* botão de comentário */
 .comentar{
     background:#ececec;
 }
 
+/* botão de carrinho */
 .carrinho{
     background:#0d0d0d;
     color:white;
 }
 
+/* efeito dos botões */
 .btn:hover{
     transform:translateY(-2px);
 }
 
-/* COMENTÁRIOS */
-
+/* seção de comentários */
 .comentarios{
     margin-top:30px;
     background:white;
@@ -165,10 +177,12 @@ nav a:hover{
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
+/* titulo dos comentários */
 .comentarios h2{
     margin-bottom:15px;
 }
 
+/* campo para escrever comentário */
 .comentarios textarea{
     width:100%;
     height:120px;
@@ -178,6 +192,7 @@ nav a:hover{
     border-radius:10px;
 }
 
+/* botão de publicar comentário */
 .publicar{
     margin-top:10px;
     padding:12px 20px;
@@ -188,18 +203,20 @@ nav a:hover{
     cursor:pointer;
 }
 
-/* RESPONSIVO */
-
+/* ajustes para celular */
 @media(max-width:768px){
 
+    /* coloca imagem e informações uma abaixo da outra */
     .produto-container{
         flex-direction:column;
     }
 
+    /* reduz o espaçamento da página */
     .container{
         padding:20px;
     }
 
+    /* quebra o menu quando necessário */
     nav{
         flex-wrap:wrap;
         gap:10px;

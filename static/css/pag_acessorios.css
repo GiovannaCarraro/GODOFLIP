@@ -1,11 +1,11 @@
-/* ================= RESET ================= */
+/* remove as configurações padrão do navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= BASE ================= */
+/* configurações gerais da página */
 html, body {
     height: 100%;
 }
@@ -17,7 +17,7 @@ body {
     flex-direction: column;
 }
 
-/* ================= HEADER ================= */
+/* cabeçalho principal */
 header {
     background: #0d0d0d;
     color: #fff;
@@ -25,35 +25,39 @@ header {
     box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
-/* topo */
+/* organiza os elementos do topo */
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+/* estilização do titulo */
 .titulo{
      font-size: 85px;
     letter-spacing: 3px;
 }
 
-/* logo */
+/* área da logo */
 .logo-area {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* imagem da logo */
 .logo-area img {
     width: 150px;
     height: auto;
 }
 
+/* nome da marca */
 .logo-area h1 {
     font-size: 22px;
     letter-spacing: 2px;
 }
 
-/* ícones */
+/* icones do cabeçalho */
 .header-icons a {
     color: #fff;
     margin-left: 18px;
@@ -61,24 +65,27 @@ header {
     transition: 0.3s;
 }
 
+/* efeito dos icones */
 .header-icons a:hover {
     color: #ff4d6d;
     transform: scale(1.1);
 }
 
-/* ================= NAV ================= */
+/* menu de navegação */
 nav {
     margin-top: 12px;
     display: flex;
     justify-content: center;
 }
 
+/* lista de links */
 nav ul {
     display: flex;
     gap: 30px;
     list-style: none;
 }
 
+/* links do menu */
 nav ul a {
     text-decoration: none;
     color: #ddd;
@@ -87,10 +94,12 @@ nav ul a {
     transition: 0.3s;
 }
 
+/* efeito dos links */
 nav ul a:hover {
     color: #fff;
 }
 
+/* linha animada dos links */
 nav ul a::after {
     content: "";
     position: absolute;
@@ -102,33 +111,35 @@ nav ul a::after {
     transition: 0.3s;
 }
 
+/* faz a linha aparecer */
 nav ul a:hover::after {
     width: 100%;
 }
 
-/* ================= CONTEÚDO ================= */
+/* container principal */
 .container {
     flex: 1;
 }
 
-/* ================= TÍTULO ================= */
+/* área do titulo da página */
 .titulo {
     text-align: center;
     margin: 40px 0 20px;
-
 }
 
+/* titulo principal */
 .titulo h1 {
     font-size: 28px;
     letter-spacing: 2px;
 }
 
+/* subtitulo */
 .titulo p {
     color: #555;
     margin-top: 8px;
 }
 
-/* ================= GRID ================= */
+/* grade dos produtos */
 .grid-acessorios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -136,7 +147,7 @@ nav ul a:hover::after {
     padding: 20px 40px 60px;
 }
 
-/* ================= CARD ================= */
+/* card de produto */
 .card {
     background: #fff;
     border-radius: 15px;
@@ -147,11 +158,13 @@ nav ul a:hover::after {
     transition: 0.3s;
 }
 
+/* efeito do card */
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
+/* imagem do produto */
 .card img {
     width: 100%;
     height: 160px;
@@ -160,17 +173,20 @@ nav ul a:hover::after {
     margin-bottom: 10px;
 }
 
+/* nome do produto */
 .card h3 {
     font-size: 16px;
     margin-bottom: 6px;
 }
 
+/* descrição do produto */
 .card p {
     font-size: 13px;
     color: #555;
     margin-bottom: 10px;
 }
 
+/* preço */
 .preco {
     display: block;
     font-size: 18px;
@@ -178,7 +194,7 @@ nav ul a:hover::after {
     margin-bottom: 10px;
 }
 
-/* ================= BOTÃO ================= */
+/* botão de compra */
 .btn {
     width: 100%;
     padding: 10px;
@@ -190,11 +206,12 @@ nav ul a:hover::after {
     transition: 0.3s;
 }
 
+/* efeito do botão */
 .btn:hover {
     background: #ff4d6d;
 }
 
-/* ================= FOOTER ================= */
+/* rodapé */
 footer {
     margin-top: auto;
     background: #0d0d0d;
@@ -202,12 +219,14 @@ footer {
     padding: 30px 40px;
 }
 
+/* organiza os elementos do rodapé */
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* logo do rodapé */
 .footer-logo img {
     width: 150px;
     height: auto;

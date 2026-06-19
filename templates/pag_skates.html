@@ -1,35 +1,51 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 Skates - GodoFlip
 {% endblock %}
 
+<!-- css especifico da pagina -->
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pag_skates.css') }}">
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
+<!-- titulo da pagina de skates -->
 <section class="titulo-page">
+
     <h2>SKATES</h2>
+
     <p>Escolha o que mais te atrai.</p>
+
 </section>
 
+<!-- seção dos produtos -->
 <section class="produtos">
 
+    <!-- percorre todos os skates cadastrados -->
     {% for produto in produtos %}
 
     <div class="card-produto">
 
+        <!-- imagem do produto com link para os detalhes -->
         <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}">
             <img src="{{ url_for('static', filename=produto.url) }}" alt="{{ produto.nome }}">
         </a>
 
+        <!-- nome do produto -->
         <h3>{{ produto.nome }}</h3>
+
+        <!-- preço -->
         <p class="preco">R$ {{ produto.preco }}</p>
+
+        <!-- descrição -->
         <p>{{ produto.desc_produto }}</p>
 
-        <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}" 
+        <!-- botão para acessar a página de compra -->
+        <a href="{{ url_for('pag_comprar_skates', id_produto=produto.cod_produto) }}"
            style="display: inline-block; background-color: #000; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold;">
             Comprar
         </a>

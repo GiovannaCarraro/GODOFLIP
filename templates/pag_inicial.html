@@ -1,35 +1,57 @@
 {% extends 'base.html' %}
 
+<!-- titulo da pagina -->
 {% block title %}
 Godoflip
 {% endblock %}
 
+<!-- conteudo principal da pagina -->
 {% block content %}
 
+<!-- carrossel de imagens da pagina inicial -->
 <section class="carousel" aria-label="Galeria de Destaques">
+
     <div class="carousel-container">
+
+        <!-- imagens do carrossel -->
         <div class="slides">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/girls_skate.jpg') }}"
                 alt="Banner 1">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/omg-skate.jpg') }}"
                 alt="Banner 2">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/skate_preto.jpg') }}"
                 alt="Banner 3">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-clean.jpg') }}"
                 alt="Banner 4">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-mens.jpg') }}"
                 alt="Banner 5">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/skate-pe.jpg') }}"
                 alt="Banner 6">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/skates-diferentes.jpg') }}"
                 alt="Banner 7">
+
             <img class="slide active" src="{{ url_for('static', filename='carrossel/wow.jpg') }}"
                 alt="Banner 8">
+
         </div>
 
-        <button class="carousel-btn prev-btn" aria-label="Slide anterior">&#10094;</button>
-        <button class="carousel-btn next-btn" aria-label="Próximo slide">&#10095;</button>
+        <!-- botões para navegar pelo carrossel -->
+        <button class="carousel-btn prev-btn" aria-label="Slide anterior">
+            &#10094;
+        </button>
 
+        <button class="carousel-btn next-btn" aria-label="Próximo slide">
+            &#10095;
+        </button>
+
+        <!-- bolinhas indicadoras dos slides -->
         <div class="carousel-indicators">
             <span class="dot active" data-index="0"></span>
             <span class="dot" data-index="1"></span>
@@ -41,33 +63,54 @@ Godoflip
             <span class="dot" data-index="7"></span>
             <span class="dot" data-index="8"></span>
         </div>
+
     </div>
+
 </section>
 
+<!-- seção de produtos em destaque -->
 <section class="destaques">
+
     <h2>DESTAQUES</h2>
 
     <div class="cards">
+
+        <!-- percorre os produtos cadastrados -->
         {% for produto in produtos %}
+
         <div class="card">
+
+            <!-- imagem do produto -->
             <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
 
             <div class="card-content">
+
+                <!-- nome do produto -->
                 <h3>{{ produto['nome'] }}</h3>
-                
-                <p class="preco">R$ {{ produto['preco'] }}</p>
-                
+
+                <!-- preço -->
+                <p class="preco">
+                    R$ {{ produto['preco'] }}
+                </p>
+
+                <!-- botão para acessar a página de compra -->
                 <a href="{{ url_for('comprar_pecas', id_produto=produto['cod_produto']) }}" class="btn">
                     Comprar
                 </a>
+
             </div>
+
         </div>
+
         {% endfor %}
+
     </div>
+
 </section>
 
 {% endblock %}
 
+<!-- javascript do carrossel -->
 {% block js %}
 <script src="{{ url_for('static', filename='js/carrosel.js') }}"></script>
 {% endblock %}

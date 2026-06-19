@@ -1,19 +1,43 @@
+<!-- importa o css da tela de login e cadastro -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login_cadastro.css') }}">
 
+<!-- container principal da pagina -->
 <div class="container">
+
+    <!-- mensagem de boas vindas -->
     <div class="logo-skate">Seja Bem Vindo(a)!</div>
+
+    <!-- titulo da tela -->
     <h1>CADASTRO</h1>
+
+    <!-- formulario de cadastro -->
     <form method="POST">
+
+        <!-- campo para o nome -->
         <input type="text" name="nome" placeholder="Nome">
+
+        <!-- campo para o email -->
         <input type="email" name="email" placeholder="Email">
+
+        <!-- campo para a senha -->
         <input type="password" name="senha" placeholder="Senha">
+
+        <!-- campo para o telefone -->
         <input type="text" name="telefone" placeholder="Telefone">
+
+        <!-- campo para o endereço -->
         <input type="text" name="endereco" placeholder="Endereço">
+
+        <!-- botão para cadastrar -->
         <button type="submit">
             Cadastrar
         </button>
+
     </form>
+
+    <!-- link para quem ja possui conta -->
     <a href="/login">
         Já tenho conta
     </a>
+
 </div>

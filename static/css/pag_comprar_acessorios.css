@@ -1,4 +1,4 @@
-/* RESET BÁSICO */
+/* remove as configurações padrão do navegador */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
     font-family: "Courier Prime", monospace;
 }
 
+/* configurações gerais da página */
 body {
     background: #f7f7f7;
     color: #111;
 }
 
-/* HEADER */
-
+/* cabeçalho principal */
 header {
     background: #0d0d0d;
     color: #fff;
@@ -20,17 +20,20 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* organiza os elementos do topo */
 .top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* logo da marca */
 .logo img {
    width: 150px;
     height: auto;
 }
 
+/* titulo principal */
 .titulo {
     color: white;
     font-size: 85px;
@@ -38,24 +41,26 @@ header {
     font-family: "Sedgwick Ave", cursive;
 }
 
+/* área dos icones */
 .icons {
     display: flex;
     gap: 18px;
 }
 
+/* icones do cabeçalho */
 .icons a {
     color: white;
     font-size: 18px;
     transition: 0.3s;
 }
 
+/* efeito dos icones */
 .icons a:hover {
     color: #ff4d6d;
     transform: scale(1.1);
 }
 
-/* MENU */
-
+/* menu de navegação */
 nav {
     margin-top: 10px;
     display: flex;
@@ -63,6 +68,7 @@ nav {
     gap: 25px;
 }
 
+/* links do menu */
 nav a {
     text-decoration: none;
     color: #ddd;
@@ -71,10 +77,12 @@ nav a {
     transition: 0.3s;
 }
 
+/* efeito dos links */
 nav a:hover {
     color: white;
 }
 
+/* linha animada dos links */
 nav a::after {
     content: "";
     position: absolute;
@@ -86,18 +94,17 @@ nav a::after {
     transition: 0.3s;
 }
 
+/* faz a linha aparecer */
 nav a:hover::after {
     width: 100%;
 }
 
-/* CONTAINER */
-
+/* container principal */
 .container {
     padding: 40px;
 }
 
-/* PRODUTO */
-
+/* área principal do produto */
 .produto-container {
     display: flex;
     gap: 40px;
@@ -107,21 +114,25 @@ nav a:hover::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* galeria de imagens */
 .produto-galeria {
     flex: 1;
 }
 
+/* imagem principal do produto */
 .imagem-principal img {
     width: 100%;
     border-radius: 12px;
 }
 
+/* miniaturas das imagens */
 .miniaturas {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
 
+/* imagens menores */
 .miniaturas img {
     width: 75px;
     height: 75px;
@@ -130,33 +141,37 @@ nav a:hover::after {
     cursor: pointer;
 }
 
+/* informações do produto */
 .produto-info {
     flex: 1;
 }
 
+/* nome do produto */
 .produto-info h2 {
     font-size: 24px;
     margin-bottom: 15px;
 }
 
+/* preço */
 .preco {
     color: #ff4d6d;
     font-size: 24px;
     margin-bottom: 15px;
 }
 
+/* descrição */
 .descricao {
     color: #444;
     line-height: 1.6;
     margin-bottom: 15px;
 }
 
+/* informações extras */
 .info-extra p {
     margin-bottom: 8px;
 }
 
-/* BOTÕES */
-
+/* área dos botões */
 .acoes {
     margin-top: 20px;
     display: flex;
@@ -164,6 +179,7 @@ nav a:hover::after {
     gap: 10px;
 }
 
+/* estilo padrão dos botões */
 .btn {
     border: none;
     padding: 12px;
@@ -173,25 +189,28 @@ nav a:hover::after {
     font-size: 14px;
 }
 
+/* botão de favorito */
 .btn-favorito {
     background: #fff0f3;
 }
 
+/* botão de comentário */
 .btn-comentar {
     background: #f1f1f1;
 }
 
+/* botão de carrinho */
 .btn-carrinho {
     background: #0d0d0d;
     color: white;
 }
 
+/* efeito dos botões */
 .btn:hover {
     transform: translateY(-2px);
 }
 
-/* COMENTÁRIOS */
-
+/* seção de comentários */
 .comentarios {
     margin-top: 40px;
     background: white;
@@ -200,10 +219,12 @@ nav a:hover::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+/* titulo dos comentários */
 .comentarios h2 {
     margin-bottom: 15px;
 }
 
+/* campo para escrever comentário */
 .comentarios textarea {
     width: 100%;
     height: 100px;
@@ -213,6 +234,7 @@ nav a:hover::after {
     resize: none;
 }
 
+/* botão para publicar comentário */
 .btn-publicar {
     margin-top: 10px;
     padding: 10px 15px;
@@ -223,8 +245,7 @@ nav a:hover::after {
     cursor: pointer;
 }
 
-/* FOOTER */
-
+/* rodapé */
 footer {
     margin-top: 50px;
     background: #0d0d0d;
@@ -232,21 +253,27 @@ footer {
     padding: 30px;
 }
 
+/* organiza os elementos do rodapé */
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* logo do rodapé */
 .footer-logo img {
     width: 40px;
 }
 
+/* ajustes para telas menores */
 @media (max-width: 900px) {
+
+    /* coloca os elementos do produto um abaixo do outro */
     .produto-container {
         flex-direction: column;
     }
 
+    /* organiza o rodapé para celular */
     .footer-content {
         flex-direction: column;
         gap: 20px;
