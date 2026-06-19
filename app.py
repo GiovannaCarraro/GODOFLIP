@@ -1,9 +1,4 @@
 from flask import Flask, render_template, redirect, request, session, jsonify, abort
-
-# importa a conexão com o banco de dados
-from database.conexao import conectar
-
-# importa as funções de usuario
 from model.usuario import cadastrar_usuario, verificar_login
 from model.favoritos import listar_favoritos, adicionar_favorito, remover_favorito
 from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques

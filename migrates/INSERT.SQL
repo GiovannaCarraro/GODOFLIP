@@ -88,3 +88,8 @@ VALUES
 (8, 'img_pecas/rolamentos.jpg'),
 (9, 'img_pecas/parafusos.webp'),
 (10, 'img_pecas/lixa.webp');
+
+ALTER TABLE produtos ADD COLUMN destaque BOOLEAN DEFAULT FALSE;
+
+-- Ativa o destaque apenas para alguns IDs específicos
+UPDATE produtos SET destaque = TRUE WHERE cod_produto IN (1, 2, 3);

@@ -25,15 +25,32 @@ GodoFlip - Detalhes do Skate
 
         <div class="produto-container">
 
+<<<<<<< HEAD
             <!-- imagem do produto -->
             <div class="produto-galeria">
+=======
+           <div class="produto-galeria">
+>>>>>>> b5a2722bc1c3dbf2e29943c26dadccf8909e7615
 
-                <div class="imagem-principal">
-                    <img src="{{ url_for('static', filename=produto.url) }}"
-                         alt="{{ produto.nome }}">
-                </div>
+    <div class="imagem-principal">
+        <img src="{{ url_for('static', filename=produto.url) }}"
+             alt="{{ produto.nome }}">
+    </div>
 
-            </div>
+    <div class="miniaturas-container">
+        <div class="miniatura active">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Vista 1">
+        </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Vista 2">
+        </div>
+        <div class="miniatura">
+            <img src="{{ url_for('static', filename=produto.url) }}" alt="Vista 3">
+        </div>
+    </div>
+
+</div>
+
 
             <!-- informações do produto -->
             <div class="produto-info">
