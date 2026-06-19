@@ -1,20 +1,28 @@
-from flask import Flask, render_template, redirect, request, session, jsonify
+from flask import Flask, render_template, redirect, request, session, jsonify, abort
 from database.conexao import conectar
 from model.usuario import cadastrar_usuario, verificar_login
-from model.favoritos import listar_favoritos
-from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas
+
+from model.favoritos import listar_favoritos, adicionar_favorito
+
+
+from model.skate import listar_produtos, buscar_produto, achar_produto, listar_banners, listar_pecas, listar_destaques
+from model.skate import listar_acessorios, achar_acessorio
 
 app = Flask(__name__)
 
 app.secret_key = "chiclete"
 
-# pagina inicial 
 @app.route("/")
-@app.route("/pagina_inicial")
-def pagina_inicial():
-    return render_template("pag_inicial.html")
+def index():
+    produtos_destaque = listar_destaques()
+    produtos = listar_produtos()
 
-
+    # Removemos o listar_banners() e a variável banners do render_template
+    return render_template(
+        "pag_inicial.html",
+        produtos_destaque=produtos_destaque,
+        produtos=produtos
+    )
 # pagina skates
 @app.route("/skates")
 def skates():
@@ -57,9 +65,15 @@ def pecas():
         produtos=produtos
     )
 
+
+
 @app.route("/pag_acessorios")
 def acessorios():
-    return render_template("pag_acessorios.html")
+    
+    produtos = listar_acessorios()
+    
+  
+    return render_template("pag_acessorios.html", produtos=produtos)
 
 @app.route("/comprar_acessorios")
 def comprar_acessorios():
@@ -69,11 +83,17 @@ def comprar_acessorios():
 @app.route("/pag_sobrenos")
 def sobrenos():
     return render_template("pag_sobrenos.html")
+ 
 
-
-@app.route("/comprar_pecas/<int:id_produto>")
+@app.route('/comprar_pecas/<int:id_produto>')
 def comprar_pecas(id_produto):
-    return render_template("comprar_pecas.html")
+
+    produto = achar_produto(id_produto)
+    
+    if not produto:
+        abort(404)
+        
+    return render_template('pag_comprar_pecas.html', produto=produto)
 
 # pagina cadastro
 @app.route('/cadastro', methods=['GET', 'POST'])
@@ -110,6 +130,9 @@ def login():
         usuario = verificar_login(email, senha)
 
         if usuario:
+          
+            session['usuario_id'] = usuario['cod_usuario'] 
+            
             return redirect('/')
 
         return "Email ou senha incorretos"
@@ -118,31 +141,31 @@ def login():
 
 
 @app.route('/favoritos')
-def favoritos():
+def favoritos(): 
+    if 'usuario_id' not in session:
+        return redirect('/login') 
+        
+    id_usuario = session['usuario_id']
+    meus_favoritos = listar_favoritos(id_usuario)
+    return render_template('pag_favoritos.html', favoritos=meus_favoritos)
 
-    usuario_id = session.get('usuario_id')
-
-    # if not usuario_id:
-    #     return redirect('/login')
-
-    lista = listar_favoritos(usuario_id)
-
-    favoritos = []
-
-    for item in lista:
-        favoritos.append({
-            "id": item[0],
-            "nome": item[1],
-            "preco": item[2],
-            "imagem": item[3]
-        })
-
-    return render_template(
-        'pag_favoritos.html',
-        favoritos=favoritos
-    )
-
-
+@app.route('/adicionar_favorito', methods=['POST'])
+def rota_adicionar_favorito():
+    
+    if 'usuario_id' not in session:
+        return redirect('/login')
+    
+    id_usuario = session['usuario_id']
+    id_produto = request.form.get('produto_id')
+    
+    
+    if id_produto:
+        adicionar_favorito(id_usuario, id_produto)
+    
+   
+    pagina_anterior = request.referrer or '/favoritos'
+    
+    return redirect(pagina_anterior)
 @app.route('/localizacao')
 def localizacao():
     return render_template('pag_loc.html')

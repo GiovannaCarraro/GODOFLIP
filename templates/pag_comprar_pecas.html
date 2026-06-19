@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-GodoFlip - Detalhes da Peça
+GodoFlip - {{ produto['nome'] }}
 {% endblock %}
 
 {% block css %}
@@ -15,41 +15,36 @@ GodoFlip - Detalhes da Peça
     <section class="produto-container">
 
         <div class="produto-imagem">
-
-            <img src="{{ url_for('static', filename='img/trucks.jpg') }}" alt="Truck Profissional">
-
+            <img src="{{ url_for('static', filename=produto['url']) }}" alt="{{ produto['nome'] }}">
         </div>
 
         <div class="produto-info">
 
-            <h2>Truck Profissional GodoFlip</h2>
+            <h2>{{ produto['nome'] }}</h2>
 
             <p class="preco">
-                R$ 129,90
+                R$ {{ produto['preco'] }}
             </p>
 
             <p class="descricao">
-                Truck fabricado em liga metálica de alta resistência,
-                desenvolvido para máxima estabilidade, curvas precisas
-                e excelente durabilidade em sessões intensas de street
-                e park.
+                {{ produto['desc_produto'] }}
             </p>
 
             <div class="detalhes">
-
-                <p><strong>Material:</strong> Liga Metálica Premium</p>
-                <p><strong>Peso:</strong> 350g</p>
-                <p><strong>Categoria:</strong> Trucks</p>
-                <p><strong>Disponibilidade:</strong> Em estoque</p>
-
+                <p><strong>Categoria:</strong> {{ produto['categoria'] }}</p>
+                <p><strong>Disponibilidade:</strong> 
+                    {% if produto['disponibilidade'] %}
+                        Em estoque
+                    {% else %}
+                        Esgotado
+                    {% endif %}
+                </p>
             </div>
 
             <div class="acoes">
-
                 <button class="btn favorito">❤️ Favoritar</button>
                 <button class="btn comentar">💬 Comentar</button>
                 <button class="btn carrinho">🛒 Adicionar ao Carrinho</button>
-
             </div>
 
         </div>
@@ -62,9 +57,20 @@ GodoFlip - Detalhes da Peça
 
         <textarea placeholder="Escreva seu comentário..."></textarea>
 
-        <button class="publicar">
-            Publicar Comentário
+       <div class="acoes">
+
+    <form action="/adicionar_favorito" method="POST" style="display: inline-block;">
+        <input type="hidden" name="produto_id" value="{{ produto['cod_produto'] }}">
+        
+        <button type="submit" class="btn btn-favorito">
+            ❤️ Favoritar
         </button>
+    </form>
+
+    <button class="btn btn-comentar">💬 Comentar</button>
+    <button class="btn btn-carrinho">🛒 Adicionar ao Carrinho</button>
+
+</div>
 
     </section>
 
