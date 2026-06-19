@@ -28,17 +28,23 @@ def cadastrar_usuario(nome, email, senha, telefone, endereco):
 
 
 def verificar_login(email, senha):
-    conexao, cursor = conectar()
+
+    conexao, cursor_original = conectar()
+    
+
+    cursor_original.close()
+    
+  
     cursor = conexao.cursor(dictionary=True)
 
     sql = "SELECT * FROM usuarios WHERE email = %s AND senha = %s"
     cursor.execute(sql, (email, senha))
 
-  
-    resultados = cursor.fetchall()
+
+    resultado = cursor.fetchone()
+
 
     cursor.close()
     conexao.close()
 
-  
-    return resultados[0] if resultados else None
+    return resultado
