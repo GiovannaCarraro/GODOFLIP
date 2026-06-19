@@ -166,6 +166,7 @@ def rota_adicionar_favorito():
     pagina_anterior = request.referrer or '/favoritos'
     
     return redirect(pagina_anterior)
+
 @app.route('/localizacao')
 def localizacao():
     return render_template('pag_loc.html')
