@@ -63,7 +63,6 @@ def pecas():
         produtos=produtos
     )
 
-<<<<<<< HEAD
 # pagina de compra das peças
 @app.route('/comprar_pecas/<int:id_produto>')
 def comprar_pecas(id_produto):
@@ -74,8 +73,6 @@ def comprar_pecas(id_produto):
     # mostra erro caso não encontre
     if not produto:
         abort(404)
-=======
->>>>>>> 60e35719a7035b1153b2278329d155e5633b33a5
 
     return render_template(
         'pag_comprar_pecas.html',
